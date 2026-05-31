@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Кейс: Internal Dance School — Ирина Бакурова</title>
+  <meta name="description" content="+210% трафик за 4 месяца. Яндекс.Директ, SEO, таргет ВК, CRM Мой Класс, брендинг."/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/home.css"/>
+  <link rel="stylesheet" href="/fonts/fonts.css"/>
+  <style>
+    .case-hero{padding:52px 40px 44px;border-bottom:0.5px solid var(--border);position:relative;overflow:hidden;}
+    .case-hero__blob{position:absolute;right:-40px;top:-40px;width:300px;height:300px;background:radial-gradient(circle,rgba(59,85,255,0.1) 0%,transparent 70%);pointer-events:none;}
+    .back{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--text-3);margin-bottom:28px;transition:color .2s;}
+    .back:hover{color:var(--accent);}
+    .hero-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
+    .case-h1{font-family:var(--font-head);font-size:clamp(38px,7vw,60px);font-weight:900;text-transform:uppercase;line-height:0.88;letter-spacing:-2.5px;color:var(--text);margin-bottom:12px;}
+    .case-h1 em{color:var(--accent);font-style:normal;display:block;}
+    .case-h1-sub{font-size:13px;color:var(--text-3);margin-bottom:28px;}
+    .case-desc{font-size:13px;color:var(--text-2);line-height:1.75;border-left:2px solid var(--accent);padding-left:16px;margin-bottom:32px;max-width:520px;}
+    .case-meta{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:0.5px solid var(--border);padding-top:20px;}
+    .case-meta__item{padding-right:24px;border-right:0.5px solid var(--border);}
+    .case-meta__item:nth-child(2){padding-left:24px;}
+    .case-meta__item:last-child{border-right:none;padding-left:24px;padding-right:0;}
+    .case-meta__label{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+    .case-meta__val{font-size:12px;color:var(--text);line-height:1.4;}
+    .csec{padding:44px 40px;border-bottom:0.5px solid var(--border);}
+    .csec__ey{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+    .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+    .csec__num{font-size:10px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;}
+    .csec__h{font-family:var(--font-head);font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;color:var(--text);margin-bottom:20px;}
+    .accent-box{border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:20px;}
+    .accent-box p{font-size:13px;color:var(--text);line-height:1.7;}
+    .goals{display:flex;flex-direction:column;}
+    .goal{display:flex;gap:16px;align-items:flex-start;padding:12px 0;border-bottom:0.5px solid var(--border);}
+    .goal:last-child{border-bottom:none;}
+    .goal__n{font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--accent);min-width:24px;margin-top:2px;}
+    .goal__t{font-size:13px;color:var(--text-2);line-height:1.6;}
+    .tools-bento{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+    .tb{border-radius:10px;padding:20px;}
+    .tb--light{background:var(--surface);border:0.5px solid var(--border);}
+    .tb--dark{background:var(--dark);}
+    .tb--blue{background:var(--accent-bg);border:0.5px solid #C8D4FF;}
+    .tb--navy{background:var(--accent);}
+    .tb--span2{grid-column:span 2;}
+    .tb__label{font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+    .tb--light .tb__label,.tb--blue .tb__label{color:var(--text-3);}
+    .tb--dark .tb__label{color:rgba(255,255,255,0.4);}
+    .tb--navy .tb__label{color:rgba(255,255,255,0.5);}
+    .tb__title{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:8px;line-height:1.2;}
+    .tb--light .tb__title,.tb--blue .tb__title{color:var(--text);}
+    .tb--dark .tb__title{color:#F5F3EE;}
+    .tb--navy .tb__title{color:#fff;}
+    .tb__desc{font-size:11px;line-height:1.6;}
+    .tb--light .tb__desc{color:var(--text-2);}
+    .tb--dark .tb__desc{color:#8898CC;}
+    .tb--blue .tb__desc{color:var(--accent-2);}
+    .tb--navy .tb__desc{color:rgba(255,255,255,0.75);}
+    .actions-list{display:flex;flex-direction:column;}
+    .action-item{display:flex;gap:14px;padding:14px 0;border-bottom:0.5px solid var(--border);align-items:flex-start;}
+    .action-item:last-child{border-bottom:none;}
+    .action-item__icon{width:32px;height:32px;border-radius:6px;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;margin-top:2px;}
+    .action-item__title{font-family:var(--font-head);font-size:12px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:4px;}
+    .action-item__desc{font-size:12px;color:var(--text-2);line-height:1.55;}
+    .res-hero{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+    .res-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px;}
+    .rc{border-radius:10px;padding:20px;}
+    .rc--light{background:var(--surface);border:0.5px solid var(--border);}
+    .rc--blue{background:var(--accent);}
+    .rc--dark{background:var(--dark);}
+    .rc__num{font-family:var(--font-head);font-size:36px;font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:5px;}
+    .rc--light .rc__num{color:var(--text);}
+    .rc--blue .rc__num{color:#fff;}
+    .rc--dark .rc__num{color:#F5F3EE;}
+    .rc__label{font-size:11px;line-height:1.4;}
+    .rc--light .rc__label{color:var(--text-2);}
+    .rc--blue .rc__label{color:rgba(255,255,255,0.85);}
+    .rc--dark .rc__label{color:#8898CC;}
+    .rc__sub{font-size:10px;color:rgba(255,255,255,0.6);margin-top:4px;}
+    .traffic-table{width:100%;border-collapse:collapse;margin-top:16px;border-radius:8px;overflow:hidden;}
+    .traffic-table th{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;text-align:left;padding:10px 16px;background:var(--surface);border-bottom:0.5px solid var(--border);}
+    .traffic-table td{font-size:13px;color:var(--text-2);padding:12px 16px;border-bottom:0.5px solid var(--border);}
+    .traffic-table tr:last-child td{border-bottom:none;}
+    .traffic-table td.num{font-family:var(--font-head);font-weight:700;color:var(--text);}
+    .traffic-table td.hi{color:var(--accent);font-family:var(--font-head);font-weight:700;}
+    .conclusions{display:flex;flex-direction:column;gap:8px;}
+    .concl{display:flex;gap:14px;padding:14px 16px;background:var(--surface);border-radius:8px;align-items:flex-start;}
+    .concl__icon{font-size:15px;flex-shrink:0;}
+    .concl__text{font-size:12px;color:var(--text-2);line-height:1.6;}
+    .case-nav{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--border);}
+    .cn{padding:28px 40px;border-right:0.5px solid var(--border);text-decoration:none;transition:background .15s;}
+    .cn:last-child{border-right:none;}
+    .cn:hover{background:var(--surface);}
+    .cn__dir{font-size:10px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+    .cn__title{font-family:var(--font-head);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--text);}
+    .cn__arrow{font-size:16px;color:var(--accent);margin-top:6px;display:block;}
+    @media(max-width:767px){
+      .case-hero{padding:24px 16px;}
+      .case-h1{font-size:36px;letter-spacing:-1.5px;}
+      .case-meta{grid-template-columns:1fr;gap:0;}
+      .case-meta__item{border-right:none;padding:0 0 12px;border-bottom:0.5px solid var(--border);}
+      .case-meta__item:last-child{border-bottom:none;padding-top:12px;}
+      .csec{padding:28px 16px;}
+      .tools-bento{grid-template-columns:1fr 1fr;}
+      .tb--span2{grid-column:span 2;}
+      .res-hero{grid-template-columns:1fr 1fr;}
+      .res-row{grid-template-columns:1fr 1fr;}
+      .case-nav{grid-template-columns:1fr;}
+      .cn{border-right:none;border-bottom:0.5px solid var(--border);padding:20px 16px;}
+    }
+  </style>
+</head>
+<body>
+<header id="site-header">
+  <nav class="nav">
+    <a href="/" class="nav__logo">Ирина Бакурова</a>
+    <div class="nav__links">
+      <a href="/#cases">Кейсы</a><a href="/#skills">Навыки</a><a href="/#about">Обо мне</a>
+      <a href="/#contacts" class="nav__cta">Контакты</a>
+    </div>
+    <button class="nav__burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav__mobile">
+    <a href="/#cases">Кейсы</a><a href="/#skills">Навыки</a><a href="/#about">Обо мне</a>
+    <a href="/#contacts" style="color:var(--accent);">Контакты</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="case-hero">
+  <div class="case-hero__blob"></div>
+  <a href="/" class="back">← Все кейсы</a>
+  <div class="hero-tags">
+    <span class="tag">Образование</span>
+    <span class="tag">SEO</span>
+    <span class="tag">Директ</span>
+    <span class="tag">CRM</span>
+    <span class="tag">Брендинг</span>
+  </div>
+  <h1 class="case-h1">INTERNAL<br><em>DANCE<br>SCHOOL</em></h1>
+  <div class="case-h1-sub">Школа классического и современного танца</div>
+  <p class="case-desc">Комплексное продвижение школы танцев — от SEO и контекста до CRM и фирменного стиля. Трафик вырос в 3 раза за 4 месяца без увеличения бюджета.</p>
+  <div class="case-meta">
+    <div class="case-meta__item">
+      <div class="case-meta__label">Клиент</div>
+      <div class="case-meta__val">Internal Dance School<br>Образование · Танцы</div>
+    </div>
+    <div class="case-meta__item">
+      <div class="case-meta__label">Задача</div>
+      <div class="case-meta__val">Рост узнаваемости и заявок через интернет</div>
+    </div>
+    <div class="case-meta__item">
+      <div class="case-meta__label">Результат</div>
+      <div class="case-meta__val">+210% трафик · +62% заявки за 4 месяца</div>
+    </div>
+  </div>
+</section>
+
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(01) Запрос</span></div>
+  <h2 class="csec__h">Задача клиента</h2>
+  <div class="accent-box">
+    <p>Увеличение узнаваемости школы, привлечение новых клиентов и повышение количества заявок на обучение через интернет. Ключевая цель — <strong>рост заявок на обучение</strong>.</p>
+  </div>
+  <div class="goals">
+    <div class="goal"><span class="goal__n">01</span><p class="goal__t">Разработка и реализация эффективной стратегии продвижения в интернете.</p></div>
+    <div class="goal"><span class="goal__n">02</span><p class="goal__t">Привлечение целевого трафика на сайт школы.</p></div>
+    <div class="goal"><span class="goal__n">03</span><p class="goal__t">Повышение конверсии посетителей сайта в заявки.</p></div>
+    <div class="goal"><span class="goal__n">04</span><p class="goal__t">Оптимизация маркетинговых расходов.</p></div>
+  </div>
+</section>
+
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(02) Инструменты и каналы</span></div>
+  <h2 class="csec__h">Стратегия продвижения</h2>
+  <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:20px;">Проведён анализ рынка танцевальных школ и конкурентов в регионе. Определены наиболее эффективные каналы для целевой аудитории — потенциальных учеников и их родителей.</p>
+  <div class="tools-bento">
+    <div class="tb tb--dark tb--span2">
+      <div class="tb__label">Контекстная реклама</div>
+      <div class="tb__title">Яндекс.Директ + Метрика + Аудитории</div>
+      <div class="tb__desc">Разработка и ведение рекламных кампаний с использованием Яндекс.Метрики и Яндекс.Аудиторий для точного таргетинга на потенциальных учеников и их родителей.</div>
+    </div>
+    <div class="tb tb--navy">
+      <div class="tb__label">Соцсети</div>
+      <div class="tb__title">Таргет ВКонтакте</div>
+      <div class="tb__desc">Настройка и оптимизация рекламных кампаний по интересам, возрасту и гео.</div>
+    </div>
+    <div class="tb tb--light">
+      <div class="tb__label">Видимость</div>
+      <div class="tb__title">Яндекс Бизнес</div>
+      <div class="tb__desc">Оптимизация профиля компании для повышения видимости в поиске и на картах.</div>
+    </div>
+    <div class="tb tb--light">
+      <div class="tb__label">Поиск</div>
+      <div class="tb__title">SEO на Tilda</div>
+      <div class="tb__desc">Редактирование и поддержание сайта с учётом требований поисковых систем.</div>
+    </div>
+    <div class="tb tb--blue">
+      <div class="tb__label">Автоматизация</div>
+      <div class="tb__title">CRM «Мой Класс»</div>
+      <div class="tb__desc">Интеграция на сайт и в группы ВКонтакте для автоматизации обработки заявок и управления клиентской базой.</div>
+    </div>
+    <div class="tb tb--light">
+      <div class="tb__label">Геосервисы</div>
+      <div class="tb__title">Локальный SEO</div>
+      <div class="tb__desc">2ГИС, Яндекс.Карты, Google.Карты — актуальная информация, фото, отзывы.</div>
+    </div>
+    <div class="tb tb--dark">
+      <div class="tb__label">Визуал</div>
+      <div class="tb__title">Фирменный стиль · Figma</div>
+      <div class="tb__desc">Создание фирменного стиля и рекламных материалов. Сотрудничество с типографиями для печати.</div>
+    </div>
+  </div>
+</section>
+
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(03) Реализация</span></div>
+  <h2 class="csec__h">Конкретные действия</h2>
+  <div class="actions-list">
+    <div class="action-item">
+      <div class="action-item__icon">🎯</div>
+      <div>
+        <div class="action-item__title">Семантическое ядро для Яндекс.Директ</div>
+        <div class="action-item__desc">Разработка семантики, создание креативных объявлений с учётом потребностей ЦА. Регулярная оптимизация кампаний на основе данных аналитики.</div>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-item__icon">📱</div>
+      <div>
+        <div class="action-item__title">Таргетинг ВКонтакте</div>
+        <div class="action-item__desc">Настройка по интересам, возрасту и географическому положению. Постоянная оптимизация на основе данных.</div>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-item__icon">✍️</div>
+      <div>
+        <div class="action-item__title">Контент и SEO-оптимизация сайта</div>
+        <div class="action-item__desc">Обновление и улучшение контента на сайте школы с учётом требований поисковых систем.</div>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-item__icon">⚙️</div>
+      <div>
+        <div class="action-item__title">Интеграция и настройка CRM «Мой Класс»</div>
+        <div class="action-item__desc">Автоматизация работы с клиентами — от первой заявки до записи на занятие. Интеграция на сайт и в группы ВКонтакте.</div>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-item__icon">🎨</div>
+      <div>
+        <div class="action-item__title">Рекламные материалы и брендинг</div>
+        <div class="action-item__desc">Разработка макетов для внутренних печатных материалов школы в Figma. Взаимодействие с подрядчиками и типографиями.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(04) Результаты</span></div>
+  <h2 class="csec__h">Что получилось</h2>
+  <div class="res-hero">
+    <div class="reveal-up rc rc--blue">
+      <div class="rc__num">+210%</div>
+      <div class="rc__label">Рост трафика сайта за 4 месяца</div>
+      <div class="rc__sub">Октябрь → Январь</div>
+    </div>
+    <div class="reveal-up rc rc--dark">
+      <div class="rc__num">+62%</div>
+      <div class="rc__label">Рост заявок на обучение</div>
+      <div class="rc__sub">20 заявок → 34 заявки</div>
+    </div>
+  </div>
+  <table class="traffic-table">
+    <thead>
+      <tr>
+        <th>Месяц</th>
+        <th>Сессии</th>
+        <th>Заявки</th>
+        <th>Динамика трафика</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Октябрь (старт)</td>
+        <td class="num">1 328</td>
+        <td class="num">20</td>
+        <td>— база</td>
+      </tr>
+      <tr>
+        <td>Январь (итог)</td>
+        <td class="num">4 154</td>
+        <td class="num">34</td>
+        <td class="hi">+210%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="res-row" style="margin-top:8px;">
+    <div class="reveal-up rc rc--light">
+      <div class="rc__num" style="color:var(--accent);">×3</div>
+      <div class="rc__label">Рост сессий за период</div>
+    </div>
+    <div class="reveal-up rc rc--light">
+      <div class="rc__num" style="color:var(--accent);">↑</div>
+      <div class="rc__label">Рост позиций в поисковой выдаче</div>
+    </div>
+    <div class="reveal-up rc rc--light">
+      <div class="rc__num" style="color:var(--accent);">✓</div>
+      <div class="rc__label">Повышение узнаваемости в регионе</div>
+    </div>
+  </div>
+</section>
+
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(05) Выводы</span></div>
+  <h2 class="csec__h">Что работает в образовании</h2>
+  <div class="conclusions">
+    <div class="concl"><span class="concl__icon">🎯</span><p class="concl__text">Комплексный подход — контекст, таргет, SEO, геосервисы — значительно увеличивает трафик и заявки без пропорционального роста бюджета.</p></div>
+    <div class="concl"><span class="concl__icon">⚙️</span><p class="concl__text">CRM «Мой Класс» автоматизирует обработку заявок и управление базой — меньше ручной работы, больше конверсий.</p></div>
+    <div class="concl"><span class="concl__icon">📍</span><p class="concl__text">Локальный SEO в геосервисах критично важен для образовательных учреждений — аудитория ищет занятия рядом с домом.</p></div>
+    <div class="concl"><span class="concl__icon">📊</span><p class="concl__text">Постоянный анализ данных и тестирование гипотез позволяют оптимизировать бюджеты и повышать эффективность каждого канала.</p></div>
+  </div>
+</section>
+
+</main>
+
+<div class="case-nav">
+  <a href="/kd/" class="cn">
+    <div class="cn__dir">← Предыдущий кейс</div>
+    <div class="cn__title">Красный Дракон</div>
+    <span class="cn__arrow">←</span>
+  </a>
+  <a href="/ups/" class="cn">
+    <div class="cn__dir">Следующий кейс →</div>
+    <div class="cn__title">HoReCa: Бирвайн · Любим Сытно · Додома</div>
+    <span class="cn__arrow">→</span>
+  </a>
+</div>
+<footer class="footer">
+  <span class="footer__copy">2026 · Ирина Бакурова · Digital-маркетолог</span>
+  <a href="#" class="footer__top" data-scroll-top>↑ Наверх</a>
+</footer>
+<script src="../js/nav.js"></script>
+<script src="../js/home.js"></script>
+</body>
+</html>

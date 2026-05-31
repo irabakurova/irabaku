@@ -1,0 +1,560 @@
+/* ============================================================
+   HOME.CSS — стили главной страницы (поверх style.css)
+   Ирина Бакурова · irabaku.ru · редизайн 2025
+   ============================================================ */
+
+/* ── CSS-переменные расширение ───────────────────────────── */
+:root {
+  --orange: #BF4510;
+  --header-h: 56px;
+}
+
+/* ── GLASSMORPHISM NAV при скролле ───────────────────────── */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+#site-header.scrolled .nav {
+  margin: 8px 16px 0;
+  border-radius: 12px;
+  border: 0.5px solid rgba(15,25,57,0.1);
+  background: rgba(245,243,238,0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px -8px rgba(15,25,57,0.12);
+  border-bottom: none;
+  transition: margin .4s cubic-bezier(.22,1,.36,1),
+              border-radius .4s cubic-bezier(.22,1,.36,1),
+              background .4s,
+              box-shadow .4s;
+}
+
+.nav {
+  transition: margin .4s cubic-bezier(.22,1,.36,1),
+              border-radius .4s cubic-bezier(.22,1,.36,1),
+              background .4s,
+              box-shadow .4s;
+}
+
+/* ── ГЕРОЙ — двухколоночный ──────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 0;
+  padding: 56px 40px 0;
+  border-bottom: 0.5px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  align-items: stretch;
+  min-height: 480px;
+}
+
+.hero__blob {
+  position: absolute;
+  left: -60px;
+  top: -80px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(59,85,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.hero__eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.hero__eyebrow-text {
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hero__h1 {
+  font-family: var(--font-head);
+  font-size: clamp(52px, 7vw, 84px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: -4px;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+
+.hero__h1 em {
+  color: var(--accent);
+  font-style: normal;
+  display: block;
+}
+
+.hero__desc {
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.75;
+  border-left: 2px solid var(--accent);
+  padding-left: 18px;
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+
+.hero__tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.hero__cta {
+  align-self: flex-start;
+}
+
+/* ФОТО в герое */
+.hero__photo-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--orange);
+  margin-left: 40px;
+  /* тянется до нижней границы секции */
+  margin-bottom: 0;
+  align-self: stretch;
+}
+
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  mix-blend-mode: luminosity;
+  opacity: 0.88;
+  display: block;
+}
+
+.hero__photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  background: linear-gradient(transparent 20%, rgba(15,25,57,0.45));
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.hero__photo-name,
+.hero__photo-sub {
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(245,243,238,0.85);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ── СТАТИСТИКА — тёмная полоса ──────────────────────────── */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--dark);
+  border-bottom: 0.5px solid #1a2550;
+}
+
+.stat-item {
+  padding: 22px 24px;
+  border-right: 0.5px solid rgba(255,255,255,0.07);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat__num {
+  font-family: var(--font-head);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--orange);          /* оранжевые цифры */
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 6px;
+  /* для анимации счётчика */
+  display: block;
+}
+
+.stat__label {
+  font-size: 10px;
+  color: var(--text-3);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  line-height: 1.45;
+}
+
+/* ── АНИМАЦИИ ПОЯВЛЕНИЯ ──────────────────────────────────── */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(.22,1,.36,1),
+              transform 0.7s cubic-bezier(.22,1,.36,1);
+}
+
+.reveal-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* небольшая задержка для карточек bento */
+.bento .reveal-up:nth-child(2) { transition-delay: .07s; }
+.bento .reveal-up:nth-child(3) { transition-delay: .14s; }
+.bento .reveal-up:nth-child(4) { transition-delay: .07s; }
+.bento .reveal-up:nth-child(5) { transition-delay: .14s; }
+.bento .reveal-up:nth-child(6) { transition-delay: .21s; }
+.bento .reveal-up:nth-child(7) { transition-delay: .14s; }
+
+/* ── КЕЙСЫ: hover-эффект ─────────────────────────────────── */
+
+/* кейс теперь <a>, сбрасываем стили ссылки */
+a.case {
+  display: grid;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.case {
+  transition: background .2s;
+}
+.case:hover {
+  background: var(--surface);
+}
+.case__metric em {
+  font-style: normal;
+  color: var(--orange);
+  transition: transform .25s cubic-bezier(.22,1,.36,1);
+  display: inline-block;
+}
+.case:hover .case__metric em {
+  transform: scale(1.08);
+  transform-origin: right center;
+}
+.case__link {
+  transition: letter-spacing .2s, color .2s;
+}
+.case__link:hover {
+  letter-spacing: 0.5px;
+  color: var(--orange);
+}
+
+/* ── ОБО МНЕ ─────────────────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  /* stretch: обе колонки одинаковой высоты — фото тянется по тексту */
+  align-items: stretch;
+}
+
+.about-quote {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.8;
+  border-left: 2px solid var(--accent);
+  padding-left: 18px;
+  margin-bottom: 24px;
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.about-card {
+  padding: 14px;
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+}
+
+.about-card .label {
+  margin-bottom: 5px;
+}
+
+.about-card__val {
+  font-size: 12px;
+  color: var(--text);
+}
+
+.about-photo {
+  overflow: hidden;
+  background: var(--orange);
+  /* занимает всю высоту грид-ячейки (= высоте левой колонки) */
+  position: relative;
+  min-height: 200px;
+}
+
+.about-photo img {
+  /* растягивается на весь контейнер через position:absolute */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  mix-blend-mode: luminosity;
+  opacity: 0.9;
+}
+
+/* ── АДАПТИВ ─────────────────────────────────────────────── */
+
+/* Планшет */
+@media (max-width: 1023px) {
+  .hero {
+    grid-template-columns: 1fr 300px;
+    padding: 40px 24px 0;
+  }
+  .hero__h1 { font-size: 60px; letter-spacing: -3px; }
+  .hero__photo-wrap { margin-left: 24px; }
+  .stats-bar { grid-template-columns: repeat(4,1fr); }
+}
+
+/* Мобайл */
+@media (max-width: 767px) {
+
+  /* Герой — вертикально, заголовок ПЕРВЫЙ */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 16px 0;
+    min-height: unset;
+  }
+
+  /* порядок: 1-контент (заголовок), 2-фото */
+  .hero__content {
+    order: 1;
+    padding-bottom: 20px;
+  }
+
+  .hero__photo-wrap {
+    order: 2;
+    margin-left: 0;
+    height: 260px;
+    width: 100%;
+  }
+
+  .hero__blob { display: none; }
+  .hero__eyebrow-text { white-space: normal; }
+  .hero__h1 { font-size: 44px; letter-spacing: -2px; }
+  .hero__desc { font-size: 13px; }
+  .hero__cta { width: 100%; justify-content: center; }
+
+  /* Статистика 2×2 */
+  .stats-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stat-item {
+    padding: 16px;
+    border-right: 0.5px solid rgba(255,255,255,0.07);
+    border-bottom: 0.5px solid rgba(255,255,255,0.07);
+  }
+  .stat-item:nth-child(2n) { border-right: none; }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) { border-bottom: none; }
+  .stat__num { font-size: 26px; }
+
+  /* Glassmorphism на мобайл */
+  #site-header.scrolled .nav {
+    margin: 6px 10px 0;
+    border-radius: 10px;
+  }
+
+  /* Обо мне */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .about-photo {
+    height: 260px;   /* фиксированная высота на мобайле */
+    order: -1;
+  }
+  .about-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero__h1 { font-size: 38px; }
+  .about-cards { grid-template-columns: 1fr; }
+}
+
+/* ── СТЕКЛЯННЫЕ ТЭГИ ─────────────────────────────────────── */
+/* Заменяем плоский бордер на выпуклый glassmorphism-эффект  */
+.tag {
+  background: rgba(255,255,255,0.72) !important;
+  border: 0.5px solid rgba(59,85,255,0.18) !important;
+  box-shadow:
+    0 2px 8px rgba(59,85,255,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    inset 0 -1px 0 rgba(59,85,255,0.06);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: box-shadow .2s, transform .2s, background .2s;
+}
+
+.tag:hover {
+  background: rgba(255,255,255,0.92) !important;
+  box-shadow:
+    0 4px 16px rgba(59,85,255,0.14),
+    inset 0 1px 0 rgba(255,255,255,1),
+    inset 0 -1px 0 rgba(59,85,255,0.1);
+  transform: translateY(-1px);
+}
+
+/* Заполненный тэг — оставляем акцент, но тоже стеклянный */
+.tag--filled {
+  background: rgba(230,234,255,0.85) !important;
+  border-color: rgba(59,85,255,0.22) !important;
+}
+
+/* ── HOVER НА ЯЧЕЙКАХ СТАТИСТИКИ ────────────────────────── */
+.stat-item {
+  transition: background .25s;
+  cursor: default;
+}
+
+.stat-item:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.stat-item:hover .stat__num {
+  text-shadow: 0 0 20px rgba(191,69,16,0.35);
+}
+
+/* ── HOVER НА BENTO-КАРТОЧКАХ ────────────────────────────── */
+.bento-card {
+  transition: transform .3s cubic-bezier(.22,1,.36,1),
+              box-shadow .3s cubic-bezier(.22,1,.36,1),
+              background .25s;
+  cursor: default;
+}
+
+.bento-card--light:hover {
+  background: #fff;
+  box-shadow: 0 8px 32px -8px rgba(15,25,57,0.1);
+  transform: translateY(-3px);
+}
+
+.bento-card--blue:hover {
+  background: #dce4ff;
+  box-shadow: 0 8px 32px -8px rgba(59,85,255,0.15);
+  transform: translateY(-3px);
+}
+
+.bento-card--dark:hover {
+  background: #162040;
+  box-shadow: 0 8px 32px -8px rgba(15,25,57,0.3);
+  transform: translateY(-3px);
+}
+
+.bento-card--navy:hover {
+  background: #4a63ff;
+  box-shadow: 0 8px 32px -8px rgba(59,85,255,0.35);
+  transform: translateY(-3px);
+}
+
+/* ── HOVER НА КАРТОЧКАХ «ОБО МНЕ» ───────────────────────── */
+.about-card {
+  transition: background .25s, box-shadow .25s, transform .25s cubic-bezier(.22,1,.36,1);
+  cursor: default;
+}
+
+.about-card:hover {
+  background: #fff;
+  box-shadow: 0 4px 16px -4px rgba(15,25,57,0.1);
+  transform: translateY(-2px);
+}
+
+/* ── HOVER НА RC-КАРТОЧКАХ (результаты) ─────────────────── */
+.rc {
+  transition: transform .3s cubic-bezier(.22,1,.36,1),
+              box-shadow .3s cubic-bezier(.22,1,.36,1),
+              background .25s;
+}
+.rc--light:hover {
+  background: #fff;
+  box-shadow: 0 8px 28px -8px rgba(15,25,57,0.1);
+  transform: translateY(-3px);
+}
+.rc--blue:hover {
+  background: #dce4ff;
+  box-shadow: 0 8px 28px -8px rgba(59,85,255,0.18);
+  transform: translateY(-3px);
+}
+.rc--dark:hover {
+  background: #162040;
+  box-shadow: 0 8px 28px -8px rgba(15,25,57,0.3);
+  transform: translateY(-3px);
+}
+
+/* ── HOVER НА DOC-БЛОКАХ (документы/стратегия) ──────────── */
+.doc {
+  transition: transform .3s cubic-bezier(.22,1,.36,1),
+              box-shadow .3s cubic-bezier(.22,1,.36,1),
+              background .25s;
+}
+.doc:hover {
+  background: #fff;
+  box-shadow: 0 6px 24px -6px rgba(15,25,57,0.1);
+  transform: translateY(-2px);
+}
+
+/* ── HOVER НА PROMO-ПЛАШКАХ (промо-коды) ────────────────── */
+.promo {
+  transition: transform .3s cubic-bezier(.22,1,.36,1),
+              box-shadow .3s cubic-bezier(.22,1,.36,1),
+              background .25s;
+}
+.promo:hover {
+  background: #fff;
+  box-shadow: 0 6px 24px -6px rgba(15,25,57,0.1);
+  transform: translateY(-2px);
+}
+
+/* ── HOVER НА AB-БЛОКАХ (kd/mo) ─────────────────────────── */
+.ab {
+  transition: transform .3s cubic-bezier(.22,1,.36,1),
+              box-shadow .3s cubic-bezier(.22,1,.36,1),
+              background .25s;
+}
+.ab--light:hover {
+  background: #fff;
+  box-shadow: 0 8px 28px -8px rgba(15,25,57,0.1);
+  transform: translateY(-3px);
+}
+.ab--dark:hover {
+  background: #162040;
+  box-shadow: 0 8px 28px -8px rgba(15,25,57,0.3);
+  transform: translateY(-3px);
+}

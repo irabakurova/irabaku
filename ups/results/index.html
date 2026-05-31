@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Результаты · HoReCa — Ирина Бакурова</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <link rel="stylesheet" href="../../css/home.css"/>
+  <link rel="stylesheet" href="/fonts/fonts.css"/>
+  <style>
+    .case-hero{padding:52px 40px 44px;border-bottom:0.5px solid var(--border);}
+    .back{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--text-3);margin-bottom:12px;transition:color .2s;}
+    .back:hover{color:var(--accent);}
+    .breadcrumb{font-size:11px;color:var(--text-3);margin-bottom:20px;}
+    .breadcrumb a{color:var(--accent);}
+    .case-h1{font-family:var(--font-head);font-size:clamp(36px,6vw,52px);font-weight:900;text-transform:uppercase;line-height:0.9;letter-spacing:-2px;color:var(--text);margin-bottom:20px;}
+    .case-h1 em{color:var(--accent);font-style:normal;display:block;}
+    .case-desc{font-size:13px;color:var(--text-2);line-height:1.75;border-left:2px solid var(--accent);padding-left:16px;max-width:520px;}
+    .csec{padding:44px 40px;border-bottom:0.5px solid var(--border);}
+    .csec__ey{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+    .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+    .csec__num{font-size:10px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;}
+    .csec__h{font-family:var(--font-head);font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;color:var(--text);margin-bottom:20px;}
+    .accent-box{border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:20px;}
+    .accent-box p{font-size:13px;color:var(--text);line-height:1.7;}
+    /* Ключевые метрики */
+    .kpi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;}
+    .kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+    .rc{border-radius:10px;padding:20px;}
+    .rc--light{background:var(--surface);border:0.5px solid var(--border);}
+    .rc--blue{background:var(--accent);}
+    .rc--dark{background:var(--dark);}
+    .rc__num{font-family:var(--font-head);font-size:36px;font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:5px;}
+    .rc--light .rc__num{color:var(--text);}
+    .rc--blue .rc__num{color:#fff;}
+    .rc--dark .rc__num{color:#F5F3EE;}
+    .rc__label{font-size:11px;line-height:1.4;}
+    .rc--light .rc__label{color:var(--text-2);}
+    .rc--blue .rc__label{color:rgba(255,255,255,0.85);}
+    .rc--dark .rc__label{color:#8898CC;}
+    .rc__sub{font-size:10px;color:var(--text-3);margin-top:4px;}
+    .rc--blue .rc__sub{color:rgba(255,255,255,0.6);}
+    /* Таблица ТО */
+    .to-table{width:100%;border-collapse:collapse;margin-bottom:20px;}
+    .to-table th{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;text-align:left;padding:10px 16px;background:var(--surface);border-bottom:0.5px solid var(--border);}
+    .to-table td{font-size:12px;color:var(--text-2);padding:11px 16px;border-bottom:0.5px solid var(--border);}
+    .to-table tr:last-child td{border-bottom:none;background:var(--accent-bg);}
+    .to-table tr:last-child td{font-family:var(--font-head);font-weight:700;color:var(--text);}
+    .to-table td.num{font-family:var(--font-head);font-weight:600;color:var(--text);}
+    .to-table td.hi{color:var(--accent);font-family:var(--font-head);font-weight:700;}
+    /* Доставка */
+    .delivery-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
+    .dg{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:16px;}
+    .dg--dark{background:var(--dark);border-color:var(--dark);}
+    .dg__label{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+    .dg--dark .dg__label{color:rgba(255,255,255,0.4);}
+    .dg__rows{display:flex;flex-direction:column;gap:4px;}
+    .dg__row{display:flex;justify-content:space-between;font-size:12px;}
+    .dg__row-label{color:var(--text-2);}
+    .dg__row-val{font-family:var(--font-head);font-weight:600;color:var(--text);}
+    .dg--dark .dg__row-label{color:#8898CC;}
+    .dg--dark .dg__row-val{color:#F5F3EE;}
+    /* Рейтинги */
+    .ratings{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+    .rat{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:14px;}
+    .rat__point{font-family:var(--font-head);font-size:12px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:6px;}
+    .rat__scores{display:flex;gap:8px;align-items:center;}
+    .rat__score{font-family:var(--font-head);font-size:16px;font-weight:900;color:var(--text-3);}
+    .rat__score--hi{color:var(--accent);}
+    .rat__arrow{font-size:12px;color:var(--accent-2);}
+    /* Приложения */
+    .apps-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .app{border-radius:10px;padding:20px;}
+    .app--light{background:var(--surface);border:0.5px solid var(--border);}
+    .app--dark{background:var(--dark);}
+    .app__name{font-family:var(--font-head);font-size:14px;font-weight:700;text-transform:uppercase;margin-bottom:12px;}
+    .app--light .app__name{color:var(--text);}
+    .app--dark .app__name{color:#F5F3EE;}
+    .app__rows{display:flex;flex-direction:column;gap:6px;}
+    .app__row{display:flex;justify-content:space-between;align-items:baseline;}
+    .app__row-label{font-size:11px;color:var(--text-3);}
+    .app--dark .app__row-label{color:#8898CC;}
+    .app__row-val{font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--text);}
+    .app--dark .app__row-val{color:#F5F3EE;}
+    .app__row-val em{color:var(--accent);font-style:normal;}
+    /* Лояльность */
+    .loyalty{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+    .ly{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:16px;}
+    .ly__label{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+    .ly__val{font-family:var(--font-head);font-size:20px;font-weight:900;color:var(--text);margin-bottom:3px;}
+    .ly__desc{font-size:11px;color:var(--text-2);line-height:1.4;}
+    .case-nav{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--border);}
+    .cn{padding:28px 40px;border-right:0.5px solid var(--border);text-decoration:none;transition:background .15s;}
+    .cn:last-child{border-right:none;}
+    .cn:hover{background:var(--surface);}
+    .cn__dir{font-size:10px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+    .cn__title{font-family:var(--font-head);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--text);}
+    .cn__arrow{font-size:16px;color:var(--accent);margin-top:6px;display:block;}
+    @media(max-width:767px){
+      .case-hero{padding:24px 16px;}
+      .case-h1{font-size:32px;}
+      .csec{padding:28px 16px;}
+      .kpi-grid{grid-template-columns:1fr 1fr;}
+      .kpi-row{grid-template-columns:1fr 1fr;}
+      .delivery-grid{grid-template-columns:1fr;}
+      .ratings{grid-template-columns:1fr 1fr;}
+      .apps-grid{grid-template-columns:1fr;}
+      .loyalty{grid-template-columns:1fr 1fr;}
+      .case-nav{grid-template-columns:1fr;}
+      .cn{border-right:none;border-bottom:0.5px solid var(--border);padding:20px 16px;}
+    }
+  </style>
+</head>
+<body>
+<header id="site-header">
+  <nav class="nav">
+    <a href="/" class="nav__logo">Ирина Бакурова</a>
+    <div class="nav__links">
+      <a href="/#cases">Кейсы</a><a href="/#skills">Навыки</a><a href="/#about">Обо мне</a>
+      <a href="/#contacts" class="nav__cta">Контакты</a>
+    </div>
+    <button class="nav__burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav__mobile">
+    <a href="/#cases">Кейсы</a><a href="/#skills">Навыки</a><a href="/#about">Обо мне</a>
+    <a href="/#contacts" style="color:var(--accent);">Контакты</a>
+  </nav>
+</header>
+
+<main>
+<section class="case-hero">
+  <a href="/ups/" class="back">← HoReCa: Бирвайн · Любим Сытно · Додома</a>
+  <div class="breadcrumb"><a href="/ups/">HoReCa</a> · <a href="/ups/crm/">CRM</a> · <span style="color:var(--text);">Результаты</span></div>
+  <h1 class="case-h1">РЕЗУЛЬ-<br><em>ТАТЫ</em></h1>
+  <p class="case-desc">Данные за декабрь 2024 — апрель 2025. ТО ресторанов, доставка по ТТ, трафик сайта, установки приложений, рейтинги на картах, программа лояльности.</p>
+</section>
+
+<!-- КЛЮЧЕВЫЕ KPI -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(01) Ключевые KPI</span></div>
+  <h2 class="csec__h">Главные показатели</h2>
+  <div class="kpi-grid">
+    <div class="reveal-up rc rc--blue"><div class="rc__num">+27%</div><div class="rc__label">Рост ТО ресторанов ЛС за 3 месяца</div><div class="rc__sub">январь → март 2025</div></div>
+    <div class="reveal-up rc rc--dark"><div class="rc__num">355</div><div class="rc__label">Заказов с одной push-рассылки</div><div class="rc__sub">25 января 2025 · CTR 8,95%</div></div>
+    <div class="reveal-up rc rc--light"><div class="rc__num" style="color:var(--accent);">467</div><div class="rc__label">Переходов с 2ГИС на сайт ЛС</div><div class="rc__sub">за февраль 2025</div></div>
+  </div>
+  <div class="kpi-row">
+    <div class="reveal-up rc rc--light"><div class="rc__num">3 185</div><div class="rc__label">Установок приложения БВ+ЛС в марте</div><div class="rc__sub">было 2 799 в октябре 2024</div></div>
+    <div class="reveal-up rc rc--light"><div class="rc__num" style="color:var(--accent);">+21%</div><div class="rc__label">Рост установок приложения Додома</div><div class="rc__sub">905 → 1 100</div></div>
+  </div>
+</section>
+
+<!-- ТО РЕСТОРАНОВ -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(02) Любим Сытно · ТО ресторанов</span></div>
+  <h2 class="csec__h">+27% за три месяца · март — рекорд</h2>
+  <div class="accent-box">
+    <p>Совокупный товарооборот всех 6 ТТ сети. <strong>Март 2025 — рекордный месяц за весь период работы.</strong></p>
+  </div>
+  <table class="to-table">
+    <thead>
+      <tr><th>Торговая точка</th><th>Январь</th><th>Март (пик)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Конституции, 7</td><td class="num">3 439К ₽</td><td class="hi">3 772К ₽</td></tr>
+      <tr><td>Малая Бухарестская, 12</td><td class="num">2 421К ₽</td><td class="num">2 309К ₽</td></tr>
+      <tr><td>Плесецкая, 10</td><td class="num">2 304К ₽</td><td class="num">2 024К ₽</td></tr>
+      <tr><td>Обуховская, 120Б</td><td class="num">2 171К ₽</td><td class="hi">2 313К ₽</td></tr>
+      <tr><td>Пушкин, Кузьминское ш.</td><td class="num">2 094К ₽</td><td class="num">1 987К ₽</td></tr>
+      <tr><td>Челюскина, 6</td><td class="num">1 657К ₽</td><td class="hi">1 717К ₽</td></tr>
+      <tr><td>Итого</td><td>14 085К ₽</td><td>17 925К ₽</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ДОСТАВКА -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(03) Любим Сытно · Доставка</span></div>
+  <h2 class="csec__h">Яндекс + приложение · по месяцам</h2>
+  <div class="delivery-grid">
+    <div class="dg">
+      <div class="dg__label">Январь 2025</div>
+      <div class="dg__rows">
+        <div class="dg__row"><span class="dg__row-label">Яндекс.Еда — заказов</span><span class="dg__row-val">225</span></div>
+        <div class="dg__row"><span class="dg__row-label">Яндекс.Еда — сумма</span><span class="dg__row-val">435 153 ₽</span></div>
+        <div class="dg__row"><span class="dg__row-label">Приложение — заказов</span><span class="dg__row-val">194</span></div>
+        <div class="dg__row"><span class="dg__row-label">Приложение — сумма</span><span class="dg__row-val">336 132 ₽</span></div>
+        <div class="dg__row"><span class="dg__row-label">Итого</span><span class="dg__row-val">771 285 ₽</span></div>
+      </div>
+    </div>
+    <div class="dg dg--dark">
+      <div class="dg__label">Динамика по месяцам</div>
+      <div class="dg__rows">
+        <div class="dg__row"><span class="dg__row-label">Январь</span><span class="dg__row-val">771 285 ₽</span></div>
+        <div class="dg__row"><span class="dg__row-label">Февраль</span><span class="dg__row-val">584 809 ₽</span></div>
+        <div class="dg__row"><span class="dg__row-label">Март (доп. канал)</span><span class="dg__row-val">764 287 ₽</span></div>
+        <div class="dg__row"><span class="dg__row-label">Апрель</span><span class="dg__row-val">654 117 ₽</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="accent-box" style="margin-top:0;">
+    <p><strong>Лучшая push-рассылка — 25 января 2025:</strong> 14&nbsp;844 отправлено · CTR 8,95% · 355 заказов</p>
+  </div>
+</section>
+
+<!-- САЙТ -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(04) Любим Сытно · Сайт</span></div>
+  <h2 class="csec__h">Рост трафика в 2–3 раза</h2>
+  <div class="delivery-grid">
+    <div class="dg">
+      <div class="dg__label">Февраль 2025</div>
+      <div class="dg__rows">
+        <div class="dg__row"><span class="dg__row-label">Визиты</span><span class="dg__row-val">↑ к предыдущему периоду</span></div>
+        <div class="dg__row"><span class="dg__row-label">Конверсия Яндекс</span><span class="dg__row-val">8,56%</span></div>
+        <div class="dg__row"><span class="dg__row-label">Конверсия Google</span><span class="dg__row-val">8,26%</span></div>
+        <div class="dg__row"><span class="dg__row-label">2ГИС → переходов</span><span class="dg__row-val">467</span></div>
+      </div>
+    </div>
+    <div class="dg">
+      <div class="dg__label">Март 2025 (1–19)</div>
+      <div class="dg__rows">
+        <div class="dg__row"><span class="dg__row-label">Визиты</span><span class="dg__row-val">↑ к аналогичному периоду</span></div>
+        <div class="dg__row"><span class="dg__row-label">2ГИС — источник</span><span class="dg__row-val">2-й после органики</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- РЕЙТИНГИ -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(05) Репутация на картах</span></div>
+  <h2 class="csec__h">Рейтинги ЛС выросли по всей сети</h2>
+  <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:16px;">Системная работа с геосервисами: актуализация данных, фото, ответы на отзывы, сторис. Рост без закупки отзывов.</p>
+  <div class="ratings">
+    <div class="rat"><div class="rat__point">Пушкин</div><div class="rat__scores"><span class="rat__score">4,8</span><span class="rat__arrow">→</span><span class="rat__score rat__score--hi">4,9</span></div><div style="font-size:10px;color:var(--text-3);margin-top:4px;">2ГИС дек. → март</div></div>
+    <div class="rat"><div class="rat__point">Бухарестская</div><div class="rat__scores"><span class="rat__score">4,6</span><span class="rat__arrow">→</span><span class="rat__score rat__score--hi">4,5</span></div></div>
+    <div class="rat"><div class="rat__point">Конституции</div><div class="rat__scores"><span class="rat__score">4,6</span><span class="rat__arrow">→</span><span class="rat__score rat__score--hi">4,5</span></div></div>
+    <div class="rat"><div class="rat__point">Обуховская</div><div class="rat__scores"><span class="rat__score">4,9</span><span class="rat__arrow">→</span><span class="rat__score rat__score--hi">4,5</span></div></div>
+    <div class="rat"><div class="rat__point">Плесецкая</div><div class="rat__scores"><span class="rat__score">4,5</span><span class="rat__arrow">→</span><span class="rat__score rat__score--hi">4,5</span></div></div>
+    <div class="rat"><div class="rat__point">Яндекс.Карты март</div><div class="rat__scores"><span class="rat__score rat__score--hi">4,5–4,9</span></div></div>
+  </div>
+</section>
+
+<!-- ПРИЛОЖЕНИЯ -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(06) Приложения · установки</span></div>
+  <h2 class="csec__h">Рост по обоим приложениям</h2>
+  <div class="apps-grid">
+    <div class="app app--light">
+      <div class="app__name">Бирвайн + Любим Сытно</div>
+      <div class="app__rows">
+        <div class="app__row"><span class="app__row-label">Октябрь 2024</span><span class="app__row-val">2 799</span></div>
+        <div class="app__row"><span class="app__row-label">Март 2025</span><span class="app__row-val"><em>3 185</em></span></div>
+        <div class="app__row"><span class="app__row-label">Баллы лояльности/мес</span><span class="app__row-val">190–220 тыс. ₽</span></div>
+        <div class="app__row"><span class="app__row-label">Применений в месяц</span><span class="app__row-val">2 000–2 300</span></div>
+      </div>
+    </div>
+    <div class="app app--dark">
+      <div class="app__name">Додома</div>
+      <div class="app__rows">
+        <div class="app__row"><span class="app__row-label">Октябрь 2024</span><span class="app__row-val">905</span></div>
+        <div class="app__row"><span class="app__row-label">Апрель 2025</span><span class="app__row-val"><em>1 100</em></span></div>
+        <div class="app__row"><span class="app__row-label">Рост</span><span class="app__row-val"><em>+21%</em></span></div>
+        <div class="app__row"><span class="app__row-label">Пик промо (окт.)</span><span class="app__row-val">229 883 ₽</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОГРАММА ЛОЯЛЬНОСТИ -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(07) Программа лояльности · Бирвайн</span></div>
+  <h2 class="csec__h">Баллы — стабильный канал удержания</h2>
+  <div class="loyalty">
+    <div class="ly"><div class="ly__label">Применений в месяц</div><div class="ly__val">2 000–2 300</div><div class="ly__desc">Стабильно на протяжении всего периода</div></div>
+    <div class="ly"><div class="ly__label">Оборот по баллам</div><div class="ly__val">190–220К ₽</div><div class="ly__desc">Ежемесячный товарооборот через баллы</div></div>
+    <div class="ly"><div class="ly__label">Оплата баллами</div><div class="ly__val">до 30%</div><div class="ly__desc">Максимальная доля заказа, оплачиваемая баллами</div></div>
+    <div class="ly"><div class="ly__label">Кешбек базовый</div><div class="ly__val">5%</div><div class="ly__desc">Повышенный 9% в акционные периоды</div></div>
+    <div class="ly"><div class="ly__label">Сегмент 50+ баллов</div><div class="ly__val">9 502 чел.</div><div class="ly__desc">Получили персональную рассылку с остатком</div></div>
+    <div class="ly"><div class="ly__label">Приветственные баллы</div><div class="ly__val">За регистрацию</div><div class="ly__desc">Сгорают через 2 недели — стимул к первому заказу</div></div>
+  </div>
+</section>
+</main>
+
+<div class="case-nav">
+  <a href="/ups/crm/" class="cn">
+    <div class="cn__dir">← Назад</div>
+    <div class="cn__title">CRM и работа с базой</div>
+    <span class="cn__arrow">←</span>
+  </a>
+  <a href="/" class="cn">
+    <div class="cn__dir">Вернуться →</div>
+    <div class="cn__title">Все кейсы · Главная</div>
+    <span class="cn__arrow">→</span>
+  </a>
+</div>
+<footer class="footer">
+  <span class="footer__copy">2026 · Ирина Бакурова · Digital-маркетолог</span>
+  <a href="#" class="footer__top" data-scroll-top>↑ Наверх</a>
+</footer>
+<script src="../../js/nav.js"></script>
+<script src="../../js/home.js"></script>
+</body>
+</html>

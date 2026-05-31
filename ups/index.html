@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Кейс: HoReCa — Ирина Бакурова</title>
+  <meta name="description" content="HoReCa: Бирвайн · Любим Сытно · Додома. CRM, рассылки, программа лояльности, рост ТО +27%."/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="/fonts/fonts.css"/>
+  <style>
+    /* ── GLASSMORPHISM STICKY NAV (sync c главной) ── */
+    html, body { overflow-x: clip; max-width: 100%; }
+    header { position: sticky; top: 0; z-index: 100; background: var(--bg); }
+    .nav { transition: all .4s cubic-bezier(.22,1,.36,1); }
+    header.scrolled .nav {
+      margin: 8px 16px 0;
+      border-radius: 12px;
+      border: 0.5px solid rgba(15,25,57,0.1);
+      background: rgba(245,243,238,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px -8px rgba(15,25,57,0.12);
+      border-bottom: none;
+    }
+    header.scrolled { background: transparent; }
+
+    /* ── HERO ── */
+    .case-hero { padding: 56px 40px 44px; border-bottom: 0.5px solid var(--border); position: relative; overflow: hidden; }
+    .case-hero__blob { position: absolute; right: -40px; top: -40px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(59,85,255,0.1) 0%, transparent 70%); pointer-events: none; }
+    .back { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-3); margin-bottom: 28px; transition: color .2s; }
+    .back:hover { color: var(--accent); }
+    .hero-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 24px; }
+    .tag { display: inline-flex; align-items: center; height: 26px; padding: 0 12px; font-size: 11px; letter-spacing: 0.3px; color: var(--text); background: rgba(255,255,255,0.5); border: 0.5px solid rgba(15,25,57,0.12); border-radius: 14px; backdrop-filter: blur(6px); transition: transform .2s; }
+    .tag:hover { transform: translateY(-1px); }
+    .hero-layout { display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: end; margin-bottom: 36px; }
+    .case-h1 { font-family: var(--font-head); font-size: clamp(40px, 7vw, 60px); font-weight: 900; text-transform: uppercase; line-height: 0.88; letter-spacing: -2.5px; color: var(--text); margin-bottom: 14px; }
+    .case-h1 em { color: var(--accent); font-style: normal; display: block; font-size: clamp(28px, 4.5vw, 38px); letter-spacing: -1.5px; margin-top: 4px; }
+    .case-desc { font-size: 13px; color: var(--text-2); line-height: 1.7; border-left: 2px solid var(--accent); padding-left: 16px; max-width: 480px; }
+    .hero-metrics { display: flex; flex-direction: column; gap: 18px; min-width: 200px; }
+    .hero-metric { padding-left: 14px; border-left: 2px solid var(--orange); }
+    .hero-metric__num { font-family: var(--font-head); font-size: 32px; font-weight: 900; color: var(--orange); line-height: 1; letter-spacing: -1px; }
+    .hero-metric__label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); margin-top: 4px; }
+    .case-meta { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 0.5px solid var(--border); padding-top: 18px; }
+    .case-meta__item { padding-right: 24px; border-right: 0.5px solid var(--border); }
+    .case-meta__item:nth-child(2) { padding-left: 24px; }
+    .case-meta__item:last-child { border-right: none; padding-left: 24px; padding-right: 0; }
+    .case-meta__label { font-size: 9px; color: var(--text-3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+    .case-meta__val { font-size: 12px; color: var(--text); line-height: 1.4; }
+
+    /* ── СЕКЦИИ ── */
+    .csec { padding: 56px 40px; border-bottom: 0.5px solid var(--border); }
+    .csec--dark { background: var(--dark); color: #fff; border-bottom: none; }
+    .csec--dark .csec__num, .csec--dark .csec__h { color: #fff; }
+    .csec__ey { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .csec__ey::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .csec--dark .csec__ey::before { background: var(--orange); }
+    .csec__num { font-size: 10px; color: var(--text-3); letter-spacing: 2px; text-transform: uppercase; }
+    .csec__h { font-family: var(--font-head); font-size: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; color: var(--text); margin-bottom: 28px; line-height: 1; }
+    .csec__lead { font-size: 14px; color: var(--text-2); line-height: 1.7; max-width: 640px; margin-bottom: 28px; }
+    .csec--dark .csec__lead { color: rgba(255,255,255,0.75); }
+
+    /* С чего начала — 3 пункта */
+    .start-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .start-card { padding: 22px 20px; background: var(--surface); border-radius: 10px; }
+    .start-card__n { font-family: var(--font-head); font-size: 22px; font-weight: 900; color: var(--accent); margin-bottom: 8px; }
+    .start-card__t { font-size: 13px; color: var(--text); line-height: 1.55; }
+
+    /* Три бренда */
+    .brands { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .brand-card { padding: 26px 22px; background: var(--surface); border-radius: 10px; transition: all .25s; }
+    .brand-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px -8px rgba(15,25,57,0.12); }
+    .brand-card.accent { background: var(--dark); color: #fff; }
+    .brand-card__name { font-family: var(--font-head); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 14px; }
+    .brand-card__metric { font-family: var(--font-head); font-size: 36px; font-weight: 900; color: var(--orange); line-height: 1; margin-bottom: 6px; letter-spacing: -1px; }
+    .brand-card__metric-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-3); margin-bottom: 14px; }
+    .brand-card.accent .brand-card__metric-label { color: rgba(255,255,255,0.6); }
+    .brand-card__desc { font-size: 12px; color: var(--text-2); line-height: 1.6; }
+    .brand-card.accent .brand-card__desc { color: rgba(255,255,255,0.75); }
+
+    /* Брендбук Любим Сытно */
+    .bb-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 32px; }
+    .bb-hero__title { font-family: var(--font-head); font-size: clamp(28px, 4vw, 40px); font-weight: 900; text-transform: uppercase; line-height: 0.95; letter-spacing: -1px; color: #fff; }
+    .bb-hero__title em { color: var(--orange); font-style: normal; display: block; }
+    .bb-hero__lead { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+    .bb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .bb-cell { aspect-ratio: 4/5; background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.18); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.4); transition: all .2s; }
+    .bb-cell:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
+    .bb-cell__icon { font-size: 22px; }
+    .bb-cell__label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; }
+    .bb-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .bb-pill { display: inline-flex; align-items: center; height: 28px; padding: 0 14px; font-size: 11px; color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.15); border-radius: 14px; }
+
+    /* Структура команды (тёмная) */
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; }
+    .team-roles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .team-role { padding: 16px 18px; background: rgba(255,255,255,0.04); border-left: 2px solid var(--orange); border-radius: 0 8px 8px 0; }
+    .team-role__t { font-family: var(--font-head); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #fff; margin-bottom: 4px; }
+    .team-role__d { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+    .team-photo { aspect-ratio: 5/4; background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.18); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: rgba(255,255,255,0.35); padding: 16px; text-align: center; }
+    .team-photo__icon { font-size: 36px; }
+    .team-photo__label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+    /* Ledger результатов */
+    .ledger { display: flex; flex-direction: column; }
+    .ledger__row { display: grid; grid-template-columns: 220px 140px 1fr; gap: 28px; padding: 20px 0; border-bottom: 0.5px solid var(--border); transition: background .2s; align-items: start; }
+    .ledger__row:hover { background: var(--surface); padding-left: 8px; padding-right: 8px; }
+    .ledger__row:last-child { border-bottom: none; }
+    .ledger__label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-3); padding-top: 6px; }
+    .ledger__val { font-family: var(--font-head); font-size: 32px; font-weight: 900; color: var(--orange); line-height: 1; letter-spacing: -1px; }
+    .ledger__desc { font-size: 13px; color: var(--text-2); line-height: 1.6; padding-top: 6px; }
+
+    /* Кнопки подстраниц */
+    .pages-nav { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .page-card { display: flex; flex-direction: column; gap: 8px; padding: 28px 24px 24px; background: var(--surface); border-radius: 12px; transition: all .25s; min-height: 180px; }
+    .page-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -10px rgba(15,25,57,0.18); background: #fff; }
+    .page-card__num { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); }
+    .page-card__h { font-family: var(--font-head); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; color: var(--text); }
+    .page-card__desc { font-size: 12px; color: var(--text-2); line-height: 1.55; flex: 1; }
+    .page-card__arrow { font-size: 18px; color: var(--accent); margin-top: 4px; }
+
+    /* Выводы (ledger-формат) */
+    .insights { display: flex; flex-direction: column; }
+    .insight { display: grid; grid-template-columns: 60px 200px 1fr; gap: 20px; padding: 20px 0; border-bottom: 0.5px solid var(--border); transition: background .2s; align-items: start; }
+    .insight:last-child { border-bottom: none; }
+    .insight:hover { background: var(--surface); padding-left: 8px; }
+    .insight__icon { font-size: 24px; line-height: 1; padding-top: 2px; }
+    .insight__t { font-family: var(--font-head); font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; color: var(--text); }
+    .insight__d { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+    /* Низ страницы — навигация между кейсами */
+    .case-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 40px; }
+    .case-nav__btn { display: flex; flex-direction: column; gap: 6px; padding: 22px 24px; border-radius: 12px; transition: all .2s; }
+    .case-nav__btn--primary { background: var(--accent); color: #fff; }
+    .case-nav__btn--ghost { background: var(--bg); border: 0.5px solid var(--accent); color: var(--accent); }
+    .case-nav__btn:hover { transform: translateY(-2px); }
+    .case-nav__btn--primary:hover { background: var(--accent-2); }
+    .case-nav__btn--ghost:hover { background: var(--accent-bg); }
+    .case-nav__label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
+    .case-nav__t { font-family: var(--font-head); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; }
+
+    /* Мобайл */
+    @media (max-width: 720px) {
+      .case-hero { padding: 36px 20px 32px; }
+      .csec { padding: 40px 20px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 28px; }
+      .hero-metrics { flex-direction: row; flex-wrap: wrap; gap: 18px 24px; }
+      .case-meta { grid-template-columns: 1fr; gap: 14px; }
+      .case-meta__item { padding: 0 0 14px 0 !important; border-right: none; border-bottom: 0.5px solid var(--border); }
+      .case-meta__item:last-child { border-bottom: none; padding-bottom: 0 !important; }
+      .start-grid, .brands { grid-template-columns: 1fr; }
+      .bb-hero, .team-grid { grid-template-columns: 1fr; gap: 24px; }
+      .bb-grid { grid-template-columns: 1fr 1fr; }
+      .team-roles { grid-template-columns: 1fr; }
+      .ledger__row { grid-template-columns: 1fr; gap: 6px; padding: 16px 0; }
+      .ledger__val { font-size: 26px; }
+      .pages-nav { grid-template-columns: 1fr; }
+      .insight { grid-template-columns: 40px 1fr; gap: 12px; }
+      .insight__t { font-size: 13px; }
+      .case-nav { grid-template-columns: 1fr; padding: 28px 20px; }
+      header.scrolled .nav { margin: 6px 10px 0; border-radius: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="site-header">
+  <nav class="nav" role="navigation">
+    <a href="/" class="nav__logo">Ирина Бакурова</a>
+    <div class="nav__links">
+      <a href="/#cases">Кейсы</a>
+      <a href="/#skills">Навыки</a>
+      <a href="/#about">Обо мне</a>
+      <a href="/#contacts" class="nav__cta">Контакты</a>
+    </div>
+    <button class="nav__burger" aria-label="Меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <nav class="nav__mobile" aria-label="Мобильное меню">
+    <a href="/#cases">Кейсы</a>
+    <a href="/#skills">Навыки</a>
+    <a href="/#about">Обо мне</a>
+    <a href="/#contacts">Контакты</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <section class="case-hero">
+    <div class="case-hero__blob"></div>
+    <a href="/" class="back">← Все кейсы</a>
+    <div class="hero-tags">
+      <span class="tag">HoReCa</span>
+      <span class="tag">3 бренда</span>
+      <span class="tag">CRM · Команда · РК</span>
+      <span class="tag">дек. 2024 — май 2026</span>
+    </div>
+
+    <div class="hero-layout">
+      <div>
+        <h1 class="case-h1">HoReCa<em>Бирвайн · Любим Сытно · Додома</em></h1>
+        <p class="case-desc">3 бренда под одной крышей: 28 шаверменных, 4 гастробара, 6 кафе и доставка. Маркетинг, рассылки, программа лояльности, командная архитектура — с нуля до системы.</p>
+      </div>
+      <div class="hero-metrics">
+        <div class="hero-metric">
+          <div class="hero-metric__num"><span class="counter" data-target="38" data-suffix="+">38+</span></div>
+          <div class="hero-metric__label">точек</div>
+        </div>
+        <div class="hero-metric">
+          <div class="hero-metric__num">1M+</div>
+          <div class="hero-metric__label">чеков / мес</div>
+        </div>
+        <div class="hero-metric">
+          <div class="hero-metric__num"><span class="counter" data-target="7">7</span></div>
+          <div class="hero-metric__label">специалистов</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-meta">
+      <div class="case-meta__item">
+        <div class="case-meta__label">Клиент</div>
+        <div class="case-meta__val">UPS Group · 3 HoReCa-бренда</div>
+      </div>
+      <div class="case-meta__item">
+        <div class="case-meta__label">Роль</div>
+        <div class="case-meta__val">Head of Digital Marketing</div>
+      </div>
+      <div class="case-meta__item">
+        <div class="case-meta__label">Период</div>
+        <div class="case-meta__val">декабрь 2024 — настоящее время</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── (01) С чего начала ── -->
+  <section class="csec">
+    <div class="csec__ey"><span class="csec__num">01 · Старт</span></div>
+    <h2 class="csec__h">С чего начала</h2>
+    <p class="csec__lead">Я пришла в декабре 2024 в команду из 7 специалистов, на которую разом легло три бренда и 38+ точек. Никакого общего плана, разрозненные рассылки, нет ритма промокампаний.</p>
+    <div class="start-grid">
+      <div class="start-card">
+        <div class="start-card__n">01</div>
+        <div class="start-card__t">Аудит — что работает, что простаивает, кого слушает база. Снижаю шум, фиксирую исходные точки по каждому бренду.</div>
+      </div>
+      <div class="start-card">
+        <div class="start-card__n">02</div>
+        <div class="start-card__t">Маркетинговый календарь на 7 этапов РК — единый ритм планирования и контроля для всех трёх брендов.</div>
+      </div>
+      <div class="start-card">
+        <div class="start-card__n">03</div>
+        <div class="start-card__t">Зоны ответственности: таргет, контент, соцсети, тексты — каждый знает свой кусок и метрики.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── (02) Три бренда — три задачи ── -->
+  <section class="csec">
+    <div class="csec__ey"><span class="csec__num">02 · Портфель</span></div>
+    <h2 class="csec__h">Три бренда — три задачи</h2>
+    <p class="csec__lead">Стратегия выстроена отдельно под каждый бренд: разная аудитория, разные цели, общие инструменты.</p>
+    <div class="brands">
+      <div class="brand-card">
+        <div class="brand-card__name">Бирвайн</div>
+        <div class="brand-card__metric"><span class="counter" data-target="38" data-suffix="+">38+</span></div>
+        <div class="brand-card__metric-label">точек · 28 шаверменных</div>
+        <div class="brand-card__desc">Сетевая шаверма-сегмент. RFM-сегментация на 13 групп, push-механика «постоянная + событийная», работа с локальным трафиком ЖК.</div>
+      </div>
+      <div class="brand-card accent">
+        <div class="brand-card__name">Любим Сытно</div>
+        <div class="brand-card__metric"><span class="counter" data-target="27" data-prefix="+" data-suffix="%">+27%</span></div>
+        <div class="brand-card__metric-label">ТО за 3 месяца · март — рекорд</div>
+        <div class="brand-card__desc">4 гастробара. Полная переупаковка бренда — новый брендбук, обновлённое меню, новая программа лояльности. Подробнее ниже.</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card__name">Додома</div>
+        <div class="brand-card__metric"><span class="counter" data-target="8" data-suffix=".95%">8.95%</span></div>
+        <div class="brand-card__metric-label">CTR лучшая рассылка</div>
+        <div class="brand-card__desc">6 кафе + доставка. Рост приложения 905 → 1190 установок (+21%), аналитика промокодов по 4 месяцам.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── (03) НОВЫЙ БРЕНДБУК ЛЮБИМ СЫТНО ── -->
+  <section class="csec csec--dark">
+    <div class="csec__ey"><span class="csec__num" style="color: rgba(255,255,255,0.6);">03 · Брендинг</span></div>
+    <h2 class="csec__h">Новый брендбук · Любим Сытно</h2>
+
+    <div class="bb-hero">
+      <div>
+        <div class="bb-hero__title">Полная переупаковка<em>от логотипа до меню</em></div>
+        <div class="bb-pills">
+          <span class="bb-pill">Логотип</span>
+          <span class="bb-pill">Палитра</span>
+          <span class="bb-pill">Типографика</span>
+          <span class="bb-pill">Меню</span>
+          <span class="bb-pill">Соцсети</span>
+          <span class="bb-pill">POSm</span>
+        </div>
+      </div>
+      <p class="bb-hero__lead">Бренд требовал нового языка, чтобы соответствовать обновлённому меню и формату 4-х гастробаров. С агентством и дизайн-командой собрали полный брендбук: визуальная система, тон голоса, шаблоны для соцсетей и POSm. После выкатки нового бренда — рост ТО на +27% за три месяца и рекорд по марту.</p>
+    </div>
+
+    <div class="bb-grid">
+      <div class="bb-cell">
+        <div class="bb-cell__icon">◆</div>
+        <div class="bb-cell__label">Логотип</div>
+      </div>
+      <div class="bb-cell">
+        <div class="bb-cell__icon">▦</div>
+        <div class="bb-cell__label">Палитра</div>
+      </div>
+      <div class="bb-cell">
+        <div class="bb-cell__icon">Aa</div>
+        <div class="bb-cell__label">Шрифты</div>
+      </div>
+      <div class="bb-cell">
+        <div class="bb-cell__icon">≡</div>
+        <div class="bb-cell__label">Меню</div>
+      </div>
+      <div class="bb-cell">
+        <div class="bb-cell__icon">◐</div>
+        <div class="bb-cell__label">SMM-шаблоны</div>
+      </div>
+      <div class="bb-cell">
+        <div class="bb-cell__icon">⊞</div>
+        <div class="bb-cell__label">POSm</div>
+      </div>
+      <div class="bb-cell">
+        <div class="bb-cell__icon">◉</div>
+        <div class="bb-cell__label">Tone of voice</div>
+      </div>
+      <div class="bb-cell">
+        <div class="bb-cell__icon">+</div>
+        <div class="bb-cell__label">Меню-доска</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── (04) Структура команды ── -->
+  <section class="csec csec--dark">
+    <div class="csec__ey"><span class="csec__num" style="color: rgba(255,255,255,0.6);">04 · Команда</span></div>
+    <h2 class="csec__h">7 специалистов · 3 бренда</h2>
+    <p class="csec__lead">Команда не выросла — изменилось распределение зон ответственности. Каждое направление со своим KPI, общая координация — еженедельные встречи и единый календарь РК.</p>
+
+    <div class="team-grid">
+      <div class="team-roles">
+        <div class="team-role">
+          <div class="team-role__t">Таргетологи</div>
+          <div class="team-role__d">2 человека · ВК, Яндекс. Сетапы под каждый бренд, сегментация по гео и RFM.</div>
+        </div>
+        <div class="team-role">
+          <div class="team-role__t">SMM-менеджер</div>
+          <div class="team-role__d">1 человек · контент-планы и публикации, координация с агентством по визуалу.</div>
+        </div>
+        <div class="team-role">
+          <div class="team-role__t">Контент-менеджер</div>
+          <div class="team-role__d">1 человек · фото, видео, оффлайн-съёмки, материалы для рассылок.</div>
+        </div>
+        <div class="team-role">
+          <div class="team-role__t">Дизайн</div>
+          <div class="team-role__d">1 человек · ежедневные макеты, поддержка брендбука Любим Сытно.</div>
+        </div>
+        <div class="team-role">
+          <div class="team-role__t">Копирайтинг</div>
+          <div class="team-role__d">1 человек · push-уведомления, email, тексты для сайта и SMM.</div>
+        </div>
+        <div class="team-role">
+          <div class="team-role__t">Офлайн</div>
+          <div class="team-role__d">1 человек · POSm, посевы в ЖК, координация с точками.</div>
+        </div>
+      </div>
+      <div class="team-photo">
+        <div class="team-photo__icon">⌐■_■</div>
+        <div class="team-photo__label">фото команды</div>
+        <div style="font-size:10px;opacity:0.5;">плейсхолдер — можно подложить</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── (05) Результаты в цифрах ── -->
+  <section class="csec">
+    <div class="csec__ey"><span class="csec__num">05 · Цифры</span></div>
+    <h2 class="csec__h">Результаты в цифрах</h2>
+    <p class="csec__lead">Декабрь 2024 — май 2026. Что выросло за период активной системной работы.</p>
+    <div class="ledger">
+      <div class="ledger__row">
+        <div class="ledger__label">Рост ТО · Любим Сытно</div>
+        <div class="ledger__val">+27%</div>
+        <div class="ledger__desc">За 3 месяца после переупаковки бренда. Март 2026 — рекорд по сети.</div>
+      </div>
+      <div class="ledger__row">
+        <div class="ledger__label">Push-уведомления · апрель</div>
+        <div class="ledger__val">151</div>
+        <div class="ledger__desc">Системная push-механика по всем трём брендам. 6 типов рассылок параллельно.</div>
+      </div>
+      <div class="ledger__row">
+        <div class="ledger__label">CTR · лучшая рассылка</div>
+        <div class="ledger__val">8.95%</div>
+        <div class="ledger__desc">25 января 2026, Додома: 14 844 отправлений, 355 заказов с одной рассылки.</div>
+      </div>
+      <div class="ledger__row">
+        <div class="ledger__label">Установки приложений</div>
+        <div class="ledger__val">+21%</div>
+        <div class="ledger__desc">Додома: 905 → 1 190. Шаверма (Бирвайн): 2 799 → 3 185 (+13%).</div>
+      </div>
+      <div class="ledger__row">
+        <div class="ledger__label">Посевы в ЖК</div>
+        <div class="ledger__val">25+</div>
+        <div class="ledger__desc">25+ ЖК с локальным трафиком, 467 переходов с сайта за январь–февраль.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── (06) Три страницы с подробностями ── -->
+  <section class="csec">
+    <div class="csec__ey"><span class="csec__num">06 · Подробности</span></div>
+    <h2 class="csec__h">Три страницы — три глубоких разбора</h2>
+    <p class="csec__lead">Открой ту часть, которая интересна — стратегия, CRM или результаты.</p>
+    <div class="pages-nav">
+      <a href="strategy/" class="page-card">
+        <div class="page-card__num">01 · Strategy</div>
+        <div class="page-card__h">Планирование и управление</div>
+        <div class="page-card__desc">Маркетинговый календарь, 7 этапов РК, зоны ответственности и операционная система.</div>
+        <div class="page-card__arrow">→</div>
+      </a>
+      <a href="crm/" class="page-card">
+        <div class="page-card__num">02 · CRM &amp; Loyalty</div>
+        <div class="page-card__h">CRM и работа с базой</div>
+        <div class="page-card__desc">151 push, 6 типов механик, RFM на 13 сегментов, посевы в 25+ ЖК.</div>
+        <div class="page-card__arrow">→</div>
+      </a>
+      <a href="results/" class="page-card">
+        <div class="page-card__num">03 · Results</div>
+        <div class="page-card__h">Результаты по брендам</div>
+        <div class="page-card__desc">Любим Сытно по ТТ, Доставка, Сайт, Приложения, Программа лояльности.</div>
+        <div class="page-card__arrow">→</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── (07) Что работает в HoReCa ── -->
+  <section class="csec">
+    <div class="csec__ey"><span class="csec__num">07 · Выводы</span></div>
+    <h2 class="csec__h">Что работает в HoReCa</h2>
+    <div class="insights">
+      <div class="insight">
+        <div class="insight__icon">◐</div>
+        <div class="insight__t">System over Chaos</div>
+        <div class="insight__d">Единый календарь и 7 этапов на каждую кампанию убирают хаос рассылок и оставляют чистый ритм. Команда не выросла — выросла предсказуемость.</div>
+      </div>
+      <div class="insight">
+        <div class="insight__icon">⚡</div>
+        <div class="insight__t">Push Precision</div>
+        <div class="insight__d">6 типов механик параллельно, каждая со своим триггером. Лучшая рассылка — 8.95% CTR при базе 14 844, потому что сегментировано до боли.</div>
+      </div>
+      <div class="insight">
+        <div class="insight__icon">⊕</div>
+        <div class="insight__t">Local Traffic</div>
+        <div class="insight__d">Посевы в 25+ ЖК — это не «массово», это адресно по гео. 467 переходов из локальных сообществ дешевле любого таргета.</div>
+      </div>
+      <div class="insight">
+        <div class="insight__icon">★</div>
+        <div class="insight__t">Rating Integrity</div>
+        <div class="insight__d">Рейтинги Любим Сытно выросли по всей сети — не потому что писали отзывы, а потому что брендбук+меню+сервис стали одним продуктом.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Навигация между кейсами ── -->
+  <div class="case-nav">
+    <a href="../ids/" class="case-nav__btn case-nav__btn--primary">
+      <span class="case-nav__label">Следующий кейс →</span>
+      <span class="case-nav__t">Internal Dance School</span>
+    </a>
+    <a href="/" class="case-nav__btn case-nav__btn--ghost">
+      <span class="case-nav__label">← Назад</span>
+      <span class="case-nav__t">Все кейсы</span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <span class="footer__copy">2026 · Ирина Бакурова · Digital-маркетолог</span>
+  <a href="#" class="footer__top" data-scroll-top>↑ Наверх</a>
+</footer>
+
+<script src="../js/nav.js"></script>
+<script>
+(function() {
+  // Sticky glassmorphism nav
+  var hdr = document.getElementById('site-header');
+  if (hdr) {
+    window.addEventListener('scroll', function() {
+      hdr.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+  }
+
+  // Счётчики цифр
+  function animateCounter(el) {
+    var target = parseFloat(el.dataset.target);
+    var prefix = el.dataset.prefix || '';
+    var suffix = el.dataset.suffix || '';
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / 1400, 1);
+      var ease = 1 - Math.pow(1 - p, 4);
+      var val = target * ease;
+      var display = Number.isInteger(target) ? Math.round(val) : val.toFixed(2);
+      el.textContent = prefix + display + suffix;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + (Number.isInteger(target) ? target : target) + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var counters = document.querySelectorAll('.counter');
+  if ('IntersectionObserver' in window && counters.length) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function(c) { io.observe(c); });
+  }
+})();
+</script>
+
+</body>
+</html>

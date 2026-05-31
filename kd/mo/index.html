@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Маркетинговый отдел КД — Ирина Бакурова</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <link rel="stylesheet" href="/fonts/fonts.css"/>
+  <style>
+/* GLASSMORPHISM NAV — sync with main page */
+    header { position: sticky; top: 0; z-index: 100; background: var(--bg); }
+    .nav { transition: all .4s cubic-bezier(.22,1,.36,1); }
+    header.scrolled .nav {
+      margin: 8px 16px 0;
+      border-radius: 12px;
+      border: 0.5px solid rgba(15,25,57,0.1);
+      background: rgba(245,243,238,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px -8px rgba(15,25,57,0.12);
+      border-bottom: none;
+    }
+    header.scrolled { background: transparent; }
+    .case-hero{padding:52px 40px 44px;border-bottom:0.5px solid var(--border);position:relative;overflow:hidden;}
+    .case-hero__blob{position:absolute;right:-40px;top:-40px;width:280px;height:280px;background:radial-gradient(circle,rgba(59,85,255,0.1) 0%,transparent 70%);pointer-events:none;}
+    .back{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--text-3);margin-bottom:12px;transition:color .2s;}
+    .back:hover{color:var(--accent);}
+    .breadcrumb{font-size:11px;color:var(--text-3);margin-bottom:20px;}
+    .breadcrumb a{color:var(--accent);}
+    .case-h1{font-family:var(--font-head);font-size:clamp(36px,7vw,52px);font-weight:900;text-transform:uppercase;line-height:0.9;letter-spacing:-2px;color:var(--text);margin-bottom:20px;}
+    .case-h1 em{color:var(--accent);font-style:normal;display:block;}
+    .case-desc{font-size:13px;color:var(--text-2);line-height:1.75;border-left:2px solid var(--accent);padding-left:16px;max-width:520px;}
+    .csec{padding:44px 40px;border-bottom:0.5px solid var(--border);}
+    .csec__ey{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+    .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+    .csec__num{font-size:10px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;}
+    .csec__h{font-family:var(--font-head);font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;color:var(--text);margin-bottom:20px;}
+
+    /* Анализ — 2 карточки */
+    .analysis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+    .ab{border-radius:10px;padding:20px;}
+    .ab--light{background:var(--surface);border:0.5px solid var(--border);}
+    .ab--dark{background:var(--dark);}
+    .ab__title{font-family:var(--font-head);font-size:12px;font-weight:700;text-transform:uppercase;margin-bottom:10px;}
+    .ab--light .ab__title{color:var(--text);}
+    .ab--dark .ab__title{color:#F5F3EE;}
+    .ab__text{font-size:12px;line-height:1.6;}
+    .ab--light .ab__text{color:var(--text-2);}
+    .ab--dark .ab__text{color:#8898CC;}
+
+    /* Формирование команды */
+    .formation{border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:18px 22px;}
+    .formation p{font-size:13px;color:var(--text);line-height:1.7;}
+
+    /* Оргсхема */
+    .org-wrap{background:#1a1a1a;border-radius:10px;padding:28px;margin:20px 0;}
+    .org-wrap img{width:78%;max-width:440px;margin:0 auto;display:block;border-radius:6px;}
+
+    /* Роли */
+    .roles{display:flex;flex-direction:column;}
+    .role{padding:24px 0;border-bottom:0.5px solid var(--border);}
+    .role:last-child{border-bottom:none;}
+    .role__header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:12px;flex-wrap:wrap;}
+    .role__name{font-family:var(--font-head);font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-0.3px;color:var(--text);}
+    .role__name span{color:var(--accent);}
+    .role__badges{display:flex;gap:5px;flex-wrap:wrap;}
+    .rb{font-size:10px;color:var(--accent-2);background:var(--accent-bg);border-radius:20px;padding:3px 10px;white-space:nowrap;}
+    .role__desc{font-size:13px;color:var(--text-2);line-height:1.65;margin-bottom:12px;}
+    .duties{display:flex;flex-direction:column;gap:5px;}
+    .duty{display:flex;gap:10px;font-size:12px;color:var(--text-2);line-height:1.5;}
+    .duty::before{content:'—';color:var(--accent);flex-shrink:0;}
+
+    /* Галерея */
+    .gallery-label{font-size:10px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+    .gallery{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
+    .gi{border-radius:8px;overflow:hidden;background:var(--surface);}
+    .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
+    .gi:hover img{transform:scale(1.03);}
+    .gi--wide{grid-column:span 3;aspect-ratio:16/5;}
+    .gi--wide2{grid-column:span 2;aspect-ratio:16/7;}
+    .gi--vert{aspect-ratio:9/16;}
+    .gi--sq{aspect-ratio:1/1;}
+
+    /* Видеограф-заглушка */
+    .video-placeholder{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:24px;text-align:center;margin-top:8px;}
+    .video-placeholder p{font-size:12px;color:var(--text-3);}
+
+    .case-nav{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--border);}
+    .cn{padding:28px 40px;border-right:0.5px solid var(--border);text-decoration:none;transition:background .15s;}
+    .cn:last-child{border-right:none;}
+    .cn:hover{background:var(--surface);}
+    .cn__dir{font-size:10px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+    .cn__title{font-family:var(--font-head);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--text);}
+    .cn__arrow{font-size:16px;color:var(--accent);margin-top:6px;display:block;}
+
+    @media(max-width:767px){
+      .case-hero{padding:24px 16px;}
+      .case-h1{font-size:36px;letter-spacing:-1px;}
+      .csec{padding:28px 16px;}
+      .analysis{grid-template-columns:1fr;}
+      .role__header{flex-direction:column;gap:8px;}
+      .gallery{grid-template-columns:1fr 1fr;}
+      .gi--wide{grid-column:span 2;}
+      .gi--wide2{grid-column:span 2;}
+      .case-nav{grid-template-columns:1fr;}
+      .cn{border-right:none;border-bottom:0.5px solid var(--border);padding:20px 16px;}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="/" class="nav__logo">Ирина Бакурова</a>
+    <div class="nav__links">
+      <a href="/#cases">Кейсы</a><a href="/#skills">Навыки</a><a href="/#about">Обо мне</a>
+      <a href="/#contacts" class="nav__cta">Контакты</a>
+    </div>
+    <button class="nav__burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav__mobile">
+    <a href="/#cases">Кейсы</a><a href="/#skills">Навыки</a><a href="/#about">Обо мне</a>
+    <a href="/#contacts" style="color:var(--accent);">Контакты</a>
+  </nav>
+</header>
+
+<main>
+<section class="case-hero">
+  <div class="case-hero__blob"></div>
+  <a href="/kd/" class="back">← Красный Дракон</a>
+  <div class="breadcrumb">Красный Дракон · <a href="/kd/">Кейс</a> · <span style="color:var(--text);">Маркетинговый отдел</span></div>
+  <h1 class="case-h1">МАРКЕТИН-<br>ГОВЫЙ<br><em>ОТДЕЛ</em></h1>
+  <p class="case-desc">Создание структуры маркетингового отдела для Красного Дракона — анализ, найм, роли, обязанности и галерея работ специалистов.</p>
+</section>
+
+<!-- АНАЛИЗ -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(01) Старт</span></div>
+  <h2 class="csec__h">Анализ и оптимизация структуры</h2>
+  <div class="analysis">
+    <div class="ab ab--light">
+      <div class="ab__title">Исходная ситуация</div>
+      <div class="ab__text">Приступила к работе с уже существующей структурой — контент-менеджер и SMM-менеджер. Первый шаг: детальное изучение текущих обязанностей и зон ответственности.</div>
+    </div>
+    <div class="ab ab--dark">
+      <div class="ab__title">Что выявила</div>
+      <div class="ab__text">Необходимость чёткого разделения задач между сотрудниками. Для повышения эффективности команды нужны дополнительные специалисты: дизайнер, фотограф, видеограф.</div>
+    </div>
+  </div>
+
+  <div class="csec__ey" style="margin-top:20px;"><span class="csec__num">(02) Формирование команды</span></div>
+  <h2 class="csec__h">Бюджет и найм</h2>
+  <div class="formation">
+    <p>После согласования ФОТ начала обновлять состав отдела. Разработала вакансии с подробными обязанностями и подготовила материалы для тестовых заданий — это позволило выбрать наиболее квалифицированных специалистов. Ключевым фактором стало создание чёткой иерархии и определение ролей для каждого сотрудника.</p>
+  </div>
+</section>
+
+<!-- СТРУКТУРА -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(03) Структура отдела</span></div>
+  <h2 class="csec__h">5 ролей · иерархия · KPI</h2>
+
+  <div class="org-wrap">
+    <img src="../../img/kd/org-chart.png" alt="Структура маркетингового отдела Красного Дракона"/>
+  </div>
+
+  <div class="roles">
+
+    <div class="role">
+      <div class="role__header">
+        <div class="role__name"><span>Контент</span>-менеджер</div>
+        <div class="role__badges">
+          <span class="rb">Официальное трудоустройство</span>
+          <span class="rb">Офис · 5/2</span>
+        </div>
+      </div>
+      <p class="role__desc">Отвечает за актуальность информации на всех площадках компании.</p>
+      <div class="duties">
+        <div class="duty">Актуальность данных на сайте компании и в приложении</div>
+        <div class="duty">Геосервисы: Яндекс.Карты, 2ГИС — баннеры, акции, скидки, цены</div>
+        <div class="duty">Добавление новых товаров на все площадки</div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role__header">
+        <div class="role__name"><span>SMM</span>-менеджер</div>
+        <div class="role__badges">
+          <span class="rb">Официальное трудоустройство</span>
+          <span class="rb">Удалённо · 5/2</span>
+        </div>
+      </div>
+      <p class="role__desc">Работает на платформах: ВКонтакте, Telegram, Instagram, TikTok, YouTube.</p>
+      <div class="duties">
+        <div class="duty">Создание контент-плана и публикация материалов в нужное время</div>
+        <div class="duty">Обработка комментариев и сообщений</div>
+        <div class="duty">Разработка сценариев для рилсов: референс, раскадровка, текст (субтитры, закадровый или текст модели)</div>
+        <div class="duty">Организация и проведение съёмок, контроль сотрудников на площадке</div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role__header">
+        <div class="role__name"><span>Дизайнер</span></div>
+        <div class="role__badges">
+          <span class="rb">Самозанятость / ИП</span>
+          <span class="rb">Удалённо · проектно</span>
+        </div>
+      </div>
+      <p class="role__desc">Маркетолог составлял чёткий список задач, согласовывал макеты и адаптации материалов.</p>
+      <div class="duties">
+        <div class="duty">Выполнение задач по ТЗ от маркетолога</div>
+        <div class="duty">Согласование макетов перед запуском</div>
+        <div class="duty">Адаптация материалов под все форматы и площадки</div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role__header">
+        <div class="role__name"><span>Фотограф</span></div>
+        <div class="role__badges">
+          <span class="rb">Самозанятость / ИП</span>
+          <span class="rb">Студия + удалённо · проектно</span>
+        </div>
+      </div>
+      <div class="duties">
+        <div class="duty">Съёмка и ретушь материала согласно ТЗ от маркетолога, SMM- или контент-менеджера</div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role__header">
+        <div class="role__name"><span>Видеограф</span></div>
+        <div class="role__badges">
+          <span class="rb">Самозанятость / ИП</span>
+          <span class="rb">Удалённо · проектно</span>
+        </div>
+      </div>
+      <div class="duties">
+        <div class="duty">Съёмка и монтаж материала согласно ТЗ от маркетолога или SMM-менеджера</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ГАЛЕРЕЯ -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(04) Примеры работ</span></div>
+  <h2 class="csec__h">Фотограф + Дизайнер</h2>
+  <div class="gallery-label">Акция на лапшу GARAK — разные форматы: сторис, посты, баннеры</div>
+  <div class="gallery">
+    <div class="gi gi--wide"><img src="../../img/kd/garak-banner-1.png" alt="Баннер GARAK"/></div>
+    <div class="gi gi--vert"><img src="../../img/kd/garak-1.png" alt="Сторис GARAK вариант 1"/></div>
+    <div class="gi gi--vert"><img src="../../img/kd/garak-2.png" alt="Сторис GARAK вариант 2"/></div>
+    <div class="gi gi--vert"><img src="../../img/kd/garak-3.png" alt="Сторис GARAK вариант 3"/></div>
+    <div class="gi gi--sq"><img src="../../img/kd/garak-4.png" alt="Пост GARAK квадрат 1"/></div>
+    <div class="gi gi--wide2"><img src="../../img/kd/garak-banner-2.png" alt="Баннер GARAK 2"/></div>
+    <div class="gi gi--sq"><img src="../../img/kd/garak-5.jpg" alt="Пост GARAK квадрат 2"/></div>
+  </div>
+
+  <div style="margin-top:28px;">
+    <div class="csec__ey"><span class="csec__num">Работа видеографа</span></div>
+    <div class="video-placeholder">
+      <p>Примеры видеоматериалов доступны по запросу — напишите в Telegram</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="case-nav">
+  <a href="/kd/" class="cn">
+    <div class="cn__dir">← Назад к кейсу</div>
+    <div class="cn__title">Красный Дракон</div>
+    <span class="cn__arrow">←</span>
+  </a>
+  <a href="/ups/" class="cn">
+    <div class="cn__dir">Следующий кейс</div>
+    <div class="cn__title">UPS Group · HoReCa</div>
+    <span class="cn__arrow">→</span>
+  </a>
+</div>
+
+<footer class="footer">
+  <span class="footer__copy">2025 · Ирина Бакурова · Digital-маркетолог</span>
+  <a href="#" class="footer__top" data-scroll-top>↑ Наверх</a>
+</footer>
+<script src="../../js/nav.js"></script>
+<script>
+(function(){
+  var h=document.querySelector("header");
+  if(!h)return;
+  h.id=h.id||"site-header";
+  window.addEventListener("scroll",function(){
+    h.classList.toggle("scrolled",window.scrollY>20);
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

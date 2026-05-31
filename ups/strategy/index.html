@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Планирование и управление · HoReCa — Ирина Бакурова</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <link rel="stylesheet" href="../../css/home.css"/>
+  <link rel="stylesheet" href="/fonts/fonts.css"/>
+  <style>
+    .case-hero{padding:52px 40px 44px;border-bottom:0.5px solid var(--border);}
+    .back{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--text-3);margin-bottom:12px;transition:color .2s;}
+    .back:hover{color:var(--accent);}
+    .breadcrumb{font-size:11px;color:var(--text-3);margin-bottom:20px;}
+    .breadcrumb a{color:var(--accent);}
+    .case-h1{font-family:var(--font-head);font-size:clamp(36px,6vw,52px);font-weight:900;text-transform:uppercase;line-height:0.9;letter-spacing:-2px;color:var(--text);margin-bottom:20px;}
+    .case-h1 em{color:var(--accent);font-style:normal;display:block;}
+    .case-desc{font-size:13px;color:var(--text-2);line-height:1.75;border-left:2px solid var(--accent);padding-left:16px;max-width:520px;}
+    .csec{padding:44px 40px;border-bottom:0.5px solid var(--border);}
+    .csec__ey{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+    .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+    .csec__num{font-size:10px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;}
+    .csec__h{font-family:var(--font-head);font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;color:var(--text);margin-bottom:20px;}
+    .accent-box{border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:20px;}
+    .accent-box p{font-size:13px;color:var(--text);line-height:1.7;}
+    /* Аудит */
+    .audit-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .ab{border-radius:10px;padding:20px;}
+    .ab--light{background:var(--surface);border:0.5px solid var(--border);}
+    .ab--dark{background:var(--dark);}
+    .ab__title{font-family:var(--font-head);font-size:12px;font-weight:700;text-transform:uppercase;margin-bottom:10px;}
+    .ab--light .ab__title{color:var(--text);}
+    .ab--dark .ab__title{color:#F5F3EE;}
+    .ab__list{display:flex;flex-direction:column;gap:5px;}
+    .ab__item{font-size:11px;line-height:1.5;padding-left:12px;position:relative;}
+    .ab__item::before{content:'—';position:absolute;left:0;color:var(--accent);}
+    .ab--light .ab__item{color:var(--text-2);}
+    .ab--dark .ab__item{color:#8898CC;}
+    /* Этапы РК */
+    .stages{display:flex;flex-direction:column;gap:0;}
+    .stage{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:18px 0;border-bottom:0.5px solid var(--border);align-items:flex-start;}
+    .stage:last-child{border-bottom:none;}
+    .stage__n{font-family:var(--font-head);font-size:13px;font-weight:900;color:var(--accent);line-height:1;}
+    .stage__title{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:4px;}
+    .stage__desc{font-size:12px;color:var(--text-2);line-height:1.6;}
+    /* Команда */
+    .team-list{display:flex;flex-direction:column;gap:0;}
+    .tm{display:grid;grid-template-columns:1fr 2fr;gap:16px;padding:16px 0;border-bottom:0.5px solid var(--border);align-items:flex-start;}
+    .tm:last-child{border-bottom:none;}
+    .tm__role{font-size:9px;color:var(--accent-2);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+    .tm__name{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--text);}
+    .tm__type{font-size:11px;color:var(--text-3);margin-top:3px;}
+    .tm__duties{font-size:12px;color:var(--text-2);line-height:1.55;}
+    /* Документы */
+    .docs{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .doc{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:18px;}
+    .doc__type{font-size:9px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+    .doc__title{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text);text-transform:uppercase;margin-bottom:6px;}
+    .doc__desc{font-size:11px;color:var(--text-2);line-height:1.5;}
+    /* Push примеры */
+    .push-stats{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:20px;}
+    .ps{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:16px;text-align:center;}
+    .ps__num{font-family:var(--font-head);font-size:24px;font-weight:900;color:var(--accent);letter-spacing:-1px;margin-bottom:4px;}
+    .ps__label{font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:1px;}
+    .push-examples{display:flex;flex-direction:column;gap:8px;}
+    .push{background:var(--dark);border-radius:10px;padding:18px;}
+    .push__brand{font-size:9px;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+    .push__title{font-family:var(--font-head);font-size:13px;font-weight:700;color:#F5F3EE;margin-bottom:4px;}
+    .push__body{font-size:12px;color:#8898CC;line-height:1.5;}
+    .push__meta{font-size:10px;color:var(--accent-2);margin-top:8px;}
+    .case-nav{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--border);}
+    .cn{padding:28px 40px;border-right:0.5px solid var(--border);text-decoration:none;transition:background .15s;}
+    .cn:last-child{border-right:none;}
+    .cn:hover{background:var(--surface);}
+    .cn__dir{font-size:10px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+    .cn__title{font-family:var(--font-head);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--text);}
+    .cn__arrow{font-size:16px;color:var(--accent);margin-top:6px;display:block;}
+    @media(max-width:767px){
+      .case-hero{padding:24px 16px;}
+      .case-h1{font-size:34px;}
+      .csec{padding:28px 16px;}
+      .audit-grid{grid-template-columns:1fr;}
+      .stage{grid-template-columns:28px 1fr;}
+      .tm{grid-template-columns:1fr;}
+      .docs{grid-template-columns:1fr;}
+      .push-stats{grid-template-columns:1fr 1fr;}
+      .case-nav{grid-template-columns:1fr;}
+      .cn{border-right:none;border-bottom:0.5px solid var(--border);padding:20px 16px;}
+    }
+  </style>
+</head>
+<body>
+<header id="site-header">
+  <nav class="nav">
+    <a href="/" class="nav__logo">Ирина Бакурова</a>
+    <div class="nav__links">
+      <a href="/#cases">Кейсы</a><a href="/#skills">Навыки</a><a href="/#about">Обо мне</a>
+      <a href="/#contacts" class="nav__cta">Контакты</a>
+    </div>
+    <button class="nav__burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav__mobile">
+    <a href="/#cases">Кейсы</a><a href="/#skills">Навыки</a><a href="/#about">Обо мне</a>
+    <a href="/#contacts" style="color:var(--accent);">Контакты</a>
+  </nav>
+</header>
+
+<main>
+<section class="case-hero">
+  <a href="/ups/" class="back">← HoReCa: Бирвайн · Любим Сытно · Додома</a>
+  <div class="breadcrumb"><a href="/ups/">HoReCa</a> · <span style="color:var(--text);">Планирование и управление</span></div>
+  <h1 class="case-h1">ПЛАНИРОВА-<br>НИЕ И<br><em>УПРАВЛЕНИЕ</em></h1>
+  <p class="case-desc">Как выстраивала систему маркетинга для трёх брендов одновременно — аудит, планирование, регламент из 7 этапов РК, структура команды.</p>
+</section>
+
+<!-- АУДИТ -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(01) С чего начала</span></div>
+  <h2 class="csec__h">Аудит и первые шаги</h2>
+  <div class="accent-box">
+    <p>Пришла в декабре 2024 в команду из 7 специалистов, которая работала реактивно — без единого горизонта планирования. За первые недели провела аудит, зафиксировала стартовые метрики и выстроила операционную систему с нуля.</p>
+  </div>
+  <div class="audit-grid">
+    <div class="ab ab--light">
+      <div class="ab__title">Аудит всех площадок</div>
+      <div class="ab__list">
+        <div class="ab__item">Сайты ЛС и БВ — актуальность данных</div>
+        <div class="ab__item">Приложение Бирвайн — меню и акции</div>
+        <div class="ab__item">Яндекс.Карты — часы, фото, описания</div>
+        <div class="ab__item">Яндекс.Еда / Купер — меню не совпадало</div>
+        <div class="ab__item">Restorating, Restoclub — баннеры устарели</div>
+      </div>
+    </div>
+    <div class="ab ab--dark">
+      <div class="ab__title">Фиксация стартовых метрик</div>
+      <div class="ab__list">
+        <div class="ab__item">Установки приложений по брендам</div>
+        <div class="ab__item">Размеры CRM-баз Бирвайн и ЛС</div>
+        <div class="ab__item">Рейтинги на картах по каждой ТТ</div>
+        <div class="ab__item">Трафик сайтов — Яндекс.Метрика</div>
+        <div class="ab__item">Данные по промокодам и баллам лояльности</div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin-top:16px;">Ввела единую таблицу актуальных акций — общий рабочий документ для всей команды с колонками по каждому специалисту: push, VK, TG, таргет, контекст, приложение.</p>
+</section>
+
+<!-- 7 ЭТАПОВ РК -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(02) Ключевой инструмент</span></div>
+  <h2 class="csec__h">Маркетинговый календарь · 7 этапов РК</h2>
+  <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:20px;">Разработала с нуля для Любим Сытно на весь 2025 год. Каждая рекламная кампания проходит через фиксированный регламент. Это исключает ситуацию, когда дизайнеры делают макеты, а push ещё не согласован.</p>
+  <div class="stages">
+    <div class="stage">
+      <div class="stage__n">01</div>
+      <div><div class="stage__title">Согласование акции</div><div class="stage__desc">Меню для гостей и клиентов доставки, название акции, механика стимулирующего мероприятия.</div></div>
+    </div>
+    <div class="stage">
+      <div class="stage__n">02</div>
+      <div><div class="stage__title">Мозговой штурм команды</div><div class="stage__desc">Совещание: концепция, целевая аудитория, бюджеты, ожидаемые результаты по каждому каналу.</div></div>
+    </div>
+    <div class="stage">
+      <div class="stage__n">03</div>
+      <div><div class="stage__title">Согласование бюджетов и ТЗ</div><div class="stage__desc">Бюджеты на контекст, таргет, офлайн. ТЗ дизайнерам, фотографам, видеографам.</div></div>
+    </div>
+    <div class="stage">
+      <div class="stage__n">04</div>
+      <div><div class="stage__title">Продакшен</div><div class="stage__desc">Координация съёмки: шеф, предприятие, продакшен, маркетинг. Для ряда кампаний — личное присутствие на площадке.</div></div>
+    </div>
+    <div class="stage">
+      <div class="stage__n">05</div>
+      <div><div class="stage__title">Подготовка к запуску</div><div class="stage__desc">Печать полиграфии, доставка на предприятия. Передача материалов каждому специалисту — каждый «забирает из рук» и выпускает по своему каналу.</div></div>
+    </div>
+    <div class="stage">
+      <div class="stage__n">06</div>
+      <div><div class="stage__title">Запуск РК</div><div class="stage__desc">Одновременно: SMM (пост + сторис), CRM (push + email), контекст, таргет, обновление на картах, сторис в приложении, обновление сайта, экраны на точках.</div></div>
+    </div>
+    <div class="stage">
+      <div class="stage__n">07</div>
+      <div><div class="stage__title">Рассказ о событии + итоги</div><div class="stage__desc">На следующий день — публикации о том, как прошло. Приглашение на следующее мероприятие. Сбор метрик по всем каналам, сравнение с ожиданиями.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- КОМАНДА -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(03) Команда</span></div>
+  <h2 class="csec__h">Зоны ответственности</h2>
+  <div class="team-list">
+    <div class="tm">
+      <div><div class="tm__role">Таргет</div><div class="tm__name">Таргетолог</div><div class="tm__type">Аутсорс · ВКонтакте Ads</div></div>
+      <div class="tm__duties">РК на доставку и имиджевые кампании. Таргет по адресам ТТ — радиус 1,5 км. Отдельная РК Комендантский 61 (промокод КОМЕНДА). Бюджет: БВ 300 000 ₽ · ЛС 150 000 ₽/мес.</div>
+    </div>
+    <div class="tm">
+      <div><div class="tm__role">Контекст</div><div class="tm__name">Контекстолог</div><div class="tm__type">Аутсорс · Яндекс.Директ + РСЯ</div></div>
+      <div class="tm__duties">Контекст на приложение и сайты под каждую РК. Инструмент Вендер — отдельный контроль. Бюджет: БВ 200 000 ₽ · ЛС 100 000 ₽ · Додома 300 000 ₽/мес.</div>
+    </div>
+    <div class="tm">
+      <div><div class="tm__role">Соцсети</div><div class="tm__name">SMM-менеджер</div><div class="tm__type">Штат · ВКонтакте, Telegram</div></div>
+      <div class="tm__duties">Контент-план по трём брендам. Публикации по расписанию. Digital-анонсы офлайн-событий. Контент по матрице тем под каждую ТТ.</div>
+    </div>
+    <div class="tm">
+      <div><div class="tm__role">Площадки</div><div class="tm__name">Контент-менеджер</div><div class="tm__type">Штат · все площадки</div></div>
+      <div class="tm__duties">Актуальность меню, акций, цен в приложении и на сайте. Яндекс.Карты и 2ГИС — сторис, новости, фото. Все агрегаторы и партнёрские площадки.</div>
+    </div>
+    <div class="tm">
+      <div><div class="tm__role">Визуал</div><div class="tm__name">Старший дизайнер + Дизайнер</div><div class="tm__type">Штат · Figma</div></div>
+      <div class="tm__duties">Баннеры для всех каналов по ТЗ под каждую РК. Офлайн: наружка, кассовые меню, меню на столах, упаковка БВ. Брендбук ЛС — под редактурой. Все макеты согласовываются до выхода.</div>
+    </div>
+    <div class="tm">
+      <div><div class="tm__role">Тексты + офлайн</div><div class="tm__name">Копирайтер + Офлайн-маркетолог</div><div class="tm__type">Аутсорс + штат</div></div>
+      <div class="tm__duties">Тексты для сайта БВ, описания 31 ТТ, блюда в меню. Описания позиций ЛС для всех площадок. Офлайн: полиграфия, доставка материалов на точки.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ДОКУМЕНТЫ -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(04) Документы</span></div>
+  <h2 class="csec__h">Операционная система</h2>
+  <div class="docs">
+    <div class="reveal-up doc"><div class="doc__type">Google Таблица · Живой документ</div><div class="doc__title">Актуальные акции всех брендов</div><div class="doc__desc">Единый документ синхронизации команды. По каждой акции — статус у каждого специалиста: push, макеты, таргет.</div></div>
+    <div class="reveal-up doc"><div class="doc__type">Google Таблица</div><div class="doc__title">Медиаплан февраль–март</div><div class="doc__desc">Детальный план по трём брендам: задачи, ответственные, сроки, статусы.</div></div>
+    <div class="reveal-up doc"><div class="doc__type">Маркетинговый календарь</div><div class="doc__title">ЛС 2025 · 7 этапов</div><div class="doc__desc">Все РК на год с регламентом, датами, ответственными, статусами и бюджетами по каналам.</div></div>
+    <div class="reveal-up doc"><div class="doc__type">Маркетинговый календарь</div><div class="doc__title">БВ Гастро 2025</div><div class="doc__desc">Праздничные и сезонные РК для гастробаров. Согласование с операционным директором.</div></div>
+    <div class="reveal-up doc"><div class="doc__type">Таблицы</div><div class="doc__title">Графики push и email</div><div class="doc__desc">Планы по месяцам для каждого бренда: дата, время, заголовок, текст, база, промокод, статус.</div></div>
+    <div class="reveal-up doc"><div class="doc__type">PDF · Для собственников</div><div class="doc__title">Смета и КП</div><div class="doc__desc">Контекст, таргет, 7 агрегаторов, Яндекс SmartReserve — с КП и рекомендациями.</div></div>
+  </div>
+</section>
+
+<!-- PUSH ПРИМЕРЫ -->
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(05) Push-уведомления</span></div>
+  <h2 class="csec__h">Механики и примеры</h2>
+  <div class="push-stats">
+    <div class="ps"><div class="ps__num">151</div><div class="ps__label">Push за апрель</div></div>
+    <div class="ps"><div class="ps__num">81</div><div class="ps__label">Бирвайн</div></div>
+    <div class="ps"><div class="ps__num">25</div><div class="ps__label">Любим Сытно</div></div>
+    <div class="ps"><div class="ps__num">45</div><div class="ps__label">Додома</div></div>
+  </div>
+  <div class="push-examples">
+    <div class="push">
+      <div class="push__brand">Бирвайн · Еженедельная механика</div>
+      <div class="push__title">Сырный понедельник — сегодня!</div>
+      <div class="push__body">Сырная шаверма с моцареллой и кофе на выбор в подарок. 378 ₽</div>
+      <div class="push__meta">Формирование поведенческой привычки · каждый понедельник</div>
+    </div>
+    <div class="push">
+      <div class="push__brand">Любим Сытно · Самовывоз</div>
+      <div class="push__title">На 15% дешевле — ЗАБЕРУ!</div>
+      <div class="push__body">Любим Сытно: промокод ЗАБЕРУ. Забирай шашлык из курицы самовывозом со скидкой!</div>
+      <div class="push__meta">Постоянная механика · выходила в разное время дня</div>
+    </div>
+    <div class="push">
+      <div class="push__brand">Додома · Праздничная серия</div>
+      <div class="push__title">Победа со вкусом!</div>
+      <div class="push__body">Промокод ПОБЕДА даёт скидку 9% на всё меню без ограничений</div>
+      <div class="push__meta">Серия из 5–7 уведомлений под каждую дату</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="case-nav">
+  <a href="/ups/" class="cn">
+    <div class="cn__dir">← Назад</div>
+    <div class="cn__title">HoReCa · Обзор</div>
+    <span class="cn__arrow">←</span>
+  </a>
+  <a href="/ups/crm/" class="cn">
+    <div class="cn__dir">Следующий раздел →</div>
+    <div class="cn__title">CRM и работа с базой</div>
+    <span class="cn__arrow">→</span>
+  </a>
+</div>
+<footer class="footer">
+  <span class="footer__copy">2026 · Ирина Бакурова · Digital-маркетолог</span>
+  <a href="#" class="footer__top" data-scroll-top>↑ Наверх</a>
+</footer>
+<script src="../../js/nav.js"></script>
+<script src="../../js/home.js"></script>
+</body>
+</html>

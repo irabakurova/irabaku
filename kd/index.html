@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Кейс: Красный Дракон — Ирина Бакурова</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="/fonts/fonts.css"/>
+  <style>
+/* GLASSMORPHISM NAV — sync with main page */
+    header { position: sticky; top: 0; z-index: 100; background: var(--bg); }
+    .nav { transition: all .4s cubic-bezier(.22,1,.36,1); }
+    header.scrolled .nav {
+      margin: 8px 16px 0;
+      border-radius: 12px;
+      border: 0.5px solid rgba(15,25,57,0.1);
+      background: rgba(245,243,238,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px -8px rgba(15,25,57,0.12);
+      border-bottom: none;
+    }
+    header.scrolled { background: transparent; }
+    .case-hero{padding:52px 40px 44px;border-bottom:0.5px solid var(--border);position:relative;overflow:hidden;}
+    .case-hero__blob{position:absolute;right:-40px;top:-40px;width:280px;height:280px;background:radial-gradient(circle,rgba(59,85,255,0.1) 0%,transparent 70%);pointer-events:none;}
+    .back{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--text-3);margin-bottom:28px;transition:color .2s;}
+    .back:hover{color:var(--accent);}
+    .hero-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
+    .case-h1{font-family:var(--font-head);font-size:clamp(44px,8vw,64px);font-weight:900;text-transform:uppercase;line-height:0.88;letter-spacing:-3px;color:var(--text);margin-bottom:12px;}
+    .case-h1 em{color:var(--accent);font-style:normal;display:block;}
+    .case-h1-sub{font-size:13px;color:var(--text-3);margin-bottom:28px;}
+    .case-desc{font-size:13px;color:var(--text-2);line-height:1.75;border-left:2px solid var(--accent);padding-left:16px;margin-bottom:32px;max-width:520px;}
+    .case-meta{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:0.5px solid var(--border);padding-top:20px;}
+    .case-meta__item{padding-right:24px;border-right:0.5px solid var(--border);}
+    .case-meta__item:nth-child(2){padding-left:24px;}
+    .case-meta__item:last-child{border-right:none;padding-left:24px;padding-right:0;}
+    .case-meta__label{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+    .case-meta__val{font-size:12px;color:var(--text);line-height:1.4;}
+    .csec{padding:44px 40px;border-bottom:0.5px solid var(--border);}
+    .csec__ey{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+    .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+    .csec__num{font-size:10px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;}
+    .csec__h{font-family:var(--font-head);font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;color:var(--text);margin-bottom:20px;}
+    .req-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .req-box{border-radius:8px;padding:18px;}
+    .req-box--light{background:var(--surface);border:0.5px solid var(--border);}
+    .req-box--dark{background:var(--dark);}
+    .req-box__label{font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+    .req-box--light .req-box__label{color:var(--text-3);}
+    .req-box--dark .req-box__label{color:rgba(255,255,255,0.35);}
+    .req-item{font-size:12px;line-height:1.6;padding:7px 0;border-bottom:0.5px solid;}
+    .req-item:last-child{border-bottom:none;padding-bottom:0;}
+    .req-box--light .req-item{color:var(--text-2);border-color:var(--border);}
+    .req-box--dark .req-item{color:#8898CC;border-color:rgba(255,255,255,0.08);}
+    .strat-list{display:flex;flex-direction:column;}
+    .strat-item{padding:20px 0;border-bottom:0.5px solid var(--border);}
+    .strat-item:last-child{border-bottom:none;}
+    .strat-item__title{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:10px;}
+    .strat-item__desc{font-size:13px;color:var(--text-2);line-height:1.65;}
+    .accent-box{border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:16px 20px;margin-top:10px;}
+    .accent-box p{font-size:13px;color:var(--text);line-height:1.7;}
+    .pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+    .pill--gray{font-size:11px;color:var(--text);background:var(--surface);border:0.5px solid var(--border);border-radius:20px;padding:5px 13px;}
+    .pill--blue{font-size:11px;color:var(--accent);background:var(--accent-bg);border-radius:20px;padding:5px 13px;}
+    .mo-cta{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:var(--dark);border-radius:10px;margin-top:14px;text-decoration:none;}
+    .mo-cta__label{font-size:9px;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+    .mo-cta__title{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;color:#F5F3EE;}
+    .mo-cta__arrow{font-size:20px;color:var(--accent);}
+    .res-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px;}
+    .rc{border-radius:10px;padding:20px;}
+    .rc--light{background:var(--surface);border:0.5px solid var(--border);}
+    .rc--blue{background:var(--accent);}
+    .rc--dark{background:var(--dark);}
+    .rc__num{font-family:var(--font-head);font-size:36px;font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:5px;}
+    .rc--light .rc__num{color:var(--text);}
+    .rc--blue .rc__num{color:#fff;}
+    .rc--dark .rc__num{color:#F5F3EE;}
+    .rc__label{font-size:11px;line-height:1.4;}
+    .rc--light .rc__label{color:var(--text-2);}
+    .rc--blue .rc__label{color:rgba(255,255,255,0.8);}
+    .rc--dark .rc__label{color:#8898CC;}
+    .conclusions{display:flex;flex-direction:column;gap:8px;}
+    .concl{display:flex;gap:14px;padding:14px 16px;background:var(--surface);border-radius:8px;align-items:flex-start;}
+    .concl__icon{font-size:15px;flex-shrink:0;}
+    .concl__text{font-size:12px;color:var(--text-2);line-height:1.6;}
+    .case-nav{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--border);}
+    .cn{padding:28px 40px;border-right:0.5px solid var(--border);text-decoration:none;transition:background .15s;}
+    .cn:last-child{border-right:none;}
+    .cn:hover{background:var(--surface);}
+    .cn__dir{font-size:10px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+    .cn__title{font-family:var(--font-head);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--text);}
+    .cn__arrow{font-size:16px;color:var(--accent);margin-top:6px;display:block;}
+    @media(max-width:767px){
+      .case-hero{padding:24px 16px;}
+      .case-h1{font-size:40px;letter-spacing:-1.5px;}
+      .case-meta{grid-template-columns:1fr;gap:0;}
+      .case-meta__item{border-right:none;padding:0 0 12px;border-bottom:0.5px solid var(--border);}
+      .case-meta__item:last-child{border-bottom:none;padding-top:12px;}
+      .csec{padding:28px 16px;}
+      .req-grid{grid-template-columns:1fr;}
+      .res-grid{grid-template-columns:1fr 1fr;}
+      .case-nav{grid-template-columns:1fr;}
+      .cn{border-right:none;border-bottom:0.5px solid var(--border);padding:20px 16px;}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="/" class="nav__logo">Ирина Бакурова</a>
+    <div class="nav__links">
+      <a href="/#cases">Кейсы</a><a href="/#skills">Навыки</a><a href="/#about">Обо мне</a>
+      <a href="/#contacts" class="nav__cta">Контакты</a>
+    </div>
+    <button class="nav__burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="nav__mobile">
+    <a href="/#cases">Кейсы</a><a href="/#skills">Навыки</a><a href="/#about">Обо мне</a>
+    <a href="/#contacts" style="color:var(--accent);">Контакты</a>
+  </nav>
+</header>
+<main>
+<section class="case-hero">
+  <div class="case-hero__blob"></div>
+  <a href="/" class="back">← Все кейсы</a>
+  <div class="hero-tags"><span class="tag">Retail</span><span class="tag">Маркетинг</span><span class="tag">Команда</span></div>
+  <h1 class="case-h1">КРАСНЫЙ<br><em>ДРАКОН</em></h1>
+  <div class="case-h1-sub">Сеть магазинов продуктов Азиатской кухни</div>
+  <p class="case-desc">Создание маркетингового отдела с нуля, разработка стратегии, проведение акций и выстраивание партнёрств.</p>
+  <div class="case-meta">
+    <div class="case-meta__item"><div class="case-meta__label">Клиент</div><div class="case-meta__val">Красный Дракон · Retail</div></div>
+    <div class="case-meta__item"><div class="case-meta__label">Задача</div><div class="case-meta__val">Маркетинговый отдел + рост продаж</div></div>
+    <div class="case-meta__item"><div class="case-meta__label">Результат</div><div class="case-meta__val">+120% продажи · +87% доход</div></div>
+  </div>
+</section>
+
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(01) Запрос</span></div>
+  <h2 class="csec__h">Что просил клиент</h2>
+  <div class="req-grid">
+    <div class="req-box req-box--light">
+      <div class="req-box__label">Основные задачи</div>
+      <div class="req-item">Сформировать маркетинговый отдел и организовать работу специалистов</div>
+      <div class="req-item">Увеличить продажи в краткосрочный период</div>
+      <div class="req-item">Настройка триггерной e-mail рассылки</div>
+    </div>
+    <div class="req-box req-box--dark">
+      <div class="req-box__label">Цели проекта</div>
+      <div class="req-item">Разработка и внедрение маркетинговой стратегии</div>
+      <div class="req-item">Организация работы маркетингового отдела</div>
+      <div class="req-item">Проведение результативных маркетинговых акций</div>
+      <div class="req-item">Анализ рынка и конкурентов</div>
+    </div>
+  </div>
+</section>
+
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(02) Стратегия и реализация</span></div>
+  <h2 class="csec__h">Как работала</h2>
+  <div class="strat-list">
+    <div class="strat-item">
+      <div class="strat-item__title">Разработка маркетинговой стратегии</div>
+      <div class="accent-box"><p>Проанализировала целевую аудиторию → сфокусировалась на <strong>4 ключевых ЦА</strong>. Каналы: <strong>ВКонтакте, Telegram, TikTok</strong> — высокая концентрация ЦА и возможности для рекламы.</p></div>
+    </div>
+    <div class="strat-item">
+      <div class="strat-item__title">Организация маркетингового отдела</div>
+      <div class="strat-item__desc">Создала структуру: контент-менеджер, SMM-менеджер, дизайнер, фотограф, видеограф. Для каждой роли — обязанности, KPI, условия сотрудничества.</div>
+      <div class="pills">
+        <span class="pill--blue">Контент-менеджер</span><span class="pill--blue">SMM-менеджер</span>
+        <span class="pill--blue">Дизайнер</span><span class="pill--blue">Фотограф</span><span class="pill--blue">Видеограф</span>
+      </div>
+      <a href="mo/" class="mo-cta">
+        <div><div class="mo-cta__label">Подробнее</div><div class="mo-cta__title">Маркетинговый отдел — роли, обязанности, галерея работ →</div></div>
+        <div class="mo-cta__arrow">→</div>
+      </a>
+    </div>
+    <div class="strat-item">
+      <div class="strat-item__title">Проведение маркетинговых акций</div>
+      <div class="strat-item__desc">Реализован ряд акций на увеличение продаж и привлечение новых клиентов:</div>
+      <div class="pills">
+        <span class="pill--gray">Вкус Азии</span><span class="pill--gray">Шоппер в подарок</span>
+        <span class="pill--gray">Скидки DH</span><span class="pill--gray">Bibigo</span>
+        <span class="pill--gray">Garak −10%</span><span class="pill--gray">Японская газировка</span>
+        <span class="pill--gray">Магия Азиатской кухни</span>
+      </div>
+    </div>
+    <div class="strat-item">
+      <div class="strat-item__title">Партнёрство / кросс-промо</div>
+      <div class="strat-item__desc">Активно развивались партнёрские отношения:</div>
+      <div class="pills">
+        <span class="pill--blue">Kitsune — совместные конкурсы</span>
+        <span class="pill--blue">Gamak — промокоды на скидку</span>
+        <span class="pill--blue">Sweet lavka — конкурс (план)</span>
+      </div>
+    </div>
+    <div class="strat-item">
+      <div class="strat-item__title">Открытия новых торговых точек</div>
+      <div class="strat-item__desc">Освещение открытия двух новых ТТ и переезда магазина в Москве — привлечение внимания к сети и увеличение трафика.</div>
+    </div>
+    <div class="strat-item">
+      <div class="strat-item__title">E-mail рассылки</div>
+      <div class="strat-item__desc">Регулярные рассылки по клиентской базе — акции, новости, события сети. Поддержание лояльности и стимулирование повторных покупок. Триггерные рассылки — запланированы, требуют отдельного специалиста.</div>
+    </div>
+  </div>
+</section>
+
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(03) Результаты</span></div>
+  <h2 class="csec__h">Достигнутые показатели</h2>
+  <div class="res-grid">
+    <div class="rc rc--blue"><div class="rc__num">+120%</div><div class="rc__label">Продажи акционных товаров (акция DH)</div></div>
+    <div class="rc rc--dark"><div class="rc__num">+87%</div><div class="rc__label">Общий доход от акционных позиций в рублях</div></div>
+    <div class="rc rc--light"><div class="rc__num" style="color:var(--accent);">3 100</div><div class="rc__label">Максимум просмотров поста ВКонтакте (+65%)</div></div>
+    <div class="rc rc--light"><div class="rc__num" style="color:var(--accent);">+400%</div><div class="rc__label">Рост лайков ВКонтакте — до 54 на пост</div></div>
+    <div class="rc rc--light"><div class="rc__num">29</div><div class="rc__label">Репостов — до этого не было ни одного</div></div>
+    <div class="rc rc--light"><div class="rc__num" style="color:var(--accent);">✓</div><div class="rc__label">Конкурс с Kitsune — лучший за период работы</div></div>
+  </div>
+</section>
+
+<section class="csec">
+  <div class="csec__ey"><span class="csec__num">(04) Выводы</span></div>
+  <h2 class="csec__h">Что работает в Retail</h2>
+  <div class="conclusions">
+    <div class="concl"><span class="concl__icon">🎯</span><p class="concl__text">Комплексный подход — контекст, таргет, SEO, геосервисы — значительно увеличивает трафик и количество заявок.</p></div>
+    <div class="concl"><span class="concl__icon">🤝</span><p class="concl__text">Кросс-промо с локальными партнёрами даёт быстрый охват при минимальных затратах. Конкурс с Kitsune — лучший результат за период.</p></div>
+    <div class="concl"><span class="concl__icon">📊</span><p class="concl__text">Внедрение CRM автоматизирует взаимодействие с клиентами и повышает эффективность повторных продаж.</p></div>
+    <div class="concl"><span class="concl__icon">💡</span><p class="concl__text">Для оптимизации рекламных бюджетов — постоянный анализ данных, тестирование гипотез и комбинаций.</p></div>
+  </div>
+</section>
+</main>
+
+<div class="case-nav">
+  <a href="mo/" class="cn"><div class="cn__dir">Подробнее об отделе</div><div class="cn__title">Маркетинговый отдел КД</div><span class="cn__arrow">→</span></a>
+  <a href="/ups/" class="cn"><div class="cn__dir">Следующий кейс</div><div class="cn__title">UPS Group · HoReCa</div><span class="cn__arrow">→</span></a>
+</div>
+<footer class="footer">
+  <span class="footer__copy">2025 · Ирина Бакурова · Digital-маркетолог</span>
+  <a href="#" class="footer__top" data-scroll-top>↑ Наверх</a>
+</footer>
+<script src="../js/nav.js"></script>
+<script>
+(function(){
+  var h=document.querySelector("header");
+  if(!h)return;
+  h.id=h.id||"site-header";
+  window.addEventListener("scroll",function(){
+    h.classList.toggle("scrolled",window.scrollY>20);
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
