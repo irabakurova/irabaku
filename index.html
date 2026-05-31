@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8"/>
@@ -466,10 +466,62 @@
 <script src="js/nav.js"></script>
 <script>
 (function() {
-  // Glassmorphism nav
+  // 1. Glassmorphism nav при скролле
   var hdr = document.getElementById('site-header');
-  window.addEventListener('scroll', function() {
-    hdr.classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true });
+  if (hdr) {
+    var onScroll = function() {
+      hdr.classList.toggle('scrolled', window.scrollY > 20);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
 
-  // Счёт�
+  // 2. Счётчики цифр через IntersectionObserver (easeOutQuart, 1400ms)
+  var nums = document.querySelectorAll('.stat__num[data-target]');
+  if (nums.length && 'IntersectionObserver' in window) {
+    var animate = function(el) {
+      var target = parseFloat(el.dataset.target) || 0;
+      var prefix = el.dataset.prefix || '';
+      var suffix = el.dataset.suffix || '';
+      var duration = 1400;
+      var start = performance.now();
+      var step = function(now) {
+        var p = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - p, 4);
+        var val = target * eased;
+        var display = Number.isInteger(target) ? Math.round(val) : val.toFixed(0);
+        el.textContent = prefix + display + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    nums.forEach(function(el) { io.observe(el); });
+  }
+
+  // 3. Анимация тегов (fade-in/slide при scroll в hero)
+  var tags = document.querySelectorAll('.tag');
+  if (tags.length && 'IntersectionObserver' in window) {
+    var tagIO = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry, i) {
+        if (entry.isIntersecting) {
+          setTimeout(function() {
+            entry.target.classList.add('tag--in');
+          }, i * 80);
+          tagIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    tags.forEach(function(el) { tagIO.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
