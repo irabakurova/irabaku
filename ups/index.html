@@ -48,6 +48,12 @@
     .case-meta__label { font-size: 9px; color: rgba(245,243,238,0.5); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
     .case-meta__val { font-size: 12px; color: rgba(245,243,238,0.9); line-height: 1.4; }
 
+    /* Stats-bar (after hero) */
+    .ups-stats { display: grid; grid-template-columns: repeat(4, 1fr); background: #0F1939; border-bottom: 0.5px solid #1a2550; }
+    .ups-stats .stat { border-color: rgba(255,255,255,0.07); }
+    .ups-stats .stat__num { color: #BF4510; }
+    .ups-stats .stat__label { color: #A8A49C; }
+
     /* ── СЕКЦИИ ── */
     .csec { padding: 56px 40px; border-bottom: 0.5px solid var(--border); }
     .csec--dark { background: var(--dark); color: #fff; border-bottom: none; }
@@ -142,6 +148,7 @@
     /* Мобайл */
     @media (max-width: 720px) {
       .case-hero__content { padding: 32px 20px 40px; }
+      .ups-stats { grid-template-columns: 1fr 1fr; }
       .csec { padding: 40px 20px; }
       .case-meta { grid-template-columns: 1fr; gap: 14px; }
       .case-meta__item { padding: 0 0 14px 0 !important; border-right: none; border-bottom: 0.5px solid var(--border); }
@@ -222,6 +229,26 @@
       </div>
     </div>
   </section>
+
+  <!-- ── STATS-BAR ── -->
+  <div class="ups-stats" aria-label="Ключевые показатели HoReCa">
+    <div class="stat">
+      <div class="stat__num" data-target="27" data-prefix="+" data-suffix="%">+0%</div>
+      <div class="stat__label">ТО Любим Сытно<br>за 3 месяца</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num" data-target="151">0</div>
+      <div class="stat__label">Push-рассылок<br>за апрель</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num" data-target="8.95" data-suffix="%">0%</div>
+      <div class="stat__label">CTR лучшей<br>рассылки</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num" data-target="15529">0</div>
+      <div class="stat__label">Клиентов<br>в RFM-базе</div>
+    </div>
+  </div>
 
   <!-- ── (01) С чего начала ── -->
   <section class="csec">
@@ -506,7 +533,7 @@
     requestAnimationFrame(step);
   }
 
-  var counters = document.querySelectorAll('.counter');
+  var counters = document.querySelectorAll('[data-target]');
   if ('IntersectionObserver' in window && counters.length) {
     var io = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
