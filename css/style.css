@@ -353,6 +353,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 56px 40px;
   border-bottom: 0.5px solid var(--border);
 }
+#skills  { background: #FAF8F4; }
+#about   { background: var(--surface); }
 
 /* ── КЕЙСЫ ──────────────────────────────────────────────── */
 .case {
