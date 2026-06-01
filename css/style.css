@@ -421,6 +421,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .case__link:hover { letter-spacing: 0.5px; }
 
+/* ── ОБО МНЕ — мета-карточки ───────────────────────────── */
+.about-meta-card {
+  padding: 20px;
+  background: var(--bg);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(15,25,57,0.04);
+  transition: transform .25s, box-shadow .25s;
+}
+.about-meta-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(15,25,57,0.08);
+}
+
 /* ── BENTO НАВЫКИ ───────────────────────────────────────── */
 .bento {
   display: grid;

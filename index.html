@@ -130,7 +130,7 @@
 
     /* ОБО МНЕ — фото по высоте карточек */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
-    .about-photo { position: relative; overflow: hidden; background: #BF4510; border-radius: 10px; min-height: 200px; }
+    .about-photo { position: relative; overflow: hidden; background: #BF4510; border-radius: 20px; min-height: 200px; box-shadow: 0 4px 20px rgba(15,25,57,0.12); }
     .about-photo img {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
@@ -422,14 +422,16 @@
   <h2 class="section-title">Обо мне</h2>
   <div class="about-grid">
     <div>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.75;border-left:2px solid var(--accent);padding-left:18px;margin-bottom:28px;">
-        Строю маркетинг вместе с командой — от стратегии до измеримого результата. Не просто генерирую идеи: довожу каждый инструмент до цифры в отчёте.
-      </p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-        <div style="padding:14px;background:var(--surface);border-radius:8px;"><div class="label" style="margin-bottom:5px;">Отрасли</div><div style="font-size:12px;color:var(--text);">Retail · HoReCa · Образование</div></div>
-        <div style="padding:14px;background:var(--surface);border-radius:8px;"><div class="label" style="margin-bottom:5px;">Инструменты</div><div style="font-size:12px;color:var(--text);">Директ · ВК · SEO · CRM · Figma</div></div>
-        <div style="padding:14px;background:var(--surface);border-radius:8px;"><div class="label" style="margin-bottom:5px;">Команда</div><div style="font-size:12px;color:var(--text);">До 7 специалистов одновременно</div></div>
-        <div style="padding:14px;background:var(--surface);border-radius:8px;"><div class="label" style="margin-bottom:5px;">Формат</div><div style="font-size:12px;color:var(--text);">Проекты · Штат · Консалтинг</div></div>
+      <div style="background:var(--bg);border-radius:14px;border:1px solid var(--border);box-shadow:0 2px 12px rgba(15,25,57,0.04);padding:24px;margin-bottom:20px;">
+        <p style="font-size:14px;color:var(--text-2);line-height:1.75;border-left:2px solid var(--accent);padding-left:18px;">
+          Строю маркетинг вместе с командой — от стратегии до измеримого результата. Не просто генерирую идеи: довожу каждый инструмент до цифры в отчёте.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="about-meta-card"><div class="label" style="margin-bottom:6px;">Отрасли</div><div style="font-size:12px;color:var(--text);">Retail · HoReCa · Образование</div></div>
+        <div class="about-meta-card"><div class="label" style="margin-bottom:6px;">Инструменты</div><div style="font-size:12px;color:var(--text);">Директ · ВК · SEO · CRM · Figma</div></div>
+        <div class="about-meta-card"><div class="label" style="margin-bottom:6px;">Команда</div><div style="font-size:12px;color:var(--text);">До 7 специалистов одновременно</div></div>
+        <div class="about-meta-card"><div class="label" style="margin-bottom:6px;">Формат</div><div style="font-size:12px;color:var(--text);">Проекты · Штат · Консалтинг</div></div>
       </div>
     </div>
     <div class="about-photo">
