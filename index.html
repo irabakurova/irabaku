@@ -308,7 +308,7 @@
       </div>
     </div>
     <div class="case__right">
-      <div class="case__metric">+120%</div>
+      <div class="case__metric" data-target="120" data-prefix="+" data-suffix="%">+0%</div>
       <div class="case__metric-label">продажи акц. товаров</div>
       <span class="case__link">Смотреть кейс →</span>
     </div>
@@ -325,7 +325,7 @@
       </div>
     </div>
     <div class="case__right">
-      <div class="case__metric">+27%</div>
+      <div class="case__metric" data-target="27" data-prefix="+" data-suffix="%">+0%</div>
       <div class="case__metric-label">ТО ресторанов за 3 мес.</div>
       <span class="case__link">Смотреть кейс →</span>
     </div>
@@ -342,7 +342,7 @@
       </div>
     </div>
     <div class="case__right">
-      <div class="case__metric">+210%</div>
+      <div class="case__metric" data-target="210" data-prefix="+" data-suffix="%">+0%</div>
       <div class="case__metric-label">трафик сайта за 4 мес.</div>
       <span class="case__link">Смотреть кейс →</span>
     </div>
@@ -477,7 +477,7 @@
   }
 
   // 2. Счётчики цифр через IntersectionObserver (easeOutQuart, 1400ms)
-  var nums = document.querySelectorAll('.stat__num[data-target]');
+  var nums = document.querySelectorAll('[data-target]');
   if (nums.length && 'IntersectionObserver' in window) {
     var animate = function(el) {
       var target = parseFloat(el.dataset.target) || 0;
