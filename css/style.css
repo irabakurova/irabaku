@@ -99,6 +99,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .btn:hover { opacity: .85; }
 .btn--primary { color: #fff; background: var(--accent); }
 .btn--ghost { color: var(--accent); border: 0.5px solid var(--accent); }
+.btn--outline-light { color: #F5F3EE; border: 0.5px solid rgba(245,243,238,0.6); }
+.btn--outline-light:hover { background: #F5F3EE; color: var(--dark); opacity: 1; }
 
 /* ── НАВИГАЦИЯ ──────────────────────────────────────────── */
 .nav {
@@ -556,6 +558,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
   .contacts { grid-template-columns: 1fr; }
   .contacts__a, .contacts__b { padding: 32px 16px; }
+
+  #contacts { padding: 32px 16px 24px; }
 
   .footer { padding: 14px 16px; flex-direction: column; gap: 8px; text-align: center; }
 }
