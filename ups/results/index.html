@@ -32,8 +32,8 @@
     .rc--dark{background:var(--dark);}
     .rc__num{font-family:var(--font-head);font-size:36px;font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:5px;}
     .rc--light .rc__num{color:var(--text);}
-    .rc--blue .rc__num{color:#fff;}
-    .rc--dark .rc__num{color:#F5F3EE;}
+    .rc--blue .rc__num{color:var(--bg);}
+    .rc--dark .rc__num{color:var(--bg);}
     .rc__label{font-size:11px;line-height:1.4;}
     .rc--light .rc__label{color:var(--text-2);}
     .rc--blue .rc__label{color:rgba(255,255,255,0.85);}
@@ -59,7 +59,7 @@
     .dg__row-label{color:var(--text-2);}
     .dg__row-val{font-family:var(--font-head);font-weight:600;color:var(--text);}
     .dg--dark .dg__row-label{color:#8898CC;}
-    .dg--dark .dg__row-val{color:#F5F3EE;}
+    .dg--dark .dg__row-val{color:var(--bg);}
     /* Рейтинги */
     .ratings{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
     .rat{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:14px;}
@@ -75,13 +75,13 @@
     .app--dark{background:var(--dark);}
     .app__name{font-family:var(--font-head);font-size:14px;font-weight:700;text-transform:uppercase;margin-bottom:12px;}
     .app--light .app__name{color:var(--text);}
-    .app--dark .app__name{color:#F5F3EE;}
+    .app--dark .app__name{color:var(--bg);}
     .app__rows{display:flex;flex-direction:column;gap:6px;}
     .app__row{display:flex;justify-content:space-between;align-items:baseline;}
     .app__row-label{font-size:11px;color:var(--text-3);}
     .app--dark .app__row-label{color:#8898CC;}
     .app__row-val{font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--text);}
-    .app--dark .app__row-val{color:#F5F3EE;}
+    .app--dark .app__row-val{color:var(--bg);}
     .app__row-val em{color:var(--accent);font-style:normal;}
     /* Лояльность */
     .loyalty{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
