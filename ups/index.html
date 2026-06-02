@@ -70,14 +70,15 @@
 
     /* С чего начала — 3 пункта */
     .start-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-    .start-card { padding: 22px 20px; background: var(--surface); border-radius: 12px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); }
+    .start-card { padding: 22px 20px; background: var(--surface); border-radius: 12px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease; }
+    .start-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(15,25,57,0.18); }
     .start-card__n { font-family: var(--font-head); font-size: 22px; font-weight: 900; color: var(--accent); margin-bottom: 8px; }
     .start-card__t { font-size: 13px; color: var(--text); line-height: 1.55; }
 
     /* Три бренда */
     .brands { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-    .brand-card { padding: 26px 22px; background: var(--surface); border-radius: 12px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); transition: all .25s; }
-    .brand-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px -8px rgba(15,25,57,0.12); }
+    .brand-card { padding: 26px 22px; background: var(--surface); border-radius: 12px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease; }
+    .brand-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(15,25,57,0.18); }
     .brand-card.accent { background: var(--dark); color: var(--bg); }
     .brand-card__name { font-family: var(--font-head); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 14px; }
     .brand-card__metric { font-family: var(--font-head); font-size: 36px; font-weight: 900; color: var(--orange); line-height: 1; margin-bottom: 6px; letter-spacing: -1px; }
@@ -94,8 +95,8 @@
     .bb-hero__title em { color: var(--orange); font-style: normal; display: block; }
     .bb-hero__lead { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
     .bb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .bb-cell { aspect-ratio: 1/1; background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.18); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.4); transition: all .2s; }
-    .bb-cell:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
+    .bb-cell { aspect-ratio: 1/1; background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.18); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.4); transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease; }
+    .bb-cell:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(15,25,57,0.18); background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
     .bb-cell__icon { font-size: 22px; }
     .bb-cell__label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; }
     .bb-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
@@ -104,7 +105,8 @@
     /* Структура команды (тёмная) */
     .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; }
     .team-roles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .team-role { padding: 16px 18px; background: rgba(255,255,255,0.04); border-left: 2px solid var(--orange); border-radius: 0 8px 8px 0; }
+    .team-role { padding: 16px 18px; background: rgba(255,255,255,0.04); border-left: 2px solid var(--orange); border-radius: 0 8px 8px 0; transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease; }
+    .team-role:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(15,25,57,0.18); }
     .team-role__t { font-family: var(--font-head); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--bg); margin-bottom: 4px; }
     .team-role__d { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.5; }
     .team-photo { aspect-ratio: 5/4; background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.18); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: rgba(255,255,255,0.35); padding: 16px; text-align: center; }
@@ -122,8 +124,8 @@
 
     /* Кнопки подстраниц */
     .pages-nav { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-    .page-card { display: flex; flex-direction: column; gap: 8px; padding: 28px 24px 24px; background: var(--surface); border-radius: 14px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); transition: all .25s; min-height: 180px; }
-    .page-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -10px rgba(15,25,57,0.18); background: #fff; }
+    .page-card { display: flex; flex-direction: column; gap: 8px; padding: 28px 24px 24px; background: var(--surface); border-radius: 14px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease; min-height: 180px; }
+    .page-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(15,25,57,0.18); background: #fff; }
     .page-card__num { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); }
     .page-card__h { font-family: var(--font-head); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; color: var(--text); }
     .page-card__desc { font-size: 12px; color: var(--text-2); line-height: 1.55; flex: 1; }
@@ -151,14 +153,16 @@
 
     /* Results bento */
     .results-bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .rb { padding: 22px 20px; background: var(--surface); border-radius: 12px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); }
+    .rb { padding: 22px 20px; background: var(--surface); border-radius: 12px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease; }
+    .rb:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(15,25,57,0.18); }
     .rb__val { font-family: var(--font-head); font-size: 40px; font-weight: 900; color: var(--orange); line-height: 1; letter-spacing: -2px; margin-bottom: 6px; }
     .rb__label { font-size: 9px; color: var(--text-3); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
     .rb__desc { font-size: 12px; color: var(--text-2); line-height: 1.55; }
 
     /* Insights карточки */
     .insight-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .ic { padding: 24px 20px; background: var(--surface); border-radius: 12px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); }
+    .ic { padding: 24px 20px; background: var(--surface); border-radius: 12px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease; }
+    .ic:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(15,25,57,0.18); }
     .ic__icon { font-size: 22px; margin-bottom: 10px; }
     .ic__t { font-family: var(--font-head); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; color: var(--text); margin-bottom: 8px; }
     .ic__d { font-size: 12px; color: var(--text-2); line-height: 1.6; }
