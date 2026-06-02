@@ -87,11 +87,11 @@
     .brand-card.accent .brand-card__desc { color: rgba(255,255,255,0.75); }
 
     /* Брендбук Любим Сытно */
-    .bb-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 32px; }
+    .bb-hero { display: grid; grid-template-columns: 3fr 2fr; gap: 32px; align-items: start; margin-bottom: 0; }
     .bb-hero__title { font-family: var(--font-head); font-size: clamp(28px, 4vw, 40px); font-weight: 900; text-transform: uppercase; line-height: 0.95; letter-spacing: -1px; color: var(--bg); }
     .bb-hero__title em { color: var(--orange); font-style: normal; display: block; }
     .bb-hero__lead { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
-    .bb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .bb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .bb-cell { aspect-ratio: 4/5; background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.18); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,0.4); transition: all .2s; }
     .bb-cell:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
     .bb-cell__icon { font-size: 22px; }
@@ -147,6 +147,20 @@
     .case-nav__label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
     .case-nav__t { font-family: var(--font-head); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; }
 
+    /* Results bento */
+    .results-bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .rb { padding: 22px 20px; background: var(--surface); border-radius: 10px; }
+    .rb__val { font-family: var(--font-head); font-size: 40px; font-weight: 900; color: var(--orange); line-height: 1; letter-spacing: -2px; margin-bottom: 6px; }
+    .rb__label { font-size: 9px; color: var(--text-3); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+    .rb__desc { font-size: 12px; color: var(--text-2); line-height: 1.55; }
+
+    /* Insights карточки */
+    .insight-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .ic { padding: 24px 20px; background: var(--surface); border-radius: 10px; }
+    .ic__icon { font-size: 22px; margin-bottom: 10px; }
+    .ic__t { font-family: var(--font-head); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; color: var(--text); margin-bottom: 8px; }
+    .ic__d { font-size: 12px; color: var(--text-2); line-height: 1.6; }
+
     /* Мобайл */
     @media (max-width: 720px) {
       .case-hero__content { padding: 32px 20px 40px; }
@@ -156,14 +170,11 @@
       .case-meta__item { padding: 0 0 14px 0 !important; border-right: none; border-bottom: 0.5px solid var(--border); }
       .case-meta__item:last-child { border-bottom: none; padding-bottom: 0 !important; }
       .start-grid, .brands { grid-template-columns: 1fr; }
-      .bb-hero, .team-grid { grid-template-columns: 1fr; gap: 24px; }
-      .bb-grid { grid-template-columns: 1fr 1fr; }
+      .bb-hero { grid-template-columns: 1fr; gap: 24px; }
       .team-roles { grid-template-columns: 1fr; }
-      .ledger__row { grid-template-columns: 1fr; gap: 6px; padding: 16px 0; }
-      .ledger__val { font-size: 26px; }
+      .results-bento { grid-template-columns: 1fr 1fr; }
+      .insight-cards { grid-template-columns: 1fr; }
       .pages-nav { grid-template-columns: 1fr; }
-      .insight { grid-template-columns: 40px 1fr; gap: 12px; }
-      .insight__t { font-size: 13px; }
       .case-nav { grid-template-columns: 1fr; padding: 28px 20px; }
       header.scrolled .nav { margin: 6px 10px 0; border-radius: 10px; }
     }
@@ -308,6 +319,7 @@
     <div class="bb-hero">
       <div>
         <div class="bb-hero__title">Полная переупаковка<em>от логотипа до меню</em></div>
+        <p class="bb-hero__lead">С агентством и дизайн-командой собрали полный брендбук: визуальная система, тон голоса, шаблоны для соцсетей и POSm. После выкатки — рост ТО +27% за три месяца и рекорд по марту.</p>
         <div class="bb-pills">
           <span class="bb-pill">Логотип</span>
           <span class="bb-pill">Палитра</span>
@@ -317,41 +329,31 @@
           <span class="bb-pill">POSm</span>
         </div>
       </div>
-      <p class="bb-hero__lead">Бренд требовал нового языка, чтобы соответствовать обновлённому меню и формату 4-х гастробаров. С агентством и дизайн-командой собрали полный брендбук: визуальная система, тон голоса, шаблоны для соцсетей и POSm. После выкатки нового бренда — рост ТО на +27% за три месяца и рекорд по марту.</p>
-    </div>
-
-    <div class="bb-grid">
-      <div class="bb-cell">
-        <div class="bb-cell__icon">◆</div>
-        <div class="bb-cell__label">Логотип</div>
-      </div>
-      <div class="bb-cell">
-        <div class="bb-cell__icon">▦</div>
-        <div class="bb-cell__label">Палитра</div>
-      </div>
-      <div class="bb-cell">
-        <div class="bb-cell__icon">Aa</div>
-        <div class="bb-cell__label">Шрифты</div>
-      </div>
-      <div class="bb-cell">
-        <div class="bb-cell__icon">≡</div>
-        <div class="bb-cell__label">Меню</div>
-      </div>
-      <div class="bb-cell">
-        <div class="bb-cell__icon">◐</div>
-        <div class="bb-cell__label">SMM-шаблоны</div>
-      </div>
-      <div class="bb-cell">
-        <div class="bb-cell__icon">⊞</div>
-        <div class="bb-cell__label">POSm</div>
-      </div>
-      <div class="bb-cell">
-        <div class="bb-cell__icon">◉</div>
-        <div class="bb-cell__label">Tone of voice</div>
-      </div>
-      <div class="bb-cell">
-        <div class="bb-cell__icon">+</div>
-        <div class="bb-cell__label">Меню-доска</div>
+      <div class="bb-grid">
+        <div class="bb-cell">
+          <div class="bb-cell__icon">◆</div>
+          <div class="bb-cell__label">Логотип</div>
+        </div>
+        <div class="bb-cell">
+          <div class="bb-cell__icon">▦</div>
+          <div class="bb-cell__label">Палитра</div>
+        </div>
+        <div class="bb-cell">
+          <div class="bb-cell__icon">Aa</div>
+          <div class="bb-cell__label">Шрифты</div>
+        </div>
+        <div class="bb-cell">
+          <div class="bb-cell__icon">≡</div>
+          <div class="bb-cell__label">Меню</div>
+        </div>
+        <div class="bb-cell">
+          <div class="bb-cell__icon">◐</div>
+          <div class="bb-cell__label">SMM</div>
+        </div>
+        <div class="bb-cell">
+          <div class="bb-cell__icon">⊞</div>
+          <div class="bb-cell__label">POSm</div>
+        </div>
       </div>
     </div>
   </section>
@@ -362,37 +364,30 @@
     <h2 class="csec__h">7 специалистов · 3 бренда</h2>
     <p class="csec__lead">Команда не выросла — изменилось распределение зон ответственности. Каждое направление со своим KPI, общая координация — еженедельные встречи и единый календарь РК.</p>
 
-    <div class="team-grid">
-      <div class="team-roles">
-        <div class="team-role">
-          <div class="team-role__t">Таргетологи</div>
-          <div class="team-role__d">2 человека · ВК, Яндекс. Сетапы под каждый бренд, сегментация по гео и RFM.</div>
-        </div>
-        <div class="team-role">
-          <div class="team-role__t">SMM-менеджер</div>
-          <div class="team-role__d">1 человек · контент-планы и публикации, координация с агентством по визуалу.</div>
-        </div>
-        <div class="team-role">
-          <div class="team-role__t">Контент-менеджер</div>
-          <div class="team-role__d">1 человек · фото, видео, оффлайн-съёмки, материалы для рассылок.</div>
-        </div>
-        <div class="team-role">
-          <div class="team-role__t">Дизайн</div>
-          <div class="team-role__d">1 человек · ежедневные макеты, поддержка брендбука Любим Сытно.</div>
-        </div>
-        <div class="team-role">
-          <div class="team-role__t">Копирайтинг</div>
-          <div class="team-role__d">1 человек · push-уведомления, email, тексты для сайта и SMM.</div>
-        </div>
-        <div class="team-role">
-          <div class="team-role__t">Офлайн</div>
-          <div class="team-role__d">1 человек · POSm, посевы в ЖК, координация с точками.</div>
-        </div>
+    <div class="team-roles">
+      <div class="team-role">
+        <div class="team-role__t">Таргетологи</div>
+        <div class="team-role__d">2 человека · ВК, Яндекс. Сетапы под каждый бренд, сегментация по гео и RFM.</div>
       </div>
-      <div class="team-photo">
-        <div class="team-photo__icon">⌐■_■</div>
-        <div class="team-photo__label">фото команды</div>
-        <div style="font-size:10px;opacity:0.5;">плейсхолдер — можно подложить</div>
+      <div class="team-role">
+        <div class="team-role__t">SMM-менеджер</div>
+        <div class="team-role__d">1 человек · контент-планы и публикации, координация с агентством по визуалу.</div>
+      </div>
+      <div class="team-role">
+        <div class="team-role__t">Контент-менеджер</div>
+        <div class="team-role__d">1 человек · фото, видео, оффлайн-съёмки, материалы для рассылок.</div>
+      </div>
+      <div class="team-role">
+        <div class="team-role__t">Дизайн</div>
+        <div class="team-role__d">1 человек · ежедневные макеты, поддержка брендбука Любим Сытно.</div>
+      </div>
+      <div class="team-role">
+        <div class="team-role__t">Копирайтинг</div>
+        <div class="team-role__d">1 человек · push-уведомления, email, тексты для сайта и SMM.</div>
+      </div>
+      <div class="team-role">
+        <div class="team-role__t">Офлайн</div>
+        <div class="team-role__d">1 человек · POSm, посевы в ЖК, координация с точками.</div>
       </div>
     </div>
   </section>
@@ -401,32 +396,32 @@
   <section class="csec" id="results">
     <div class="csec__ey"><span class="csec__num">05 · Цифры</span></div>
     <h2 class="csec__h">Результаты в цифрах</h2>
-    <p class="csec__lead">Декабрь 2024 — май 2026. Что выросло за период активной системной работы.</p>
-    <div class="ledger">
-      <div class="ledger__row">
-        <div class="ledger__label">Рост ТО · Любим Сытно</div>
-        <div class="ledger__val">+27%</div>
-        <div class="ledger__desc">За 3 месяца после переупаковки бренда. Март 2026 — рекорд по сети.</div>
+    <p class="csec__lead">Декабрь 2024 — май 2026. Что выросло за период системной работы.</p>
+    <div class="results-bento">
+      <div class="rb">
+        <div class="rb__val" data-target="27" data-prefix="+" data-suffix="%">+27%</div>
+        <div class="rb__label">Рост ТО · Любим Сытно</div>
+        <div class="rb__desc">За 3 месяца после переупаковки бренда. Март — рекорд по сети.</div>
       </div>
-      <div class="ledger__row">
-        <div class="ledger__label">Push-уведомления · апрель</div>
-        <div class="ledger__val">151</div>
-        <div class="ledger__desc">Системная push-механика по всем трём брендам. 6 типов рассылок параллельно.</div>
+      <div class="rb">
+        <div class="rb__val" data-target="151">151</div>
+        <div class="rb__label">Push-уведомлений · апрель</div>
+        <div class="rb__desc">6 типов механик параллельно по всем трём брендам.</div>
       </div>
-      <div class="ledger__row">
-        <div class="ledger__label">CTR · лучшая рассылка</div>
-        <div class="ledger__val">8.95%</div>
-        <div class="ledger__desc">25 января 2026, Додома: 14 844 отправлений, 355 заказов с одной рассылки.</div>
+      <div class="rb">
+        <div class="rb__val" data-target="8.95" data-suffix="%">8.95%</div>
+        <div class="rb__label">CTR · лучшая рассылка</div>
+        <div class="rb__desc">Додома: 14 844 отправлений, 355 заказов с одной рассылки.</div>
       </div>
-      <div class="ledger__row">
-        <div class="ledger__label">Установки приложений</div>
-        <div class="ledger__val">+21%</div>
-        <div class="ledger__desc">Додома: 905 → 1 190. Шаверма (Бирвайн): 2 799 → 3 185 (+13%).</div>
+      <div class="rb">
+        <div class="rb__val" data-target="21" data-prefix="+" data-suffix="%">+21%</div>
+        <div class="rb__label">Установки приложения</div>
+        <div class="rb__desc">Додома: 905 → 1 190. Бирвайн: 2 799 → 3 185 (+13%).</div>
       </div>
-      <div class="ledger__row">
-        <div class="ledger__label">Посевы в ЖК</div>
-        <div class="ledger__val">25+</div>
-        <div class="ledger__desc">25+ ЖК с локальным трафиком, 467 переходов с сайта за январь–февраль.</div>
+      <div class="rb">
+        <div class="rb__val" data-target="25" data-suffix="+">25+</div>
+        <div class="rb__label">Посевов в ЖК</div>
+        <div class="rb__desc">467 переходов с 2ГИС на сайт ЛС за январь–февраль.</div>
       </div>
     </div>
   </section>
@@ -462,26 +457,26 @@
   <section class="csec">
     <div class="csec__ey"><span class="csec__num">07 · Выводы</span></div>
     <h2 class="csec__h">Что работает в HoReCa</h2>
-    <div class="insights">
-      <div class="insight">
-        <div class="insight__icon">◐</div>
-        <div class="insight__t">System over Chaos</div>
-        <div class="insight__d">Единый календарь и 7 этапов на каждую кампанию убирают хаос рассылок и оставляют чистый ритм. Команда не выросла — выросла предсказуемость.</div>
+    <div class="insight-cards">
+      <div class="ic">
+        <div class="ic__icon">◐</div>
+        <div class="ic__t">System over Chaos</div>
+        <div class="ic__d">Единый календарь и 7 этапов на каждую кампанию убирают хаос рассылок. Команда не выросла — выросла предсказуемость.</div>
       </div>
-      <div class="insight">
-        <div class="insight__icon">⚡</div>
-        <div class="insight__t">Push Precision</div>
-        <div class="insight__d">6 типов механик параллельно, каждая со своим триггером. Лучшая рассылка — 8.95% CTR при базе 14 844, потому что сегментировано до боли.</div>
+      <div class="ic">
+        <div class="ic__icon">⚡</div>
+        <div class="ic__t">Push Precision</div>
+        <div class="ic__d">6 типов механик параллельно, каждая со своим триггером. 8.95% CTR при базе 14 844 — результат сегментации.</div>
       </div>
-      <div class="insight">
-        <div class="insight__icon">⊕</div>
-        <div class="insight__t">Local Traffic</div>
-        <div class="insight__d">Посевы в 25+ ЖК — это не «массово», это адресно по гео. 467 переходов из локальных сообществ дешевле любого таргета.</div>
+      <div class="ic">
+        <div class="ic__icon">⊕</div>
+        <div class="ic__t">Local Traffic</div>
+        <div class="ic__d">Посевы в 25+ ЖК — адресно по гео. 467 переходов из локальных сообществ дешевле любого таргета.</div>
       </div>
-      <div class="insight">
-        <div class="insight__icon">★</div>
-        <div class="insight__t">Rating Integrity</div>
-        <div class="insight__d">Рейтинги Любим Сытно выросли по всей сети — не потому что писали отзывы, а потому что брендбук+меню+сервис стали одним продуктом.</div>
+      <div class="ic">
+        <div class="ic__icon">★</div>
+        <div class="ic__t">Rating Integrity</div>
+        <div class="ic__d">Рейтинги Любим Сытно выросли по всей сети — брендбук+меню+сервис стали одним продуктом.</div>
       </div>
     </div>
   </section>
