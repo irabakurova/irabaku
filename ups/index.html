@@ -87,7 +87,9 @@
     .brand-card.accent .brand-card__desc { color: rgba(255,255,255,0.75); }
 
     /* Брендбук Любим Сытно */
-    .bb-hero { display: grid; grid-template-columns: 1fr 3fr; gap: 32px; align-items: start; margin-bottom: 0; }
+    .bb-hero { display: grid; grid-template-columns: 1fr 3fr; gap: 32px; align-items: stretch; margin-bottom: 0; }
+    .bb-hero__text { display: flex; flex-direction: column; }
+    .bb-cell--voice { margin-top: auto; }
     .bb-hero__title { font-family: var(--font-head); font-size: clamp(28px, 4vw, 40px); font-weight: 900; text-transform: uppercase; line-height: 0.95; letter-spacing: -1px; color: var(--bg); }
     .bb-hero__title em { color: var(--orange); font-style: normal; display: block; }
     .bb-hero__lead { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
@@ -172,6 +174,7 @@
       .start-grid, .brands { grid-template-columns: 1fr; }
       .bb-hero { grid-template-columns: 1fr; gap: 24px; }
       .bb-grid { grid-template-columns: 1fr 1fr; }
+      .bb-cell--voice { display: none; }
       .team-roles { grid-template-columns: 1fr; }
       .results-bento { grid-template-columns: 1fr 1fr; }
       .insight-cards { grid-template-columns: 1fr; }
@@ -305,7 +308,7 @@
     <h2 class="csec__h">Новый брендбук · Любим Сытно</h2>
 
     <div class="bb-hero">
-      <div>
+      <div class="bb-hero__text">
         <div class="bb-hero__title">Полная переупаковка<em>от логотипа до меню</em></div>
         <p class="bb-hero__lead">С агентством и дизайн-командой собрали полный брендбук: визуальная система, тон голоса, шаблоны для соцсетей и POSm. После выкатки — рост ТО +27% за три месяца и рекорд по марту.</p>
         <div class="bb-pills">
@@ -315,6 +318,11 @@
           <span class="bb-pill">Меню</span>
           <span class="bb-pill">Соцсети</span>
           <span class="bb-pill">POSm</span>
+          <span class="bb-pill">Тон голоса</span>
+        </div>
+        <div class="bb-cell bb-cell--voice">
+          <div class="bb-cell__icon">❝</div>
+          <div class="bb-cell__label">Тон голоса</div>
         </div>
       </div>
       <div class="bb-grid">
