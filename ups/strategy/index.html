@@ -44,6 +44,12 @@
     .case-h1 em { color: var(--orange); font-style: normal; display: block; font-size: clamp(28px, 4.5vw, 38px); letter-spacing: -1.5px; margin-top: 4px; }
     .case-desc { font-size: 14px; color: rgba(245,243,238,0.78); line-height: 1.75; border-left: 2px solid var(--orange); padding-left: 18px; max-width: 520px; margin-bottom: 24px; }
 
+    /* ── STATS-BAR ── */
+    .strat-stats { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--dark); border-bottom: 0.5px solid #1a2550; }
+    .strat-stats .stat { border-color: rgba(255,255,255,0.07); }
+    .strat-stats .stat__num { color: var(--orange); }
+    .strat-stats .stat__label { color: rgba(255,255,255,0.55); }
+
     /* ── СЕКЦИИ ── */
     .csec { padding: 44px 40px; border-bottom: 0.5px solid var(--border); }
     .csec__ey { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -105,6 +111,7 @@
     .cn__title { font-family: var(--font-head); font-size: 14px; font-weight: 800; text-transform: uppercase; color: var(--text); }
     .cn__arrow { font-size: 16px; color: var(--accent); margin-top: 6px; display: block; }
     @media (max-width: 767px) {
+      .strat-stats { grid-template-columns: 1fr 1fr; }
       .case-hero__content { padding: 32px 20px 40px; }
       .case-h1 { font-size: 34px; }
       .csec { padding: 28px 16px; }
@@ -159,6 +166,26 @@
     </div>
   </div>
 </section>
+
+<!-- STATS-BAR -->
+<div class="strat-stats" aria-label="Ключевые показатели стратегии">
+  <div class="stat">
+    <div class="stat__num" data-target="3">0</div>
+    <div class="stat__label">Бренда<br>в портфеле</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="7">0</div>
+    <div class="stat__label">Этапов РК<br>в регламенте</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="38" data-suffix="+">0</div>
+    <div class="stat__label">Торговых точек<br>в сети</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="7">0</div>
+    <div class="stat__label">Специалистов<br>в команде</div>
+  </div>
+</div>
 
 <!-- АУДИТ -->
 <section class="csec" id="audit">
