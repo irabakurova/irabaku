@@ -47,6 +47,11 @@
     .csec__h{font-family:var(--font-head);font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;color:var(--text);margin-bottom:20px;}
     .accent-box{border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:20px;}
     .accent-box p{font-size:13px;color:var(--text);line-height:1.7;}
+    /* ── STATS-BAR ── */
+    .res-stats { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--dark); border-bottom: 0.5px solid #1a2550; }
+    .res-stats .stat { border-color: rgba(255,255,255,0.07); }
+    .res-stats .stat__num { color: var(--orange); }
+    .res-stats .stat__label { color: rgba(255,255,255,0.55); }
     /* Ключевые метрики */
     .kpi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;}
     .kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
@@ -125,6 +130,7 @@
       .case-h1{font-size:34px;}
       header.scrolled .nav{margin:6px 10px 0;border-radius:10px;}
       .csec{padding:28px 16px;}
+      .res-stats{grid-template-columns:1fr 1fr;}
       .kpi-grid{grid-template-columns:1fr 1fr;}
       .kpi-row{grid-template-columns:1fr 1fr;}
       .delivery-grid{grid-template-columns:1fr;}
@@ -177,25 +183,45 @@
   </div>
 </section>
 
+<!-- STATS-BAR -->
+<div class="res-stats" aria-label="Ключевые результаты HoReCa">
+  <div class="stat">
+    <div class="stat__num" data-target="27" data-prefix="+" data-suffix="%">+27%</div>
+    <div class="stat__label">ТО Любим Сытно<br>за 3 месяца</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="355">355</div>
+    <div class="stat__label">Заказов<br>с одной рассылки</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="3185">3 185</div>
+    <div class="stat__label">Установок приложения<br>БВ+ЛС</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="9502">9 502</div>
+    <div class="stat__label">Клиентов<br>сегмент 50+ баллов</div>
+  </div>
+</div>
+
 <!-- КЛЮЧЕВЫЕ KPI -->
 <section class="csec" id="kpi">
   <div class="csec__ey"><span class="csec__num">(01) Ключевые KPI</span></div>
   <h2 class="csec__h">Главные показатели</h2>
   <div class="kpi-grid">
-    <div class="reveal-up rc rc--blue"><div class="rc__num">+27%</div><div class="rc__label">Рост ТО ресторанов ЛС за 3 месяца</div><div class="rc__sub">январь → март 2025</div></div>
-    <div class="reveal-up rc rc--dark"><div class="rc__num">355</div><div class="rc__label">Заказов с одной push-рассылки</div><div class="rc__sub">25 января 2025 · CTR 8,95%</div></div>
-    <div class="reveal-up rc rc--light"><div class="rc__num" style="color:var(--accent);">467</div><div class="rc__label">Переходов с 2ГИС на сайт ЛС</div><div class="rc__sub">за февраль 2025</div></div>
+    <div class="reveal-up rc rc--blue"><div class="rc__num" data-target="27" data-prefix="+" data-suffix="%">+27%</div><div class="rc__label">Рост ТО ресторанов ЛС за 3 месяца</div><div class="rc__sub">январь → март 2025</div></div>
+    <div class="reveal-up rc rc--dark"><div class="rc__num" data-target="355">355</div><div class="rc__label">Заказов с одной push-рассылки</div><div class="rc__sub">25 января 2025 · CTR 8,95%</div></div>
+    <div class="reveal-up rc rc--light"><div class="rc__num" style="color:var(--accent);" data-target="467">467</div><div class="rc__label">Переходов с 2ГИС на сайт ЛС</div><div class="rc__sub">за февраль 2025</div></div>
   </div>
   <div class="kpi-row">
-    <div class="reveal-up rc rc--light"><div class="rc__num">3 185</div><div class="rc__label">Установок приложения БВ+ЛС в марте</div><div class="rc__sub">было 2 799 в октябре 2024</div></div>
-    <div class="reveal-up rc rc--light"><div class="rc__num" style="color:var(--accent);">+21%</div><div class="rc__label">Рост установок приложения Додома</div><div class="rc__sub">905 → 1 100</div></div>
+    <div class="reveal-up rc rc--light"><div class="rc__num" data-target="3185">3 185</div><div class="rc__label">Установок приложения БВ+ЛС в марте</div><div class="rc__sub">было 2 799 в октябре 2024</div></div>
+    <div class="reveal-up rc rc--light"><div class="rc__num" style="color:var(--accent);" data-target="21" data-prefix="+" data-suffix="%">+21%</div><div class="rc__label">Рост установок приложения Додома</div><div class="rc__sub">905 → 1 100</div></div>
   </div>
 </section>
 
 <!-- ТО РЕСТОРАНОВ -->
 <section class="csec">
   <div class="csec__ey"><span class="csec__num">(02) Любим Сытно · ТО ресторанов</span></div>
-  <h2 class="csec__h">+27% за три месяца · март — рекорд</h2>
+  <h2 class="csec__h"><span data-target="27" data-prefix="+" data-suffix="%">+27%</span> за три месяца · март — рекорд</h2>
   <div class="accent-box">
     <p>Совокупный товарооборот всех 6 ТТ сети. <strong>Март 2025 — рекордный месяц за весь период работы.</strong></p>
   </div>
@@ -318,8 +344,8 @@
     <div class="ly"><div class="ly__label">Применений в месяц</div><div class="ly__val">2 000–2 300</div><div class="ly__desc">Стабильно на протяжении всего периода</div></div>
     <div class="ly"><div class="ly__label">Оборот по баллам</div><div class="ly__val">190–220К ₽</div><div class="ly__desc">Ежемесячный товарооборот через баллы</div></div>
     <div class="ly"><div class="ly__label">Оплата баллами</div><div class="ly__val">до 30%</div><div class="ly__desc">Максимальная доля заказа, оплачиваемая баллами</div></div>
-    <div class="ly"><div class="ly__label">Кешбек базовый</div><div class="ly__val">5%</div><div class="ly__desc">Повышенный 9% в акционные периоды</div></div>
-    <div class="ly"><div class="ly__label">Сегмент 50+ баллов</div><div class="ly__val">9 502 чел.</div><div class="ly__desc">Получили персональную рассылку с остатком</div></div>
+    <div class="ly"><div class="ly__label">Кешбек базовый</div><div class="ly__val" data-target="5" data-suffix="%">5%</div><div class="ly__desc">Повышенный 9% в акционные периоды</div></div>
+    <div class="ly"><div class="ly__label">Сегмент 50+ баллов</div><div class="ly__val" data-target="9502" data-suffix=" чел.">9 502 чел.</div><div class="ly__desc">Получили персональную рассылку с остатком</div></div>
     <div class="ly"><div class="ly__label">Приветственные баллы</div><div class="ly__val">За регистрацию</div><div class="ly__desc">Сгорают через 2 недели — стимул к первому заказу</div></div>
   </div>
 </section>
