@@ -47,6 +47,11 @@
     .csec__h{font-family:var(--font-head);font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;color:var(--text);margin-bottom:20px;}
     .accent-box{border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:20px;}
     .accent-box p{font-size:13px;color:var(--text);line-height:1.7;}
+    /* ── STATS-BAR ── */
+    .crm-stats { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--dark); border-bottom: 0.5px solid #1a2550; }
+    .crm-stats .stat { border-color: rgba(255,255,255,0.07); }
+    .crm-stats .stat__num { color: var(--orange); }
+    .crm-stats .stat__label { color: rgba(255,255,255,0.55); }
     /* Push статы */
     .push-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;}
     .ps{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:16px;text-align:center;}
@@ -115,6 +120,7 @@
       .case-h1{font-size:34px;}
       header.scrolled .nav{margin:6px 10px 0;border-radius:10px;}
       .csec{padding:28px 16px;}
+      .crm-stats{grid-template-columns:1fr 1fr;}
       .push-stats{grid-template-columns:1fr 1fr;}
       .mechs{grid-template-columns:1fr;}
       .email-grid{grid-template-columns:1fr 1fr;}
@@ -168,10 +174,30 @@
   </div>
 </section>
 
+<!-- STATS-BAR -->
+<div class="crm-stats" aria-label="Ключевые показатели CRM">
+  <div class="stat">
+    <div class="stat__num" data-target="151">0</div>
+    <div class="stat__label">Push-рассылок<br>за апрель 2025</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="18389">0</div>
+    <div class="stat__label">Человек<br>в базе</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="13">0</div>
+    <div class="stat__label">Сегментов<br>Бирвайн</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="25" data-suffix="+">0</div>
+    <div class="stat__label">Сообществ<br>рядом с ТТ</div>
+  </div>
+</div>
+
 <!-- PUSH МАСШТАБ -->
 <section class="csec" id="push">
   <div class="csec__ey"><span class="csec__num">(01) Push-уведомления · масштаб</span></div>
-  <h2 class="csec__h">151 уведомление за апрель</h2>
+  <h2 class="csec__h"><span data-target="151">151</span> уведомление за апрель</h2>
   <div class="push-stats">
     <div class="ps ps--accent"><div class="ps__num">151</div><div class="ps__label">Push за апрель · все бренды</div></div>
     <div class="ps ps--dark"><div class="ps__num">81</div><div class="ps__label">Бирвайн · практически каждый день</div></div>
@@ -196,7 +222,7 @@
 <!-- EMAIL -->
 <section class="csec">
   <div class="csec__ey"><span class="csec__num">(02) Email-рассылки</span></div>
-  <h2 class="csec__h">База 18 389 человек · лично</h2>
+  <h2 class="csec__h">База <span data-target="18389">18 389</span> человек · лично</h2>
   <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:16px;">Email-рассылки по объединённой базе БВ и ЛС вела самостоятельно: составляла тексты, формировала выборки, отслеживала результаты. За март 2025 — 18 рассылок.</p>
   <div class="email-grid">
     <div class="eg"><div class="eg__num">18 389</div><div class="eg__label">Общая база (чел.)</div></div>
@@ -209,7 +235,7 @@
 <!-- RFM -->
 <section class="csec">
   <div class="csec__ey"><span class="csec__num">(03) RFM-сегментация</span></div>
-  <h2 class="csec__h">13 сегментов · Бирвайн</h2>
+  <h2 class="csec__h"><span data-target="13">13</span> сегментов · Бирвайн</h2>
   <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:16px;">Провела полный RFM-анализ клиентских баз приложения Бирвайн: разделила по давности покупки, частоте и сумме чека. Для каждого сегмента — конкретная тактика коммуникации. Запуск остановлен из-за технических ограничений ПО Starter.</p>
   <div class="rfm-intro">
     <div class="ri"><div class="ri__label">Бирвайн Шаверма</div><div class="ri__val">28 ТТ · 13 сегментов</div></div>
@@ -242,7 +268,7 @@
 <!-- ПОСЕВЫ ЖК -->
 <section class="csec">
   <div class="csec__ey"><span class="csec__num">(04) Посевы в ЖК</span></div>
-  <h2 class="csec__h">25+ сообществ рядом с каждой точкой</h2>
+  <h2 class="csec__h"><span data-target="25" data-suffix="+">25+</span> сообществ рядом с каждой точкой</h2>
   <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:16px;">Подобрала сообщества ВКонтакте и Telegram в радиусе от каждой ТТ Любим Сытно и Бирвайн. Для каждой точки — матрица тем под аудиторию района. Тексты в трёх вариантах на каждую тему. <strong>Результат: 467 переходов с 2ГИС на сайт ЛС за февраль.</strong></p>
   <div class="seeds-grid">
     <div class="seed"><div class="seed__point">Пушкин</div><div class="seed__topics"><div class="seed__topic">Студенческая скидка 15%</div><div class="seed__topic">Бизнес-ланч 12–16</div></div></div>
