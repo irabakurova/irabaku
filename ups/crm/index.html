@@ -98,6 +98,18 @@
     .seed__topics{display:flex;flex-direction:column;gap:3px;}
     .seed__topic{font-size:11px;color:var(--text-2);padding-left:10px;position:relative;}
     .seed__topic::before{content:'·';position:absolute;left:0;color:var(--accent);}
+    /* RFM-карточки */
+    .rfm-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .rfm-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 10px; padding: 16px; box-shadow: 0 2px 8px rgba(15,25,57,0.04); }
+    .rfm-card--dark { background: var(--dark); border-color: var(--dark); }
+    .rfm-card__label { font-size: 9px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+    .rfm-card--dark .rfm-card__label { color: rgba(255,255,255,0.4); }
+    .rfm-card__name { font-family: var(--font-head); font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text); margin-bottom: 4px; }
+    .rfm-card--dark .rfm-card__name { color: var(--bg); }
+    .rfm-card__pct { font-size: 10px; color: var(--accent); margin-bottom: 6px; }
+    .rfm-card--dark .rfm-card__pct { color: rgba(255,255,255,0.5); }
+    .rfm-card__tactic { font-size: 11px; color: var(--text-2); line-height: 1.5; }
+    .rfm-card--dark .rfm-card__tactic { color: #8898CC; }
     /* Промокоды */
     .promos{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
     .promo{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:16px;}
@@ -125,7 +137,7 @@
       .mechs{grid-template-columns:1fr;}
       .email-grid{grid-template-columns:1fr 1fr;}
       .rfm-intro{grid-template-columns:1fr 1fr;}
-      .seg{grid-template-columns:1fr;}
+      .rfm-grid{grid-template-columns:1fr 1fr;}
       .seeds-grid{grid-template-columns:1fr 1fr;}
       .promos{grid-template-columns:1fr;}
       .case-nav{grid-template-columns:1fr;}
@@ -241,26 +253,84 @@
     <div class="ri"><div class="ri__label">Бирвайн Шаверма</div><div class="ri__val">28 ТТ · 13 сегментов</div></div>
     <div class="ri"><div class="ri__label">Ключевой сегмент</div><div class="ri__val">50+ баллов · 9 502 чел.</div></div>
   </div>
-  <div class="rfm-segs">
-    <div class="seg">
-      <div><div class="seg__name">Потерянные</div><div class="seg__pct">66% базы · 90+ дней</div></div>
-      <div class="seg__tactic">Скорее всего ушли. Не тратить ресурс на удержание — собрать обратную связь о причинах.</div>
+  <div class="rfm-grid">
+    <div class="rfm-card rfm-card--dark">
+      <div class="rfm-card__label">Лучший актив</div>
+      <div class="rfm-card__name">Чемпионы</div>
+      <div class="rfm-card__pct">до 14 дней · высокий чек</div>
+      <div class="rfm-card__tactic">Увеличить чек допродажей. Просить отзывы — лояльны и влиятельны.</div>
     </div>
-    <div class="seg">
-      <div><div class="seg__name">Уходящие</div><div class="seg__pct">12% · 44+ дней</div></div>
-      <div class="seg__tactic">Можно попытаться вернуть. Лояльных чемпионов — обязательно возвращать.</div>
+    <div class="rfm-card">
+      <div class="rfm-card__label">VIP-ядро</div>
+      <div class="rfm-card__name">Лояльные</div>
+      <div class="rfm-card__pct">до 30 дней · регулярно</div>
+      <div class="rfm-card__tactic">Поддерживать программой лояльности. Без агрессивных скидок.</div>
     </div>
-    <div class="seg">
-      <div><div class="seg__name">Спящие</div><div class="seg__pct">11% · 15+ дней</div></div>
-      <div class="seg__tactic">Ещё помнят о нас. Стимулирующие акции — реактивация через персональный оффер.</div>
+    <div class="rfm-card">
+      <div class="rfm-card__label">Растущие</div>
+      <div class="rfm-card__name">Потенциально лояльные</div>
+      <div class="rfm-card__pct">до 14 дней · 2+ покупки</div>
+      <div class="rfm-card__tactic">Переводить в лояльных — персональный оффер после 3-й покупки.</div>
     </div>
-    <div class="seg">
-      <div><div class="seg__name">Новички и постоянные</div><div class="seg__pct">11% · до 14 дней</div></div>
-      <div class="seg__tactic">VIP-потенциал — аккуратно, без агрессивных скидок. Удерживать контентом и качеством.</div>
+    <div class="rfm-card">
+      <div class="rfm-card__label">Старт</div>
+      <div class="rfm-card__name">Новые</div>
+      <div class="rfm-card__pct">до 14 дней · 1 покупка</div>
+      <div class="rfm-card__tactic">Приветственный оффер. Формировать привычку через еженедельную механику.</div>
     </div>
-    <div class="seg">
-      <div><div class="seg__name">Чемпионы</div><div class="seg__pct">Лучший актив</div></div>
-      <div class="seg__tactic">Увеличить средний чек допродажей. Просить оставить отзыв — они лояльны и их слушают.</div>
+    <div class="rfm-card">
+      <div class="rfm-card__label">На старте</div>
+      <div class="rfm-card__name">Перспективные</div>
+      <div class="rfm-card__pct">до 14 дней · разовые</div>
+      <div class="rfm-card__tactic">Стимулировать вторую покупку — промокод с коротким дедлайном.</div>
+    </div>
+    <div class="rfm-card">
+      <div class="rfm-card__label">Снижение</div>
+      <div class="rfm-card__name">Нужна активация</div>
+      <div class="rfm-card__pct">15–30 дней · средний чек</div>
+      <div class="rfm-card__tactic">Напомнить о себе через персональный push — имя + блюдо из истории.</div>
+    </div>
+    <div class="rfm-card">
+      <div class="rfm-card__label">Тревога</div>
+      <div class="rfm-card__name">Начинают засыпать</div>
+      <div class="rfm-card__pct">15–44 дней · частота падает</div>
+      <div class="rfm-card__tactic">Реактивирующая акция — скидка на любимое блюдо.</div>
+    </div>
+    <div class="rfm-card">
+      <div class="rfm-card__label">11% базы</div>
+      <div class="rfm-card__name">Спящие</div>
+      <div class="rfm-card__pct">15+ дней</div>
+      <div class="rfm-card__tactic">Ещё помнят о нас. Персональный оффер — реактивация до ухода.</div>
+    </div>
+    <div class="rfm-card rfm-card--dark">
+      <div class="rfm-card__label">12% базы</div>
+      <div class="rfm-card__name">Уходящие лояльные</div>
+      <div class="rfm-card__pct">44+ дней · были частыми</div>
+      <div class="rfm-card__tactic">Срочная реактивация. Лояльных чемпионов — возвращать обязательно.</div>
+    </div>
+    <div class="rfm-card">
+      <div class="rfm-card__label">Под угрозой</div>
+      <div class="rfm-card__name">Уходящие новички</div>
+      <div class="rfm-card__pct">44+ дней · 1–2 покупки</div>
+      <div class="rfm-card__tactic">Попытка вернуть через сильный оффер. Низкий приоритет если разовые.</div>
+    </div>
+    <div class="rfm-card rfm-card--dark">
+      <div class="rfm-card__label">Критично</div>
+      <div class="rfm-card__name">Группа риска</div>
+      <div class="rfm-card__pct">44+ дней · высокий LTV</div>
+      <div class="rfm-card__tactic">Обязательно возвращать — максимальная скидка или VIP-звонок.</div>
+    </div>
+    <div class="rfm-card">
+      <div class="rfm-card__label">66% базы</div>
+      <div class="rfm-card__name">Потерянные</div>
+      <div class="rfm-card__pct">90+ дней</div>
+      <div class="rfm-card__tactic">Скорее всего ушли. Собрать обратную связь. Не тратить ресурс на удержание.</div>
+    </div>
+    <div class="rfm-card">
+      <div class="rfm-card__label">Архив</div>
+      <div class="rfm-card__name">Полностью потерянные</div>
+      <div class="rfm-card__pct">90+ дней · разовые</div>
+      <div class="rfm-card__tactic">Не тратить ресурс. Возможно — реактивационная кампания 1× в квартал.</div>
     </div>
   </div>
 </section>
