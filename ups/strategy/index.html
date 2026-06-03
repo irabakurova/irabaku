@@ -75,13 +75,14 @@
     .audit-info { display: flex; align-items: flex-start; gap: 12px; margin-top: 14px; padding: 14px 18px; background: var(--accent-bg); border-left: 2px solid var(--accent); border-radius: 0 8px 8px 0; }
     .audit-info__icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
     .audit-info p { font-size: 12px; color: var(--text-2); line-height: 1.65; margin: 0; }
-    /* Этапы РК */
-    .stages { display: flex; flex-direction: column; gap: 0; }
-    .stage { display: grid; grid-template-columns: 40px 1fr; gap: 16px; padding: 18px 0; border-bottom: 0.5px solid var(--border); align-items: flex-start; }
-    .stage:last-child { border-bottom: none; }
-    .stage__n { font-family: var(--font-head); font-size: 13px; font-weight: 900; color: var(--accent); line-height: 1; }
-    .stage__title { font-family: var(--font-head); font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text); margin-bottom: 4px; }
-    .stage__desc { font-size: 12px; color: var(--text-2); line-height: 1.6; }
+    /* Этапы РК — сетка карточек */
+    .stages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .sg-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(15,25,57,0.04); transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease; }
+    .sg-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(15,25,57,0.18); }
+    .sg-card--wide { grid-column: span 2; }
+    .sg-card__n { font-family: var(--font-head); font-size: 22px; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 10px; }
+    .sg-card__t { font-family: var(--font-head); font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text); margin-bottom: 6px; letter-spacing: 0.2px; }
+    .sg-card__d { font-size: 11px; color: var(--text-2); line-height: 1.55; }
     /* Команда */
     .team-list { display: flex; flex-direction: column; gap: 0; }
     .tm { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 16px 0; border-bottom: 0.5px solid var(--border); align-items: flex-start; }
@@ -122,7 +123,7 @@
       .case-h1 { font-size: 34px; }
       .csec { padding: 28px 16px; }
       .audit-grid { grid-template-columns: 1fr; }
-      .stage { grid-template-columns: 28px 1fr; }
+      .stages-grid { grid-template-columns: 1fr 1fr; }
       .tm { grid-template-columns: 1fr; }
       .docs { grid-template-columns: 1fr; }
       .push-stats { grid-template-columns: 1fr 1fr; }
@@ -233,34 +234,41 @@
   <div class="csec__ey"><span class="csec__num">(02) Ключевой инструмент</span></div>
   <h2 class="csec__h">Маркетинговый календарь · 7 этапов РК</h2>
   <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:20px;">Разработала с нуля для Любим Сытно на весь 2025 год. Каждая рекламная кампания проходит через фиксированный регламент. Это исключает ситуацию, когда дизайнеры делают макеты, а push ещё не согласован.</p>
-  <div class="stages">
-    <div class="stage">
-      <div class="stage__n">01</div>
-      <div><div class="stage__title">Согласование акции</div><div class="stage__desc">Меню для гостей и клиентов доставки, название акции, механика стимулирующего мероприятия.</div></div>
+  <div class="stages-grid">
+    <div class="sg-card">
+      <div class="sg-card__n">01</div>
+      <div class="sg-card__t">Согласование акции</div>
+      <div class="sg-card__d">Меню для гостей и клиентов доставки, название акции, механика стимулирующего мероприятия.</div>
     </div>
-    <div class="stage">
-      <div class="stage__n">02</div>
-      <div><div class="stage__title">Мозговой штурм команды</div><div class="stage__desc">Совещание: концепция, целевая аудитория, бюджеты, ожидаемые результаты по каждому каналу.</div></div>
+    <div class="sg-card">
+      <div class="sg-card__n">02</div>
+      <div class="sg-card__t">Мозговой штурм команды</div>
+      <div class="sg-card__d">Совещание: концепция, целевая аудитория, бюджеты, ожидаемые результаты по каналам.</div>
     </div>
-    <div class="stage">
-      <div class="stage__n">03</div>
-      <div><div class="stage__title">Согласование бюджетов и ТЗ</div><div class="stage__desc">Бюджеты на контекст, таргет, офлайн. ТЗ дизайнерам, фотографам, видеографам.</div></div>
+    <div class="sg-card">
+      <div class="sg-card__n">03</div>
+      <div class="sg-card__t">Согласование бюджетов и ТЗ</div>
+      <div class="sg-card__d">Бюджеты на контекст, таргет, офлайн. ТЗ дизайнерам, фотографам, видеографам.</div>
     </div>
-    <div class="stage">
-      <div class="stage__n">04</div>
-      <div><div class="stage__title">Продакшен</div><div class="stage__desc">Координация съёмки: шеф, предприятие, продакшен, маркетинг. Для ряда кампаний — личное присутствие на площадке.</div></div>
+    <div class="sg-card">
+      <div class="sg-card__n">04</div>
+      <div class="sg-card__t">Продакшен</div>
+      <div class="sg-card__d">Координация съёмки: шеф, предприятие, продакшен, маркетинг. Личное присутствие на ряде кампаний.</div>
     </div>
-    <div class="stage">
-      <div class="stage__n">05</div>
-      <div><div class="stage__title">Подготовка к запуску</div><div class="stage__desc">Печать полиграфии, доставка на предприятия. Передача материалов каждому специалисту — каждый «забирает из рук» и выпускает по своему каналу.</div></div>
+    <div class="sg-card">
+      <div class="sg-card__n">05</div>
+      <div class="sg-card__t">Подготовка к запуску</div>
+      <div class="sg-card__d">Полиграфия, доставка на предприятия. Каждый специалист «забирает из рук» и выпускает по своему каналу.</div>
     </div>
-    <div class="stage">
-      <div class="stage__n">06</div>
-      <div><div class="stage__title">Запуск РК</div><div class="stage__desc">Одновременно: SMM (пост + сторис), CRM (push + email), контекст, таргет, обновление на картах, сторис в приложении, обновление сайта, экраны на точках.</div></div>
+    <div class="sg-card">
+      <div class="sg-card__n">06</div>
+      <div class="sg-card__t">Запуск РК</div>
+      <div class="sg-card__d">Одновременно: SMM, CRM (push + email), контекст, таргет, карты, приложение, сайт, офлайн-экраны.</div>
     </div>
-    <div class="stage">
-      <div class="stage__n">07</div>
-      <div><div class="stage__title">Рассказ о событии + итоги</div><div class="stage__desc">На следующий день — публикации о том, как прошло. Приглашение на следующее мероприятие. Сбор метрик по всем каналам, сравнение с ожиданиями.</div></div>
+    <div class="sg-card sg-card--wide">
+      <div class="sg-card__n">07</div>
+      <div class="sg-card__t">Рассказ о событии + итоги</div>
+      <div class="sg-card__d">На следующий день — публикации о том, как прошло. Приглашение на следующее мероприятие. Сбор метрик по всем каналам, сравнение с ожиданиями.</div>
     </div>
   </div>
 </section>
