@@ -8,14 +8,38 @@
   <link rel="stylesheet" href="../../css/home.css"/>
   <link rel="stylesheet" href="/fonts/fonts.css"/>
   <style>
-    .case-hero{padding:52px 40px 44px;border-bottom:0.5px solid var(--border);}
-    .back{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--text-3);margin-bottom:12px;transition:color .2s;}
-    .back:hover{color:var(--accent);}
-    .breadcrumb{font-size:11px;color:var(--text-3);margin-bottom:20px;}
-    .breadcrumb a{color:var(--accent);}
-    .case-h1{font-family:var(--font-head);font-size:clamp(36px,6vw,52px);font-weight:900;text-transform:uppercase;line-height:0.9;letter-spacing:-2px;color:var(--text);margin-bottom:20px;}
-    .case-h1 em{color:var(--accent);font-style:normal;display:block;}
-    .case-desc{font-size:13px;color:var(--text-2);line-height:1.75;border-left:2px solid var(--accent);padding-left:16px;max-width:520px;}
+    :root { --orange: #BF4510; }
+    /* ── GLASSMORPHISM STICKY NAV ── */
+    html, body { overflow-x: clip; max-width: 100%; }
+    header { position: sticky; top: 0; z-index: 100; background: var(--bg); }
+    .nav { transition: all .4s cubic-bezier(.22,1,.36,1); }
+    header.scrolled .nav {
+      margin: 8px 16px 0; border-radius: 12px;
+      border: 0.5px solid rgba(15,25,57,0.1);
+      background: rgba(245,243,238,0.88);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px -8px rgba(15,25,57,0.12); border-bottom: none;
+    }
+    header.scrolled { background: transparent; }
+    /* ── HERO (dark, aligned with /ups/ standard) ── */
+    .case-hero { position: relative; min-height: 65vh; padding: 0; display: flex; align-items: flex-end; overflow: hidden; border-bottom: 0.5px solid var(--border); }
+    .case-hero__bg { position: absolute; inset: 0; z-index: 0; background: var(--dark); }
+    .case-hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(191,69,16,0.28) 0%, transparent 55%), linear-gradient(to bottom, rgba(15,25,57,0.05) 0%, rgba(15,25,57,0.88) 100%); }
+    .case-hero__blob { position: absolute; left: -60px; top: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(191,69,16,0.16) 0%, transparent 70%); pointer-events: none; z-index: 1; }
+    .case-hero__content { position: relative; z-index: 2; padding: 48px 40px 56px; max-width: 760px; width: 100%; }
+    .case-hero__eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .case-hero__eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+    .case-hero__eyebrow-text { font-size: 11px; color: rgba(245,243,238,0.65); letter-spacing: 2px; text-transform: uppercase; }
+    .back { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: rgba(245,243,238,0.5); margin-bottom: 20px; transition: color .2s; }
+    .back:hover { color: rgba(245,243,238,0.9); }
+    .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+    .tag { display: inline-flex; align-items: center; padding: 6px 14px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: rgba(245,243,238,0.85); background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.18); border-radius: 999px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: transform .2s; }
+    .tag:hover { transform: translateY(-1px); }
+    .case-hero .tag { background: rgba(255,255,255,0.07) !important; border: 0.5px solid rgba(255,255,255,0.18) !important; box-shadow: none !important; color: rgba(245,243,238,0.85) !important; }
+    .case-hero .tag:hover { background: rgba(255,255,255,0.14) !important; box-shadow: none !important; transform: translateY(-1px); }
+    .case-h1 { font-family: var(--font-head); font-size: clamp(40px, 7vw, 60px); font-weight: 900; text-transform: uppercase; line-height: 0.88; letter-spacing: -2.5px; color: var(--bg); margin-bottom: 20px; }
+    .case-h1 em { color: var(--orange); font-style: normal; display: block; font-size: clamp(28px, 4.5vw, 38px); letter-spacing: -1.5px; margin-top: 4px; }
+    .case-desc { font-size: 14px; color: rgba(245,243,238,0.78); line-height: 1.75; border-left: 2px solid var(--orange); padding-left: 18px; max-width: 520px; margin-bottom: 24px; }
     .csec{padding:44px 40px;border-bottom:0.5px solid var(--border);}
     .csec__ey{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
     .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
@@ -87,8 +111,9 @@
     .cn__title{font-family:var(--font-head);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--text);}
     .cn__arrow{font-size:16px;color:var(--accent);margin-top:6px;display:block;}
     @media(max-width:767px){
-      .case-hero{padding:24px 16px;}
-      .case-h1{font-size:32px;}
+      .case-hero__content{padding:32px 20px 40px;}
+      .case-h1{font-size:34px;}
+      header.scrolled .nav{margin:6px 10px 0;border-radius:10px;}
       .csec{padding:28px 16px;}
       .push-stats{grid-template-columns:1fr 1fr;}
       .mechs{grid-template-columns:1fr;}
@@ -120,14 +145,31 @@
 
 <main>
 <section class="case-hero">
-  <a href="/ups/" class="back">← HoReCa: Бирвайн · Любим Сытно · Додома</a>
-  <div class="breadcrumb"><a href="/ups/">HoReCa</a> · <a href="/ups/strategy/">Планирование</a> · <span style="color:var(--text);">CRM и база</span></div>
-  <h1 class="case-h1">CRM И<br><em>РАБОТА<br>С БАЗОЙ</em></h1>
-  <p class="case-desc">Push, email, посевы и сегментация — как работала с аудиторией трёх брендов. 151 push за апрель, RFM-анализ 15&nbsp;529 клиентов, посевы в 25+ ЖК.</p>
+  <div class="case-hero__bg" aria-hidden="true"></div>
+  <div class="case-hero__blob" aria-hidden="true"></div>
+  <div class="case-hero__content">
+    <a href="/ups/" class="back">← HoReCa: Обзор</a>
+    <div class="case-hero__eyebrow">
+      <div class="case-hero__eyebrow-dot" aria-hidden="true"></div>
+      <span class="case-hero__eyebrow-text">CRM И РАБОТА С БАЗОЙ · HoReCa · ЭТАП 2</span>
+    </div>
+    <h1 class="case-h1">CRM.<br><em>БАЗА.</em></h1>
+    <p class="case-desc">Как превратила реактивный маркетинг в систему: push-кампании, сегментация базы, аналитика по промокодам.</p>
+    <a href="#push" class="btn btn--primary">СМОТРЕТЬ ВНУТРИ ↓</a>
+    <div class="hero-tags">
+      <span class="tag">CRM</span>
+      <span class="tag">Push</span>
+      <span class="tag">Email</span>
+      <span class="tag">RFM</span>
+      <span class="tag">13 сегментов</span>
+      <span class="tag">25+ сообществ</span>
+      <span class="tag">Бирвайн</span>
+    </div>
+  </div>
 </section>
 
 <!-- PUSH МАСШТАБ -->
-<section class="csec">
+<section class="csec" id="push">
   <div class="csec__ey"><span class="csec__num">(01) Push-уведомления · масштаб</span></div>
   <h2 class="csec__h">151 уведомление за апрель</h2>
   <div class="push-stats">
