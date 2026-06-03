@@ -55,10 +55,10 @@
     /* Ключевые метрики */
     .kpi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;}
     .kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
-    .rc{border-radius:10px;padding:20px;}
-    .rc--light{background:var(--surface);border:0.5px solid var(--border);}
-    .rc--blue{background:var(--accent);}
-    .rc--dark{background:var(--dark);}
+    .rc{border-radius:12px;padding:20px;}
+    .rc--light{background:var(--surface);border:0.5px solid var(--border);box-shadow:0 2px 8px rgba(15,25,57,0.04);}
+    .rc--blue{background:var(--accent);box-shadow:0 4px 16px rgba(59,85,255,0.2);}
+    .rc--dark{background:var(--dark);box-shadow:0 4px 16px rgba(15,25,57,0.2);}
     .rc__num{font-family:var(--font-head);font-size:36px;font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:5px;}
     .rc--light .rc__num{color:var(--text);}
     .rc--blue .rc__num{color:var(--bg);}
@@ -79,7 +79,7 @@
     .to-table td.hi{color:var(--accent);font-family:var(--font-head);font-weight:700;}
     /* Доставка */
     .delivery-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
-    .dg{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:16px;}
+    .dg{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(15,25,57,0.04);}
     .dg--dark{background:var(--dark);border-color:var(--dark);}
     .dg__label{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
     .dg--dark .dg__label{color:rgba(255,255,255,0.4);}
@@ -91,7 +91,7 @@
     .dg--dark .dg__row-val{color:var(--bg);}
     /* Рейтинги */
     .ratings{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
-    .rat{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:14px;}
+    .rat{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(15,25,57,0.04);}
     .rat__point{font-family:var(--font-head);font-size:12px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:6px;}
     .rat__scores{display:flex;gap:8px;align-items:center;}
     .rat__score{font-family:var(--font-head);font-size:16px;font-weight:900;color:var(--text-3);}
@@ -99,9 +99,9 @@
     .rat__arrow{font-size:12px;color:var(--accent-2);}
     /* Приложения */
     .apps-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-    .app{border-radius:10px;padding:20px;}
-    .app--light{background:var(--surface);border:0.5px solid var(--border);}
-    .app--dark{background:var(--dark);}
+    .app{border-radius:12px;padding:20px;}
+    .app--light{background:var(--surface);border:0.5px solid var(--border);box-shadow:0 2px 8px rgba(15,25,57,0.04);}
+    .app--dark{background:var(--dark);box-shadow:0 4px 16px rgba(15,25,57,0.2);}
     .app__name{font-family:var(--font-head);font-size:14px;font-weight:700;text-transform:uppercase;margin-bottom:12px;}
     .app--light .app__name{color:var(--text);}
     .app--dark .app__name{color:var(--bg);}
@@ -114,7 +114,7 @@
     .app__row-val em{color:var(--accent);font-style:normal;}
     /* Лояльность */
     .loyalty{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
-    .ly{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:16px;}
+    .ly{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(15,25,57,0.04);}
     .ly__label{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
     .ly__val{font-family:var(--font-head);font-size:20px;font-weight:900;color:var(--text);margin-bottom:3px;}
     .ly__desc{font-size:11px;color:var(--text-2);line-height:1.4;}
