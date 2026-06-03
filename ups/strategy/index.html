@@ -109,8 +109,9 @@
     .ps:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(15,25,57,0.18); }
     .ps__num { font-family: var(--font-head); font-size: 24px; font-weight: 900; color: var(--accent); letter-spacing: -1px; margin-bottom: 4px; }
     .ps__label { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 1px; }
-    .push-examples { display: flex; flex-direction: column; gap: 8px; }
-    .push { background: var(--dark); border-radius: 10px; padding: 18px; }
+    .push-examples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .push { background: var(--dark); border-radius: 12px; padding: 20px; transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease; }
+    .push:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(15,25,57,0.35); }
     .push__brand { font-size: 9px; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
     .push__title { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--bg); margin-bottom: 4px; }
     .push__body { font-size: 12px; color: #8898CC; line-height: 1.5; }
@@ -132,6 +133,7 @@
       .roles-grid { grid-template-columns: 1fr 1fr; }
       .docs { grid-template-columns: 1fr; }
       .push-stats { grid-template-columns: 1fr 1fr; }
+      .push-examples { grid-template-columns: 1fr; }
       .case-nav { grid-template-columns: 1fr; }
       .cn { border-right: none; border-bottom: 0.5px solid var(--border); padding: 20px 16px; }
       header.scrolled .nav { margin: 6px 10px 0; border-radius: 10px; }
