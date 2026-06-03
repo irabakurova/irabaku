@@ -83,14 +83,15 @@
     .sg-card__n { font-family: var(--font-head); font-size: 22px; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 10px; }
     .sg-card__t { font-family: var(--font-head); font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text); margin-bottom: 6px; letter-spacing: 0.2px; }
     .sg-card__d { font-size: 11px; color: var(--text-2); line-height: 1.55; }
-    /* Команда */
-    .team-list { display: flex; flex-direction: column; gap: 0; }
-    .tm { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; padding: 16px 0; border-bottom: 0.5px solid var(--border); align-items: flex-start; }
-    .tm:last-child { border-bottom: none; }
-    .tm__role { font-size: 9px; color: var(--accent-2); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
-    .tm__name { font-family: var(--font-head); font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text); }
-    .tm__type { font-size: 11px; color: var(--text-3); margin-top: 3px; }
-    .tm__duties { font-size: 12px; color: var(--text-2); line-height: 1.55; }
+    /* Команда — сетка карточек ролей */
+    .roles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .role-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 12px; padding: 22px 20px; box-shadow: 0 2px 8px rgba(15,25,57,0.04); transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease; display: flex; flex-direction: column; }
+    .role-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px -8px rgba(15,25,57,0.18); }
+    .role-card__label { font-size: 9px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
+    .role-card__name { font-family: var(--font-head); font-size: 14px; font-weight: 800; text-transform: uppercase; color: var(--text); margin-bottom: 3px; letter-spacing: -0.2px; }
+    .role-card__type { font-size: 11px; color: var(--text-3); margin-bottom: 10px; padding-bottom: 10px; border-bottom: 0.5px solid var(--border); }
+    .role-card__desc { font-size: 11px; color: var(--text-2); line-height: 1.55; flex: 1; }
+    .role-card__budget { font-size: 10px; color: var(--accent-2); margin-top: 10px; font-weight: 600; letter-spacing: 0.2px; }
     /* Документы */
     .docs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .doc { background: var(--surface); border: 0.5px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(15,25,57,0.04); transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease; }
@@ -124,7 +125,7 @@
       .csec { padding: 28px 16px; }
       .audit-grid { grid-template-columns: 1fr; }
       .stages-grid { grid-template-columns: 1fr 1fr; }
-      .tm { grid-template-columns: 1fr; }
+      .roles-grid { grid-template-columns: 1fr 1fr; }
       .docs { grid-template-columns: 1fr; }
       .push-stats { grid-template-columns: 1fr 1fr; }
       .case-nav { grid-template-columns: 1fr; }
@@ -277,30 +278,44 @@
 <section class="csec">
   <div class="csec__ey"><span class="csec__num">(03) Команда</span></div>
   <h2 class="csec__h">Зоны ответственности</h2>
-  <div class="team-list">
-    <div class="tm">
-      <div><div class="tm__role">Таргет</div><div class="tm__name">Таргетолог</div><div class="tm__type">Аутсорс · ВКонтакте Ads</div></div>
-      <div class="tm__duties">РК на доставку и имиджевые кампании. Таргет по адресам ТТ — радиус 1,5 км. Отдельная РК Комендантский 61 (промокод КОМЕНДА). Бюджет: БВ 300 000 ₽ · ЛС 150 000 ₽/мес.</div>
+  <div class="roles-grid">
+    <div class="role-card">
+      <div class="role-card__label">Таргет</div>
+      <div class="role-card__name">Таргетолог</div>
+      <div class="role-card__type">Аутсорс · ВКонтакте Ads</div>
+      <div class="role-card__desc">РК на доставку и имиджевые кампании. Таргет по адресам ТТ — радиус 1,5 км. Отдельная РК Комендантский 61.</div>
+      <div class="role-card__budget">БВ 300 000 ₽ · ЛС 150 000 ₽/мес.</div>
     </div>
-    <div class="tm">
-      <div><div class="tm__role">Контекст</div><div class="tm__name">Контекстолог</div><div class="tm__type">Аутсорс · Яндекс.Директ + РСЯ</div></div>
-      <div class="tm__duties">Контекст на приложение и сайты под каждую РК. Инструмент Вендер — отдельный контроль. Бюджет: БВ 200 000 ₽ · ЛС 100 000 ₽ · Додома 300 000 ₽/мес.</div>
+    <div class="role-card">
+      <div class="role-card__label">Контекст</div>
+      <div class="role-card__name">Контекстолог</div>
+      <div class="role-card__type">Аутсорс · Яндекс.Директ + РСЯ</div>
+      <div class="role-card__desc">Контекст на приложение и сайты под каждую РК. Инструмент Вендер — отдельный контроль.</div>
+      <div class="role-card__budget">БВ 200К · ЛС 100К · Додома 300К ₽/мес.</div>
     </div>
-    <div class="tm">
-      <div><div class="tm__role">Соцсети</div><div class="tm__name">SMM-менеджер</div><div class="tm__type">Штат · ВКонтакте, Telegram</div></div>
-      <div class="tm__duties">Контент-план по трём брендам. Публикации по расписанию. Digital-анонсы офлайн-событий. Контент по матрице тем под каждую ТТ.</div>
+    <div class="role-card">
+      <div class="role-card__label">Соцсети</div>
+      <div class="role-card__name">SMM-менеджер</div>
+      <div class="role-card__type">Штат · ВКонтакте, Telegram</div>
+      <div class="role-card__desc">Контент-план по трём брендам. Digital-анонсы офлайн-событий. Контент по матрице тем под каждую ТТ.</div>
     </div>
-    <div class="tm">
-      <div><div class="tm__role">Площадки</div><div class="tm__name">Контент-менеджер</div><div class="tm__type">Штат · все площадки</div></div>
-      <div class="tm__duties">Актуальность меню, акций, цен в приложении и на сайте. Яндекс.Карты и 2ГИС — сторис, новости, фото. Все агрегаторы и партнёрские площадки.</div>
+    <div class="role-card">
+      <div class="role-card__label">Площадки</div>
+      <div class="role-card__name">Контент-менеджер</div>
+      <div class="role-card__type">Штат · все площадки</div>
+      <div class="role-card__desc">Актуальность меню, акций, цен. Яндекс.Карты и 2ГИС — сторис, новости, фото. Все агрегаторы и партнёрские площадки.</div>
     </div>
-    <div class="tm">
-      <div><div class="tm__role">Визуал</div><div class="tm__name">Старший дизайнер + Дизайнер</div><div class="tm__type">Штат · Figma</div></div>
-      <div class="tm__duties">Баннеры для всех каналов по ТЗ под каждую РК. Офлайн: наружка, кассовые меню, меню на столах, упаковка БВ. Брендбук ЛС — под редактурой. Все макеты согласовываются до выхода.</div>
+    <div class="role-card">
+      <div class="role-card__label">Визуал</div>
+      <div class="role-card__name">Дизайнеры ×2</div>
+      <div class="role-card__type">Штат · Figma</div>
+      <div class="role-card__desc">Баннеры по всем каналам под каждую РК. Офлайн: наружка, меню, упаковка. Брендбук ЛС под редактурой.</div>
     </div>
-    <div class="tm">
-      <div><div class="tm__role">Тексты + офлайн</div><div class="tm__name">Копирайтер + Офлайн-маркетолог</div><div class="tm__type">Аутсорс + штат</div></div>
-      <div class="tm__duties">Тексты для сайта БВ, описания 31 ТТ, блюда в меню. Описания позиций ЛС для всех площадок. Офлайн: полиграфия, доставка материалов на точки.</div>
+    <div class="role-card">
+      <div class="role-card__label">Тексты + офлайн</div>
+      <div class="role-card__name">Копирайтер + Офлайн</div>
+      <div class="role-card__type">Аутсорс + штат</div>
+      <div class="role-card__desc">Тексты для сайтов, описания 31 ТТ, меню. Офлайн: полиграфия, доставка материалов на точки.</div>
     </div>
   </div>
 </section>
