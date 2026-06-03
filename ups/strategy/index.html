@@ -71,6 +71,7 @@
     .ab--light .ab__title { color: var(--text); }
     .ab--dark .ab__title { color: var(--bg); }
     .ab__list { display: flex; flex-direction: column; gap: 5px; }
+    .ab__list--2col { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
     .ab__item { font-size: 11px; line-height: 1.5; padding-left: 12px; position: relative; }
     .ab__item::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
     .ab--light .ab__item { color: var(--text-2); }
@@ -208,22 +209,22 @@
   <div class="audit-grid">
     <div class="ab ab--light">
       <div class="ab__title">Аудит всех площадок</div>
-      <div class="ab__list">
-        <div class="ab__item">Сайты ЛС и БВ — актуальность данных</div>
+      <div class="ab__list ab__list--2col">
+        <div class="ab__item">Сайты ЛС и БВ — актуальность</div>
+        <div class="ab__item">Яндекс.Еда / Купер — расхождение меню</div>
         <div class="ab__item">Приложение Бирвайн — меню и акции</div>
+        <div class="ab__item">Restorating, Restoclub — баннеры</div>
         <div class="ab__item">Яндекс.Карты — часы, фото, описания</div>
-        <div class="ab__item">Яндекс.Еда / Купер — меню не совпадало</div>
-        <div class="ab__item">Restorating, Restoclub — баннеры устарели</div>
       </div>
     </div>
     <div class="ab ab--light">
       <div class="ab__title">Фиксация стартовых метрик</div>
-      <div class="ab__list">
+      <div class="ab__list ab__list--2col">
         <div class="ab__item">Установки приложений по брендам</div>
-        <div class="ab__item">Размеры CRM-баз Бирвайн и ЛС</div>
-        <div class="ab__item">Рейтинги на картах по каждой ТТ</div>
         <div class="ab__item">Трафик сайтов — Яндекс.Метрика</div>
-        <div class="ab__item">Данные по промокодам и баллам лояльности</div>
+        <div class="ab__item">Размеры CRM-баз Бирвайн и ЛС</div>
+        <div class="ab__item">Промокоды и баллы лояльности</div>
+        <div class="ab__item">Рейтинги на картах по каждой ТТ</div>
       </div>
     </div>
   </div>
