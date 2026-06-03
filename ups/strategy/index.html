@@ -40,6 +40,9 @@
     .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
     .tag { display: inline-flex; align-items: center; padding: 6px 14px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: rgba(245,243,238,0.85); background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.18); border-radius: 999px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: transform .2s; }
     .tag:hover { transform: translateY(-1px); }
+    /* Тёмный hero: override home.css white !important styles */
+    .case-hero .tag { background: rgba(255,255,255,0.07) !important; border: 0.5px solid rgba(255,255,255,0.18) !important; box-shadow: none !important; color: rgba(245,243,238,0.85) !important; }
+    .case-hero .tag:hover { background: rgba(255,255,255,0.14) !important; box-shadow: none !important; transform: translateY(-1px); }
     .case-h1 { font-family: var(--font-head); font-size: clamp(40px, 7vw, 60px); font-weight: 900; text-transform: uppercase; line-height: 0.88; letter-spacing: -2.5px; color: var(--bg); margin-bottom: 20px; }
     .case-h1 em { color: var(--orange); font-style: normal; display: block; font-size: clamp(28px, 4.5vw, 38px); letter-spacing: -1.5px; margin-top: 4px; }
     .case-desc { font-size: 14px; color: rgba(245,243,238,0.78); line-height: 1.75; border-left: 2px solid var(--orange); padding-left: 18px; max-width: 520px; margin-bottom: 24px; }
@@ -385,5 +388,48 @@
 </footer>
 <script src="../../js/nav.js"></script>
 <script src="../../js/home.js"></script>
+<script>
+(function() {
+  // Sticky glassmorphism nav
+  var hdr = document.getElementById('site-header');
+  if (hdr) {
+    window.addEventListener('scroll', function() {
+      hdr.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+  }
+
+  // Счётчики цифр (все [data-target], включая stats-bar)
+  function animateCounter(el) {
+    var target = parseFloat(el.dataset.target);
+    var prefix = el.dataset.prefix || '';
+    var suffix = el.dataset.suffix || '';
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / 1400, 1);
+      var ease = 1 - Math.pow(1 - p, 4);
+      var val = target * ease;
+      var display = Number.isInteger(target) ? Math.round(val) : val.toFixed(2);
+      el.textContent = prefix + display + suffix;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + (Number.isInteger(target) ? target : target) + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var counters = document.querySelectorAll('[data-target]');
+  if ('IntersectionObserver' in window && counters.length) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function(c) { io.observe(c); });
+  }
+})();
+</script>
 </body>
 </html>
