@@ -41,6 +41,11 @@
     .case-h1 { font-family: var(--font-head); font-size: clamp(40px, 7vw, 60px); font-weight: 900; text-transform: uppercase; line-height: 0.88; letter-spacing: -2.5px; color: var(--bg); margin-bottom: 20px; }
     .case-h1 em { color: var(--orange); font-style: normal; display: block; font-size: clamp(28px, 4.5vw, 38px); letter-spacing: -1.5px; margin-top: 4px; }
     .case-desc { font-size: 14px; color: rgba(245,243,238,0.78); line-height: 1.75; border-left: 2px solid var(--accent); padding-left: 18px; max-width: 520px; margin-bottom: 24px; }
+    /* ── STATS-BAR ── */
+    .ids-stats { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--dark); border-bottom: 0.5px solid #1a2550; }
+    .ids-stats .stat { border-color: rgba(255,255,255,0.07); }
+    .ids-stats .stat__num { color: var(--orange); }
+    .ids-stats .stat__label { color: rgba(255,255,255,0.55); }
     .csec{padding:44px 40px;border-bottom:0.5px solid var(--border);}
     .csec__ey{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
     .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
@@ -115,6 +120,7 @@
       .case-hero__content{padding:32px 20px 40px;}
       .case-h1{font-size:34px;}
       header.scrolled .nav{margin:6px 10px 0;border-radius:10px;}
+      .ids-stats{grid-template-columns:1fr 1fr;}
       .csec{padding:28px 16px;}
       .tools-bento{grid-template-columns:1fr 1fr;}
       .tb--span2{grid-column:span 2;}
@@ -166,6 +172,26 @@
     </div>
   </div>
 </section>
+
+<!-- STATS-BAR -->
+<div class="ids-stats" aria-label="Ключевые результаты IDS">
+  <div class="stat">
+    <div class="stat__num" data-target="210" data-prefix="+" data-suffix="%">+210%</div>
+    <div class="stat__label">Рост трафика<br>за 4 месяца</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="62" data-prefix="+" data-suffix="%">+62%</div>
+    <div class="stat__label">Рост заявок<br>за тот же период</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="6">6</div>
+    <div class="stat__label">Месяцев<br>проекта</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="3" data-prefix="×">×3</div>
+    <div class="stat__label">Рост сессий<br>за период</div>
+  </div>
+</div>
 
 <section class="csec" id="task">
   <div class="csec__ey"><span class="csec__num">(01) Запрос</span></div>
@@ -271,12 +297,12 @@
   <h2 class="csec__h">Что получилось</h2>
   <div class="res-hero">
     <div class="reveal-up rc rc--blue">
-      <div class="rc__num">+210%</div>
+      <div class="rc__num" data-target="210" data-prefix="+" data-suffix="%">+210%</div>
       <div class="rc__label">Рост трафика сайта за 4 месяца</div>
       <div class="rc__sub">Октябрь → Январь</div>
     </div>
     <div class="reveal-up rc rc--dark">
-      <div class="rc__num">+62%</div>
+      <div class="rc__num" data-target="62" data-prefix="+" data-suffix="%">+62%</div>
       <div class="rc__label">Рост заявок на обучение</div>
       <div class="rc__sub">20 заявок → 34 заявки</div>
     </div>
@@ -293,15 +319,15 @@
     <tbody>
       <tr>
         <td>Октябрь (старт)</td>
-        <td class="num">1 328</td>
+        <td class="num" data-target="1328">1 328</td>
         <td class="num">20</td>
         <td>— база</td>
       </tr>
       <tr>
         <td>Январь (итог)</td>
-        <td class="num">4 154</td>
-        <td class="num">34</td>
-        <td class="hi">+210%</td>
+        <td class="num" data-target="4154">4 154</td>
+        <td class="num" data-target="34">34</td>
+        <td class="hi"><span data-target="210" data-prefix="+" data-suffix="%">+210%</span></td>
       </tr>
     </tbody>
   </table>
