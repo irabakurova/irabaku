@@ -48,22 +48,22 @@ html, body { overflow-x: clip; max-width: 100%; }
     .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
     .csec__num{font-size:10px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;}
     .csec__h{font-family:var(--font-head);font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;color:var(--text);margin-bottom:20px;}
-    .req-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-    .req-box{border-radius:8px;padding:18px;}
+    .csec__lead{font-size:14px;color:var(--text-2);line-height:1.7;max-width:640px;margin-bottom:24px;}
+    .req-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .req-box{border-radius:12px;padding:22px 20px;box-shadow:0 2px 8px rgba(15,25,57,0.04);}
     .req-box--light{background:var(--surface);border:0.5px solid var(--border);}
     .req-box--dark{background:var(--dark);}
-    .req-box__label{font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+    .req-box__label{font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
     .req-box--light .req-box__label{color:var(--text-3);}
     .req-box--dark .req-box__label{color:rgba(255,255,255,0.35);}
     .req-item{font-size:12px;line-height:1.6;padding:7px 0;border-bottom:0.5px solid;}
     .req-item:last-child{border-bottom:none;padding-bottom:0;}
     .req-box--light .req-item{color:var(--text-2);border-color:var(--border);}
-    .req-box--dark .req-item{color:#8898CC;border-color:rgba(255,255,255,0.08);}
-    .strat-list{display:flex;flex-direction:column;}
-    .strat-item{padding:20px 0;border-bottom:0.5px solid var(--border);}
-    .strat-item:last-child{border-bottom:none;}
-    .strat-item__title{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:10px;}
-    .strat-item__desc{font-size:13px;color:var(--text-2);line-height:1.65;}
+    .req-box--dark .req-item{color:rgba(255,255,255,0.5);border-color:rgba(255,255,255,0.08);}
+    .strat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .strat-card{padding:22px 20px;background:var(--surface);border-radius:12px;border:0.5px solid var(--border);box-shadow:0 2px 8px rgba(15,25,57,0.04);}
+    .strat-card__title{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:10px;}
+    .strat-card__desc{font-size:13px;color:var(--text-2);line-height:1.65;}
     .accent-box{border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:16px 20px;margin-top:10px;}
     .accent-box p{font-size:13px;color:var(--text);line-height:1.7;}
     .pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
@@ -71,24 +71,24 @@ html, body { overflow-x: clip; max-width: 100%; }
     .pill--blue{font-size:11px;color:var(--accent);background:var(--accent-bg);border-radius:20px;padding:5px 13px;}
     .mo-cta{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:var(--dark);border-radius:10px;margin-top:14px;text-decoration:none;}
     .mo-cta__label{font-size:9px;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
-    .mo-cta__title{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;color:#F5F3EE;}
+    .mo-cta__title{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--bg);}
     .mo-cta__arrow{font-size:20px;color:var(--accent);}
-    .res-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px;}
-    .rc{border-radius:10px;padding:20px;}
+    .res-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;}
+    .rc{border-radius:12px;padding:22px 20px;box-shadow:0 2px 8px rgba(15,25,57,0.04);}
     .rc--light{background:var(--surface);border:0.5px solid var(--border);}
-    .rc--blue{background:var(--accent);}
-    .rc--dark{background:var(--dark);}
+    .rc--blue{background:var(--accent);box-shadow:0 4px 16px rgba(59,85,255,0.2);}
+    .rc--dark{background:var(--dark);box-shadow:0 4px 16px rgba(15,25,57,0.2);}
     .rc__num{font-family:var(--font-head);font-size:36px;font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:5px;}
     .rc--light .rc__num{color:var(--text);}
-    .rc--blue .rc__num{color:#fff;}
-    .rc--dark .rc__num{color:#F5F3EE;}
+    .rc--blue .rc__num{color:var(--bg);}
+    .rc--dark .rc__num{color:var(--bg);}
     .rc__label{font-size:11px;line-height:1.4;}
     .rc--light .rc__label{color:var(--text-2);}
     .rc--blue .rc__label{color:rgba(255,255,255,0.8);}
-    .rc--dark .rc__label{color:#8898CC;}
-    .conclusions{display:flex;flex-direction:column;gap:8px;}
-    .concl{display:flex;gap:14px;padding:14px 16px;background:var(--surface);border-radius:8px;align-items:flex-start;}
-    .concl__icon{font-size:15px;flex-shrink:0;}
+    .rc--dark .rc__label{color:rgba(255,255,255,0.5);}
+    .conclusions{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .concl{display:flex;gap:14px;padding:20px;background:var(--surface);border-radius:12px;border:0.5px solid var(--border);box-shadow:0 2px 8px rgba(15,25,57,0.04);align-items:flex-start;}
+    .concl__icon{font-size:18px;flex-shrink:0;}
     .concl__text{font-size:12px;color:var(--text-2);line-height:1.6;}
     .case-nav{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--border);}
     .cn{padding:28px 40px;border-right:0.5px solid var(--border);text-decoration:none;transition:background .15s;}
@@ -104,7 +104,7 @@ html, body { overflow-x: clip; max-width: 100%; }
       .case-h1{font-size:34px;letter-spacing:-1.5px;}
       header.scrolled .nav{margin:6px 10px 0;border-radius:10px;}
       .csec{padding:28px 16px;}
-      .req-grid{grid-template-columns:1fr;}
+      .req-grid,.strat-grid,.conclusions{grid-template-columns:1fr;}
       .res-grid{grid-template-columns:1fr 1fr;}
     }
   </style>
@@ -192,26 +192,26 @@ html, body { overflow-x: clip; max-width: 100%; }
 <section class="csec">
   <div class="csec__ey"><span class="csec__num">(02) Стратегия и реализация</span></div>
   <h2 class="csec__h">Как работала</h2>
-  <div class="strat-list">
-    <div class="strat-item">
-      <div class="strat-item__title">Разработка маркетинговой стратегии</div>
-      <div class="accent-box"><p>Проанализировала целевую аудиторию → сфокусировалась на <strong>4 ключевых ЦА</strong>. Каналы: <strong>ВКонтакте, Telegram, TikTok</strong> — высокая концентрация ЦА и возможности для рекламы.</p></div>
+  <div class="strat-grid">
+    <div class="strat-card">
+      <div class="strat-card__title">Маркетинговая стратегия</div>
+      <div class="accent-box"><p>4 ключевых ЦА. Каналы: <strong>ВКонтакте, Telegram, TikTok</strong> — высокая концентрация ЦА и возможности для рекламы.</p></div>
     </div>
-    <div class="strat-item">
-      <div class="strat-item__title">Организация маркетингового отдела</div>
-      <div class="strat-item__desc">Создала структуру: контент-менеджер, SMM-менеджер, дизайнер, фотограф, видеограф. Для каждой роли — обязанности, KPI, условия сотрудничества.</div>
+    <div class="strat-card">
+      <div class="strat-card__title">Маркетинговый отдел с нуля</div>
+      <div class="strat-card__desc">Структура: контент-менеджер, SMM, дизайнер, фотограф, видеограф. Обязанности, KPI, условия.</div>
       <div class="pills">
-        <span class="pill--blue">Контент-менеджер</span><span class="pill--blue">SMM-менеджер</span>
-        <span class="pill--blue">Дизайнер</span><span class="pill--blue">Фотограф</span><span class="pill--blue">Видеограф</span>
+        <span class="pill--blue">Контент</span><span class="pill--blue">SMM</span>
+        <span class="pill--blue">Дизайн</span><span class="pill--blue">Фото</span><span class="pill--blue">Видео</span>
       </div>
       <a href="mo/" class="mo-cta">
-        <div><div class="mo-cta__label">Подробнее</div><div class="mo-cta__title">Маркетинговый отдел — роли, обязанности, галерея работ →</div></div>
+        <div><div class="mo-cta__label">Подробнее</div><div class="mo-cta__title">Маркетинговый отдел → роли, KPI, галерея работ</div></div>
         <div class="mo-cta__arrow">→</div>
       </a>
     </div>
-    <div class="strat-item">
-      <div class="strat-item__title">Проведение маркетинговых акций</div>
-      <div class="strat-item__desc">Реализован ряд акций на увеличение продаж и привлечение новых клиентов:</div>
+    <div class="strat-card">
+      <div class="strat-card__title">Продуктовые акции</div>
+      <div class="strat-card__desc">7 акций на рост продаж и привлечение новых клиентов:</div>
       <div class="pills">
         <span class="pill--gray">Вкус Азии</span><span class="pill--gray">Шоппер в подарок</span>
         <span class="pill--gray">Скидки DH</span><span class="pill--gray">Bibigo</span>
@@ -219,22 +219,22 @@ html, body { overflow-x: clip; max-width: 100%; }
         <span class="pill--gray">Магия Азиатской кухни</span>
       </div>
     </div>
-    <div class="strat-item">
-      <div class="strat-item__title">Партнёрство / кросс-промо</div>
-      <div class="strat-item__desc">Активно развивались партнёрские отношения:</div>
+    <div class="strat-card">
+      <div class="strat-card__title">Партнёрства / Кросс-промо</div>
+      <div class="strat-card__desc">Локальные партнёрства для быстрого охвата:</div>
       <div class="pills">
-        <span class="pill--blue">Kitsune — совместные конкурсы</span>
-        <span class="pill--blue">Gamak — промокоды на скидку</span>
-        <span class="pill--blue">Sweet lavka — конкурс (план)</span>
+        <span class="pill--blue">Kitsune — конкурсы</span>
+        <span class="pill--blue">Gamak — промокоды</span>
+        <span class="pill--blue">Sweet lavka — план</span>
       </div>
     </div>
-    <div class="strat-item">
-      <div class="strat-item__title">Открытия новых торговых точек</div>
-      <div class="strat-item__desc">Освещение открытия двух новых ТТ и переезда магазина в Москве — привлечение внимания к сети и увеличение трафика.</div>
+    <div class="strat-card">
+      <div class="strat-card__title">Открытия торговых точек</div>
+      <div class="strat-card__desc">Освещение открытия двух новых ТТ и переезда магазина в Москве — рост внимания к сети и трафика.</div>
     </div>
-    <div class="strat-item">
-      <div class="strat-item__title">E-mail рассылки</div>
-      <div class="strat-item__desc">Регулярные рассылки по клиентской базе — акции, новости, события сети. Поддержание лояльности и стимулирование повторных покупок. Триггерные рассылки — запланированы, требуют отдельного специалиста.</div>
+    <div class="strat-card">
+      <div class="strat-card__title">E-mail рассылки</div>
+      <div class="strat-card__desc">Регулярные рассылки по базе — акции, новости, события сети. Поддержание лояльности, повторные покупки.</div>
     </div>
   </div>
 </section>
