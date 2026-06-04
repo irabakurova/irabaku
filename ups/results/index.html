@@ -73,14 +73,25 @@
     .rc--dark .rc__label{color:#8898CC;}
     .rc__sub{font-size:10px;color:var(--text-3);margin-top:4px;}
     .rc--blue .rc__sub{color:rgba(255,255,255,0.6);}
-    /* Таблица ТО */
-    .to-table{width:100%;border-collapse:collapse;margin-bottom:20px;}
-    .to-table th{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;text-align:left;padding:10px 16px;background:var(--surface);border-bottom:0.5px solid var(--border);}
-    .to-table td{font-size:12px;color:var(--text-2);padding:11px 16px;border-bottom:0.5px solid var(--border);}
-    .to-table tr:last-child td{border-bottom:none;background:var(--accent-bg);}
-    .to-table tr:last-child td{font-family:var(--font-head);font-weight:700;color:var(--text);}
-    .to-table td.num{font-family:var(--font-head);font-weight:600;color:var(--text);}
-    .to-table td.hi{color:var(--accent);font-family:var(--font-head);font-weight:700;}
+    /* Бенто ТО */
+    .tt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+    .tt{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(15,25,57,0.04);transition:transform 0.25s cubic-bezier(.22,1,.36,1),box-shadow 0.25s ease;}
+    .tt:hover{transform:translateY(-3px);box-shadow:0 12px 28px -8px rgba(15,25,57,0.18);}
+    .tt--total{grid-column:1/-1;background:var(--dark);}
+    .tt__name{font-size:10px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+    .tt--total .tt__name{color:rgba(255,255,255,0.5);}
+    .tt__nums{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+    .tt__from{font-family:var(--font-head);font-size:13px;font-weight:600;color:var(--text-3);}
+    .tt__arr{font-size:11px;}
+    .tt__arr--up{color:var(--orange);}
+    .tt__arr--down{color:var(--text-3);}
+    .tt__to{font-family:var(--font-head);font-size:16px;font-weight:900;}
+    .tt__to--up{color:var(--orange);}
+    .tt__to--down{color:var(--text-3);}
+    .tt--total .tt__from{color:rgba(255,255,255,0.4);font-size:15px;}
+    .tt--total .tt__to{color:var(--bg);font-size:20px;}
+    .tt__delta{font-size:10px;color:var(--text-3);margin-top:4px;}
+    .tt__delta--up{color:var(--orange);}
     /* Доставка */
     .delivery-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
     .dg{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(15,25,57,0.04);transition:transform 0.25s cubic-bezier(.22,1,.36,1),box-shadow 0.25s ease;}
@@ -146,6 +157,7 @@
       .kpi-grid{grid-template-columns:1fr 1fr;}
       .kpi-row{grid-template-columns:1fr 1fr;}
       .delivery-grid{grid-template-columns:1fr;}
+      .tt-grid{grid-template-columns:1fr 1fr;}
       .ratings{grid-template-columns:1fr 1fr;}
       .apps-grid{grid-template-columns:1fr;}
       .loyalty{grid-template-columns:1fr 1fr;}
@@ -236,20 +248,43 @@
   <div class="accent-box">
     <p>Совокупный товарооборот всех 6 ТТ сети. <strong>Март 2025 — рекордный месяц за весь период работы.</strong></p>
   </div>
-  <table class="to-table">
-    <thead>
-      <tr><th>Торговая точка</th><th>Январь</th><th>Март (пик)</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Конституции, 7</td><td class="num">3 439К ₽</td><td class="hi">3 772К ₽</td></tr>
-      <tr><td>Малая Бухарестская, 12</td><td class="num">2 421К ₽</td><td class="num">2 309К ₽</td></tr>
-      <tr><td>Плесецкая, 10</td><td class="num">2 304К ₽</td><td class="num">2 024К ₽</td></tr>
-      <tr><td>Обуховская, 120Б</td><td class="num">2 171К ₽</td><td class="hi">2 313К ₽</td></tr>
-      <tr><td>Пушкин, Кузьминское ш.</td><td class="num">2 094К ₽</td><td class="num">1 987К ₽</td></tr>
-      <tr><td>Челюскина, 6</td><td class="num">1 657К ₽</td><td class="hi">1 717К ₽</td></tr>
-      <tr><td>Итого</td><td>14 085К ₽</td><td>17 925К ₽</td></tr>
-    </tbody>
-  </table>
+  <div class="tt-grid">
+    <div class="tt">
+      <div class="tt__name">Конституции, 7</div>
+      <div class="tt__nums"><span class="tt__from">3 439К</span><span class="tt__arr tt__arr--up">→</span><span class="tt__to tt__to--up">3 772К ₽</span></div>
+      <div class="tt__delta tt__delta--up">+333К ₽ · рекорд</div>
+    </div>
+    <div class="tt">
+      <div class="tt__name">Малая Бухарестская, 12</div>
+      <div class="tt__nums"><span class="tt__from">2 421К</span><span class="tt__arr tt__arr--down">→</span><span class="tt__to tt__to--down">2 309К ₽</span></div>
+      <div class="tt__delta">−112К ₽</div>
+    </div>
+    <div class="tt">
+      <div class="tt__name">Плесецкая, 10</div>
+      <div class="tt__nums"><span class="tt__from">2 304К</span><span class="tt__arr tt__arr--down">→</span><span class="tt__to tt__to--down">2 024К ₽</span></div>
+      <div class="tt__delta">−280К ₽</div>
+    </div>
+    <div class="tt">
+      <div class="tt__name">Обуховская, 120Б</div>
+      <div class="tt__nums"><span class="tt__from">2 171К</span><span class="tt__arr tt__arr--up">→</span><span class="tt__to tt__to--up">2 313К ₽</span></div>
+      <div class="tt__delta tt__delta--up">+142К ₽</div>
+    </div>
+    <div class="tt">
+      <div class="tt__name">Пушкин, Кузьминское ш.</div>
+      <div class="tt__nums"><span class="tt__from">2 094К</span><span class="tt__arr tt__arr--down">→</span><span class="tt__to tt__to--down">1 987К ₽</span></div>
+      <div class="tt__delta">−107К ₽</div>
+    </div>
+    <div class="tt">
+      <div class="tt__name">Челюскина, 6</div>
+      <div class="tt__nums"><span class="tt__from">1 657К</span><span class="tt__arr tt__arr--up">→</span><span class="tt__to tt__to--up">1 717К ₽</span></div>
+      <div class="tt__delta tt__delta--up">+60К ₽</div>
+    </div>
+    <div class="tt tt--total">
+      <div class="tt__name">ИТОГО · 6 ТТ сети</div>
+      <div class="tt__nums"><span class="tt__from">14 085К</span><span class="tt__arr tt__arr--up">→</span><span class="tt__to">17 925К ₽</span></div>
+      <div class="tt__delta tt__delta--up">+3 840К ₽ · +27% за 3 месяца</div>
+    </div>
+  </div>
 </section>
 
 <!-- ДОСТАВКА -->
