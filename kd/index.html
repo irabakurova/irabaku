@@ -38,6 +38,11 @@ html, body { overflow-x: clip; max-width: 100%; }
     .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
     .tag{display:inline-flex;align-items:center;padding:6px 14px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(245,243,238,0.85);background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.18);border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:1;transform:none;transition:transform .2s;}
     .tag:hover{transform:translateY(-1px);}
+    /* ── STATS-BAR ── */
+    .ups-stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--dark);border-bottom:0.5px solid #1a2550;}
+    .ups-stats .stat{border-color:rgba(255,255,255,0.07);}
+    .ups-stats .stat__num{color:var(--orange);}
+    .ups-stats .stat__label{color:var(--text-3);}
     .csec{padding:44px 40px;border-bottom:0.5px solid var(--border);}
     .csec__ey{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
     .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
@@ -93,6 +98,7 @@ html, body { overflow-x: clip; max-width: 100%; }
     .cn__title{font-family:var(--font-head);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--text);}
     .cn__arrow{font-size:16px;color:var(--accent);margin-top:6px;display:block;}
     @media(max-width:767px){
+      .ups-stats{grid-template-columns:1fr 1fr;}
       .case-hero{padding:0;}
       .case-hero__content{padding:32px 20px 40px;}
       .case-h1{font-size:34px;letter-spacing:-1.5px;}
@@ -143,7 +149,27 @@ html, body { overflow-x: clip; max-width: 100%; }
   </div>
 </section>
 
-<section class="csec">
+<!-- STATS-BAR -->
+<div class="ups-stats" aria-label="Ключевые результаты Красный Дракон">
+  <div class="stat">
+    <div class="stat__num" data-target="120" data-prefix="+" data-suffix="%">+0%</div>
+    <div class="stat__label">ПРОДАЖИ<br>АКЦИОННЫХ ТОВАРОВ</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="87" data-prefix="+" data-suffix="%">+0%</div>
+    <div class="stat__label">ДОХОД<br>ОТ АКЦИОННЫХ ПОЗИЦИЙ</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="400" data-prefix="+" data-suffix="%">+0%</div>
+    <div class="stat__label">ЛАЙКИ<br>ВКОНТАКТЕ</div>
+  </div>
+  <div class="stat">
+    <div class="stat__num" data-target="5">0</div>
+    <div class="stat__label">СПЕЦИАЛИСТОВ<br>В ОТДЕЛЕ</div>
+  </div>
+</div>
+
+<section class="csec" id="task">
   <div class="csec__ey"><span class="csec__num">(01) Запрос</span></div>
   <h2 class="csec__h">Что просил клиент</h2>
   <div class="req-grid">
@@ -217,11 +243,11 @@ html, body { overflow-x: clip; max-width: 100%; }
   <div class="csec__ey"><span class="csec__num">(03) Результаты</span></div>
   <h2 class="csec__h">Достигнутые показатели</h2>
   <div class="res-grid">
-    <div class="rc rc--blue"><div class="rc__num">+120%</div><div class="rc__label">Продажи акционных товаров (акция DH)</div></div>
-    <div class="rc rc--dark"><div class="rc__num">+87%</div><div class="rc__label">Общий доход от акционных позиций в рублях</div></div>
-    <div class="rc rc--light"><div class="rc__num" style="color:var(--accent);">3 100</div><div class="rc__label">Максимум просмотров поста ВКонтакте (+65%)</div></div>
-    <div class="rc rc--light"><div class="rc__num" style="color:var(--accent);">+400%</div><div class="rc__label">Рост лайков ВКонтакте — до 54 на пост</div></div>
-    <div class="rc rc--light"><div class="rc__num">29</div><div class="rc__label">Репостов — до этого не было ни одного</div></div>
+    <div class="rc rc--blue"><div class="rc__num" data-target="120" data-prefix="+" data-suffix="%">+0%</div><div class="rc__label">Продажи акционных товаров (акция DH)</div></div>
+    <div class="rc rc--dark"><div class="rc__num" data-target="87" data-prefix="+" data-suffix="%">+0%</div><div class="rc__label">Общий доход от акционных позиций в рублях</div></div>
+    <div class="rc rc--light"><div class="rc__num" data-target="3100" style="color:var(--accent);">0</div><div class="rc__label">Максимум просмотров поста ВКонтакте (+65%)</div></div>
+    <div class="rc rc--light"><div class="rc__num" data-target="400" data-prefix="+" data-suffix="%" style="color:var(--accent);">+0%</div><div class="rc__label">Рост лайков ВКонтакте — до 54 на пост</div></div>
+    <div class="rc rc--light"><div class="rc__num" data-target="29">0</div><div class="rc__label">Репостов — до этого не было ни одного</div></div>
     <div class="rc rc--light"><div class="rc__num" style="color:var(--accent);">✓</div><div class="rc__label">Конкурс с Kitsune — лучший за период работы</div></div>
   </div>
 </section>
