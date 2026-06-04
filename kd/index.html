@@ -22,21 +22,22 @@ html, body { overflow-x: clip; max-width: 100%; }
       border-bottom: none;
     }
     header.scrolled { background: transparent; }
-    .case-hero{padding:52px 40px 44px;border-bottom:0.5px solid var(--border);position:relative;overflow:hidden;}
-    .case-hero__blob{position:absolute;right:-40px;top:-40px;width:280px;height:280px;background:radial-gradient(circle,rgba(59,85,255,0.1) 0%,transparent 70%);pointer-events:none;}
-    .back{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--text-3);margin-bottom:28px;transition:color .2s;}
-    .back:hover{color:var(--accent);}
-    .hero-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
-    .case-h1{font-family:var(--font-head);font-size:clamp(44px,8vw,64px);font-weight:900;text-transform:uppercase;line-height:0.88;letter-spacing:-3px;color:var(--text);margin-bottom:12px;}
-    .case-h1 em{color:var(--accent);font-style:normal;display:block;}
-    .case-h1-sub{font-size:13px;color:var(--text-3);margin-bottom:28px;}
-    .case-desc{font-size:13px;color:var(--text-2);line-height:1.75;border-left:2px solid var(--accent);padding-left:16px;margin-bottom:32px;max-width:520px;}
-    .case-meta{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:0.5px solid var(--border);padding-top:20px;}
-    .case-meta__item{padding-right:24px;border-right:0.5px solid var(--border);}
-    .case-meta__item:nth-child(2){padding-left:24px;}
-    .case-meta__item:last-child{border-right:none;padding-left:24px;padding-right:0;}
-    .case-meta__label{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
-    .case-meta__val{font-size:12px;color:var(--text);line-height:1.4;}
+    .case-hero{position:relative;min-height:65vh;padding:0;display:flex;align-items:flex-end;overflow:hidden;border-bottom:0.5px solid var(--border);}
+    .case-hero__bg{position:absolute;inset:0;z-index:0;background:var(--dark);}
+    .case-hero__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(191,69,16,0.25) 0%,transparent 55%),linear-gradient(to bottom,rgba(15,25,57,0.05) 0%,rgba(15,25,57,0.88) 100%);}
+    .case-hero__blob{position:absolute;right:-60px;top:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(191,69,16,0.14) 0%,transparent 70%);pointer-events:none;z-index:1;}
+    .case-hero__content{position:relative;z-index:2;padding:48px 40px 56px;max-width:760px;width:100%;}
+    .case-hero__eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+    .case-hero__eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;}
+    .case-hero__eyebrow-text{font-size:11px;color:rgba(245,243,238,0.65);letter-spacing:2px;text-transform:uppercase;}
+    .back{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:rgba(245,243,238,0.5);margin-bottom:20px;transition:color .2s;}
+    .back:hover{color:rgba(245,243,238,0.9);}
+    .case-h1{font-family:var(--font-head);font-size:clamp(40px,7vw,60px);font-weight:900;text-transform:uppercase;line-height:0.88;letter-spacing:-2.5px;color:var(--bg);margin-bottom:20px;}
+    .case-h1 em{color:var(--orange);font-style:normal;display:block;font-size:clamp(28px,4.5vw,38px);letter-spacing:-1.5px;margin-top:4px;}
+    .case-desc{font-size:14px;color:rgba(245,243,238,0.78);line-height:1.75;border-left:2px solid var(--orange);padding-left:18px;max-width:520px;margin-bottom:24px;}
+    .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+    .tag{display:inline-flex;align-items:center;padding:6px 14px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(245,243,238,0.85);background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.18);border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:1;transform:none;transition:transform .2s;}
+    .tag:hover{transform:translateY(-1px);}
     .csec{padding:44px 40px;border-bottom:0.5px solid var(--border);}
     .csec__ey{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
     .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
@@ -92,16 +93,13 @@ html, body { overflow-x: clip; max-width: 100%; }
     .cn__title{font-family:var(--font-head);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--text);}
     .cn__arrow{font-size:16px;color:var(--accent);margin-top:6px;display:block;}
     @media(max-width:767px){
-      .case-hero{padding:24px 16px;}
-      .case-h1{font-size:40px;letter-spacing:-1.5px;}
-      .case-meta{grid-template-columns:1fr;gap:0;}
-      .case-meta__item{border-right:none;padding:0 0 12px;border-bottom:0.5px solid var(--border);}
-      .case-meta__item:last-child{border-bottom:none;padding-top:12px;}
+      .case-hero{padding:0;}
+      .case-hero__content{padding:32px 20px 40px;}
+      .case-h1{font-size:34px;letter-spacing:-1.5px;}
+      header.scrolled .nav{margin:6px 10px 0;border-radius:10px;}
       .csec{padding:28px 16px;}
       .req-grid{grid-template-columns:1fr;}
       .res-grid{grid-template-columns:1fr 1fr;}
-      .case-nav{grid-template-columns:1fr;}
-      .cn{border-right:none;border-bottom:0.5px solid var(--border);padding:20px 16px;}
     }
   </style>
 </head>
@@ -122,16 +120,26 @@ html, body { overflow-x: clip; max-width: 100%; }
 </header>
 <main>
 <section class="case-hero">
-  <div class="case-hero__blob"></div>
-  <a href="/" class="back">← Все кейсы</a>
-  <div class="hero-tags"><span class="tag">Retail</span><span class="tag">Маркетинг</span><span class="tag">Команда</span></div>
-  <h1 class="case-h1">КРАСНЫЙ<br><em>ДРАКОН</em></h1>
-  <div class="case-h1-sub">Сеть магазинов продуктов Азиатской кухни</div>
-  <p class="case-desc">Создание маркетингового отдела с нуля, разработка стратегии, проведение акций и выстраивание партнёрств.</p>
-  <div class="case-meta">
-    <div class="case-meta__item"><div class="case-meta__label">Клиент</div><div class="case-meta__val">Красный Дракон · Retail</div></div>
-    <div class="case-meta__item"><div class="case-meta__label">Задача</div><div class="case-meta__val">Маркетинговый отдел + рост продаж</div></div>
-    <div class="case-meta__item"><div class="case-meta__label">Результат</div><div class="case-meta__val">+120% продажи · +87% доход</div></div>
+  <div class="case-hero__bg" aria-hidden="true"></div>
+  <div class="case-hero__blob" aria-hidden="true"></div>
+  <div class="case-hero__content">
+    <a href="/" class="back">← Все кейсы</a>
+    <div class="case-hero__eyebrow">
+      <div class="case-hero__eyebrow-dot" aria-hidden="true"></div>
+      <span class="case-hero__eyebrow-text">КРАСНЫЙ ДРАКОН · МАЙ — ИЮЛЬ 2025 · РИТЕЙЛ</span>
+    </div>
+    <h1 class="case-h1">ДРАКОН.<br><em>РОСТ.</em></h1>
+    <p class="case-desc">Маркетинговый отдел с нуля + 3 продуктовые акции. Розничная сеть азиатских продуктов в СПб.</p>
+    <a href="#task" class="btn btn--primary">СМОТРЕТЬ КЕЙС ↓</a>
+    <div class="hero-tags">
+      <span class="tag">Retail</span>
+      <span class="tag">Команда</span>
+      <span class="tag">УТП</span>
+      <span class="tag">Акции</span>
+      <span class="tag">ВКонтакте</span>
+      <span class="tag">Партнёрства</span>
+      <span class="tag">Контент</span>
+    </div>
   </div>
 </section>
 
