@@ -9,21 +9,38 @@
   <link rel="stylesheet" href="../css/home.css"/>
   <link rel="stylesheet" href="/fonts/fonts.css"/>
   <style>
-    .case-hero{padding:52px 40px 44px;border-bottom:0.5px solid var(--border);position:relative;overflow:hidden;}
-    .case-hero__blob{position:absolute;right:-40px;top:-40px;width:300px;height:300px;background:radial-gradient(circle,rgba(59,85,255,0.1) 0%,transparent 70%);pointer-events:none;}
-    .back{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--text-3);margin-bottom:28px;transition:color .2s;}
-    .back:hover{color:var(--accent);}
-    .hero-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
-    .case-h1{font-family:var(--font-head);font-size:clamp(38px,7vw,60px);font-weight:900;text-transform:uppercase;line-height:0.88;letter-spacing:-2.5px;color:var(--text);margin-bottom:12px;}
-    .case-h1 em{color:var(--accent);font-style:normal;display:block;}
-    .case-h1-sub{font-size:13px;color:var(--text-3);margin-bottom:28px;}
-    .case-desc{font-size:13px;color:var(--text-2);line-height:1.75;border-left:2px solid var(--accent);padding-left:16px;margin-bottom:32px;max-width:520px;}
-    .case-meta{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:0.5px solid var(--border);padding-top:20px;}
-    .case-meta__item{padding-right:24px;border-right:0.5px solid var(--border);}
-    .case-meta__item:nth-child(2){padding-left:24px;}
-    .case-meta__item:last-child{border-right:none;padding-left:24px;padding-right:0;}
-    .case-meta__label{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
-    .case-meta__val{font-size:12px;color:var(--text);line-height:1.4;}
+    :root { --orange: #BF4510; }
+    /* ── GLASSMORPHISM STICKY NAV ── */
+    html, body { overflow-x: clip; max-width: 100%; }
+    header { position: sticky; top: 0; z-index: 100; background: var(--bg); }
+    .nav { transition: all .4s cubic-bezier(.22,1,.36,1); }
+    header.scrolled .nav {
+      margin: 8px 16px 0; border-radius: 12px;
+      border: 0.5px solid rgba(15,25,57,0.1);
+      background: rgba(245,243,238,0.88);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px -8px rgba(15,25,57,0.12); border-bottom: none;
+    }
+    header.scrolled { background: transparent; }
+    /* ── HERO DARK ── */
+    .case-hero { position: relative; min-height: 65vh; padding: 0; display: flex; align-items: flex-end; overflow: hidden; border-bottom: 0.5px solid var(--border); }
+    .case-hero__bg { position: absolute; inset: 0; z-index: 0; background: var(--dark); }
+    .case-hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(59,85,255,0.2) 0%, transparent 55%), linear-gradient(to bottom, rgba(15,25,57,0.05) 0%, rgba(15,25,57,0.88) 100%); }
+    .case-hero__blob { position: absolute; right: -60px; top: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(59,85,255,0.14) 0%, transparent 70%); pointer-events: none; z-index: 1; }
+    .case-hero__content { position: relative; z-index: 2; padding: 48px 40px 56px; max-width: 760px; width: 100%; }
+    .case-hero__eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .case-hero__eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .case-hero__eyebrow-text { font-size: 11px; color: rgba(245,243,238,0.65); letter-spacing: 2px; text-transform: uppercase; }
+    .back { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: rgba(245,243,238,0.5); margin-bottom: 20px; transition: color .2s; }
+    .back:hover { color: rgba(245,243,238,0.9); }
+    .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+    .tag { display: inline-flex; align-items: center; padding: 6px 14px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: rgba(245,243,238,0.85); background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.18); border-radius: 999px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: transform .2s; }
+    .tag:hover { transform: translateY(-1px); }
+    .case-hero .tag { background: rgba(255,255,255,0.07) !important; border: 0.5px solid rgba(255,255,255,0.18) !important; box-shadow: none !important; color: rgba(245,243,238,0.85) !important; }
+    .case-hero .tag:hover { background: rgba(255,255,255,0.14) !important; box-shadow: none !important; transform: translateY(-1px); }
+    .case-h1 { font-family: var(--font-head); font-size: clamp(40px, 7vw, 60px); font-weight: 900; text-transform: uppercase; line-height: 0.88; letter-spacing: -2.5px; color: var(--bg); margin-bottom: 20px; }
+    .case-h1 em { color: var(--orange); font-style: normal; display: block; font-size: clamp(28px, 4.5vw, 38px); letter-spacing: -1.5px; margin-top: 4px; }
+    .case-desc { font-size: 14px; color: rgba(245,243,238,0.78); line-height: 1.75; border-left: 2px solid var(--accent); padding-left: 18px; max-width: 520px; margin-bottom: 24px; }
     .csec{padding:44px 40px;border-bottom:0.5px solid var(--border);}
     .csec__ey{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
     .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
@@ -95,11 +112,9 @@
     .cn__title{font-family:var(--font-head);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--text);}
     .cn__arrow{font-size:16px;color:var(--accent);margin-top:6px;display:block;}
     @media(max-width:767px){
-      .case-hero{padding:24px 16px;}
-      .case-h1{font-size:36px;letter-spacing:-1.5px;}
-      .case-meta{grid-template-columns:1fr;gap:0;}
-      .case-meta__item{border-right:none;padding:0 0 12px;border-bottom:0.5px solid var(--border);}
-      .case-meta__item:last-child{border-bottom:none;padding-top:12px;}
+      .case-hero__content{padding:32px 20px 40px;}
+      .case-h1{font-size:34px;}
+      header.scrolled .nav{margin:6px 10px 0;border-radius:10px;}
       .csec{padding:28px 16px;}
       .tools-bento{grid-template-columns:1fr 1fr;}
       .tb--span2{grid-column:span 2;}
@@ -129,35 +144,30 @@
 <main>
 
 <section class="case-hero">
-  <div class="case-hero__blob"></div>
-  <a href="/" class="back">← Все кейсы</a>
-  <div class="hero-tags">
-    <span class="tag">Образование</span>
-    <span class="tag">SEO</span>
-    <span class="tag">Директ</span>
-    <span class="tag">CRM</span>
-    <span class="tag">Брендинг</span>
-  </div>
-  <h1 class="case-h1">INTERNAL<br><em>DANCE<br>SCHOOL</em></h1>
-  <div class="case-h1-sub">Школа классического и современного танца</div>
-  <p class="case-desc">Комплексное продвижение школы танцев — от SEO и контекста до CRM и фирменного стиля. Трафик вырос в 3 раза за 4 месяца без увеличения бюджета.</p>
-  <div class="case-meta">
-    <div class="case-meta__item">
-      <div class="case-meta__label">Клиент</div>
-      <div class="case-meta__val">Internal Dance School<br>Образование · Танцы</div>
+  <div class="case-hero__bg" aria-hidden="true"></div>
+  <div class="case-hero__blob" aria-hidden="true"></div>
+  <div class="case-hero__content">
+    <a href="/" class="back">← Все кейсы</a>
+    <div class="case-hero__eyebrow">
+      <div class="case-hero__eyebrow-dot" aria-hidden="true"></div>
+      <span class="case-hero__eyebrow-text">INTERNAL DANCE SCHOOL · ОКТ 2023 — МАР 2024 · ОБРАЗОВАНИЕ</span>
     </div>
-    <div class="case-meta__item">
-      <div class="case-meta__label">Задача</div>
-      <div class="case-meta__val">Рост узнаваемости и заявок через интернет</div>
-    </div>
-    <div class="case-meta__item">
-      <div class="case-meta__label">Результат</div>
-      <div class="case-meta__val">+210% трафик · +62% заявки за 4 месяца</div>
+    <h1 class="case-h1">ТАНЦЫ.<br><em>ТРАФИК.</em></h1>
+    <p class="case-desc">Перезапуск performance-маркетинга школы танцев в СПб: трафик ×3, заявки +62% за 4 месяца.</p>
+    <a href="#task" class="btn btn--primary">СМОТРЕТЬ КЕЙС ↓</a>
+    <div class="hero-tags">
+      <span class="tag">Яндекс.Директ</span>
+      <span class="tag">VK Ads</span>
+      <span class="tag">SEO</span>
+      <span class="tag">CRM Мой Класс</span>
+      <span class="tag">Tilda</span>
+      <span class="tag">Геосервисы</span>
+      <span class="tag">Figma</span>
     </div>
   </div>
 </section>
 
-<section class="csec">
+<section class="csec" id="task">
   <div class="csec__ey"><span class="csec__num">(01) Запрос</span></div>
   <h2 class="csec__h">Задача клиента</h2>
   <div class="accent-box">
