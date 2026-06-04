@@ -110,6 +110,8 @@
     .dlv-head{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
     .dlv-mini-2x2{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
     .dg--sm{padding:12px;}
+    /* Трафик */
+    .traffic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
     /* Рейтинги */
     .ratings{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
     .rat{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(15,25,57,0.04);transition:transform 0.25s cubic-bezier(.22,1,.36,1),box-shadow 0.25s ease;}
@@ -164,6 +166,7 @@
       .delivery-grid{grid-template-columns:1fr;}
       .tt-grid{grid-template-columns:1fr 1fr;}
       .dlv-bento{grid-template-columns:1fr;}
+      .traffic-grid{grid-template-columns:1fr 1fr;}
       .ratings{grid-template-columns:1fr 1fr;}
       .apps-grid{grid-template-columns:1fr;}
       .loyalty{grid-template-columns:1fr 1fr;}
@@ -327,23 +330,11 @@
 <section class="csec">
   <div class="csec__ey"><span class="csec__num">(04) Любим Сытно · Сайт</span></div>
   <h2 class="csec__h">Рост трафика в 2–3 раза</h2>
-  <div class="delivery-grid">
-    <div class="dg">
-      <div class="dg__label">Февраль 2025</div>
-      <div class="dg__rows">
-        <div class="dg__row"><span class="dg__row-label">Визиты</span><span class="dg__row-val">↑ к предыдущему периоду</span></div>
-        <div class="dg__row"><span class="dg__row-label">Конверсия Яндекс</span><span class="dg__row-val">8,56%</span></div>
-        <div class="dg__row"><span class="dg__row-label">Конверсия Google</span><span class="dg__row-val">8,26%</span></div>
-        <div class="dg__row"><span class="dg__row-label">2ГИС → переходов</span><span class="dg__row-val">467</span></div>
-      </div>
-    </div>
-    <div class="dg">
-      <div class="dg__label">Март 2025 (1–19)</div>
-      <div class="dg__rows">
-        <div class="dg__row"><span class="dg__row-label">Визиты</span><span class="dg__row-val">↑ к аналогичному периоду</span></div>
-        <div class="dg__row"><span class="dg__row-label">2ГИС — источник</span><span class="dg__row-val">2-й после органики</span></div>
-      </div>
-    </div>
+  <div class="traffic-grid">
+    <div class="rc rc--light"><div class="rc__num" style="color:var(--accent);">8,56%</div><div class="rc__label">Конверсия Яндекс</div><div class="rc__sub">Февраль 2025 · ↑ к предыдущему</div></div>
+    <div class="rc rc--light"><div class="rc__num" style="color:var(--accent);">8,26%</div><div class="rc__label">Конверсия Google</div><div class="rc__sub">Февраль 2025</div></div>
+    <div class="rc rc--light"><div class="rc__num" style="color:var(--orange);" data-target="467">467</div><div class="rc__label">2ГИС → сайт</div><div class="rc__sub">Переходов за февраль</div></div>
+    <div class="rc rc--light"><div class="rc__num" style="color:var(--accent);">2-й</div><div class="rc__label">2ГИС · источник</div><div class="rc__sub">Март (1–19) · после органики</div></div>
   </div>
 </section>
 
