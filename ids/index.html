@@ -42,10 +42,10 @@
     .case-h1 em { color: var(--orange); font-style: normal; display: block; font-size: clamp(28px, 4.5vw, 38px); letter-spacing: -1.5px; margin-top: 4px; }
     .case-desc { font-size: 14px; color: rgba(245,243,238,0.78); line-height: 1.75; border-left: 2px solid var(--accent); padding-left: 18px; max-width: 520px; margin-bottom: 24px; }
     /* ── STATS-BAR ── */
-    .ids-stats { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--dark); border-bottom: 0.5px solid #1a2550; }
-    .ids-stats .stat { border-color: rgba(255,255,255,0.07); }
-    .ids-stats .stat__num { color: var(--orange); }
-    .ids-stats .stat__label { color: rgba(255,255,255,0.55); }
+    .ups-stats { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--dark); border-bottom: 0.5px solid #1a2550; }
+    .ups-stats .stat { border-color: rgba(255,255,255,0.07); }
+    .ups-stats .stat__num { color: var(--orange); }
+    .ups-stats .stat__label { color: var(--text-3); }
     .csec{padding:44px 40px;border-bottom:0.5px solid var(--border);}
     .csec__ey{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
     .csec__ey::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
@@ -119,18 +119,20 @@
     .tb--light:hover{box-shadow:0 12px 28px -8px rgba(15,25,57,0.18);}
     .tb--dark:hover,.tb--navy:hover{box-shadow:0 12px 28px -8px rgba(15,25,57,0.35);}
     .tb--blue:hover{box-shadow:0 12px 28px -8px rgba(59,85,255,0.2);}
-    .case-nav{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--border);}
-    .cn{padding:28px 40px;border-right:0.5px solid var(--border);text-decoration:none;transition:background .15s;}
-    .cn:last-child{border-right:none;}
-    .cn:hover{background:var(--surface);}
-    .cn__dir{font-size:10px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
-    .cn__title{font-family:var(--font-head);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--text);}
-    .cn__arrow{font-size:16px;color:var(--accent);margin-top:6px;display:block;}
+    .case-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 40px; }
+    .case-nav__btn { display: flex; flex-direction: column; gap: 6px; padding: 22px 24px; border-radius: 12px; transition: all .2s; }
+    .case-nav__btn--primary { background: var(--accent); color: #fff; }
+    .case-nav__btn--ghost { background: var(--bg); border: 0.5px solid var(--accent); color: var(--accent); }
+    .case-nav__btn:hover { transform: translateY(-2px); }
+    .case-nav__btn--primary:hover { background: var(--accent-2); }
+    .case-nav__btn--ghost:hover { background: var(--accent-bg); }
+    .case-nav__label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
+    .case-nav__t { font-family: var(--font-head); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; }
     @media(max-width:767px){
       .case-hero__content{padding:32px 20px 40px;}
       .case-h1{font-size:34px;}
       header.scrolled .nav{margin:6px 10px 0;border-radius:10px;}
-      .ids-stats{grid-template-columns:1fr 1fr;}
+      .ups-stats{grid-template-columns:1fr 1fr;}
       .csec{padding:28px 16px;}
       .tools-bento{grid-template-columns:1fr 1fr;}
       .tb--span2{grid-column:span 2;}
@@ -184,22 +186,22 @@
 </section>
 
 <!-- STATS-BAR -->
-<div class="ids-stats" aria-label="Ключевые результаты IDS">
+<div class="ups-stats" aria-label="Ключевые результаты IDS">
   <div class="stat">
-    <div class="stat__num" data-target="210" data-prefix="+" data-suffix="%">+210%</div>
-    <div class="stat__label">Рост трафика<br>за 4 месяца</div>
+    <div class="stat__num" data-target="210" data-prefix="+" data-suffix="%">+0%</div>
+    <div class="stat__label">РОСТ ТРАФИКА<br>ЗА 4 МЕСЯЦА</div>
   </div>
   <div class="stat">
-    <div class="stat__num" data-target="62" data-prefix="+" data-suffix="%">+62%</div>
-    <div class="stat__label">Рост заявок<br>за тот же период</div>
+    <div class="stat__num" data-target="62" data-prefix="+" data-suffix="%">+0%</div>
+    <div class="stat__label">РОСТ ЗАЯВОК</div>
   </div>
   <div class="stat">
-    <div class="stat__num" data-target="6">6</div>
-    <div class="stat__label">Месяцев<br>проекта</div>
+    <div class="stat__num" data-target="4154">0</div>
+    <div class="stat__label">СЕССИЙ К МАРТУ 2024<br>БЫЛО 1 328</div>
   </div>
   <div class="stat">
-    <div class="stat__num" data-target="3" data-prefix="×">×3</div>
-    <div class="stat__label">Рост сессий<br>за период</div>
+    <div class="stat__num" data-target="6">0</div>
+    <div class="stat__label">МЕСЯЦЕВ<br>ПРОЕКТА</div>
   </div>
 </div>
 
