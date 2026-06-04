@@ -105,6 +105,11 @@
     .dg__row-val{font-family:var(--font-head);font-weight:600;color:var(--text);}
     .dg--dark .dg__row-label{color:#8898CC;}
     .dg--dark .dg__row-val{color:var(--bg);}
+    /* Бенто доставки */
+    .dlv-bento{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+    .dlv-head{font-size:9px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+    .dlv-mini-2x2{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+    .dg--sm{padding:12px;}
     /* Рейтинги */
     .ratings{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
     .rat{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(15,25,57,0.04);transition:transform 0.25s cubic-bezier(.22,1,.36,1),box-shadow 0.25s ease;}
@@ -158,6 +163,7 @@
       .kpi-row{grid-template-columns:1fr 1fr;}
       .delivery-grid{grid-template-columns:1fr;}
       .tt-grid{grid-template-columns:1fr 1fr;}
+      .dlv-bento{grid-template-columns:1fr;}
       .ratings{grid-template-columns:1fr 1fr;}
       .apps-grid{grid-template-columns:1fr;}
       .loyalty{grid-template-columns:1fr 1fr;}
@@ -291,24 +297,24 @@
 <section class="csec">
   <div class="csec__ey"><span class="csec__num">(03) Любим Сытно · Доставка</span></div>
   <h2 class="csec__h">Яндекс + приложение · по месяцам</h2>
-  <div class="delivery-grid">
-    <div class="dg">
-      <div class="dg__label">Январь 2025</div>
-      <div class="dg__rows">
-        <div class="dg__row"><span class="dg__row-label">Яндекс.Еда — заказов</span><span class="dg__row-val">225</span></div>
-        <div class="dg__row"><span class="dg__row-label">Яндекс.Еда — сумма</span><span class="dg__row-val">435 153 ₽</span></div>
-        <div class="dg__row"><span class="dg__row-label">Приложение — заказов</span><span class="dg__row-val">194</span></div>
-        <div class="dg__row"><span class="dg__row-label">Приложение — сумма</span><span class="dg__row-val">336 132 ₽</span></div>
-        <div class="dg__row"><span class="dg__row-label">Итого</span><span class="dg__row-val">771 285 ₽</span></div>
+  <div class="dlv-bento">
+    <div>
+      <div class="dlv-head">Январь 2025 · детали</div>
+      <div class="dlv-mini-2x2">
+        <div class="dg dg--sm"><div class="dg__label">Яндекс.Еда · заказов</div><div class="dg__rows"><div class="dg__row"><span class="dg__row-val">225</span></div></div></div>
+        <div class="dg dg--sm"><div class="dg__label">Яндекс.Еда · сумма</div><div class="dg__rows"><div class="dg__row"><span class="dg__row-val">435 153 ₽</span></div></div></div>
+        <div class="dg dg--sm"><div class="dg__label">Приложение · заказов</div><div class="dg__rows"><div class="dg__row"><span class="dg__row-val">194</span></div></div></div>
+        <div class="dg dg--sm"><div class="dg__label">Приложение · сумма</div><div class="dg__rows"><div class="dg__row"><span class="dg__row-val">336 132 ₽</span></div></div></div>
       </div>
+      <div class="dg dg--sm" style="margin-top:6px;"><div class="dg__label">Итого январь</div><div class="dg__rows"><div class="dg__row"><span class="dg__row-val" style="font-size:18px;font-family:var(--font-head);font-weight:900;color:var(--orange);">771 285 ₽</span></div></div></div>
     </div>
-    <div class="dg dg--dark">
-      <div class="dg__label">Динамика по месяцам</div>
-      <div class="dg__rows">
-        <div class="dg__row"><span class="dg__row-label">Январь</span><span class="dg__row-val">771 285 ₽</span></div>
-        <div class="dg__row"><span class="dg__row-label">Февраль</span><span class="dg__row-val">584 809 ₽</span></div>
-        <div class="dg__row"><span class="dg__row-label">Март (доп. канал)</span><span class="dg__row-val">764 287 ₽</span></div>
-        <div class="dg__row"><span class="dg__row-label">Апрель</span><span class="dg__row-val">654 117 ₽</span></div>
+    <div>
+      <div class="dlv-head">Динамика по месяцам</div>
+      <div class="dlv-mini-2x2">
+        <div class="dg dg--dark dg--sm"><div class="dg__label">Январь</div><div class="dg__rows"><div class="dg__row"><span class="dg__row-val">771 285 ₽</span></div></div></div>
+        <div class="dg dg--dark dg--sm"><div class="dg__label">Февраль</div><div class="dg__rows"><div class="dg__row"><span class="dg__row-val">584 809 ₽</span></div></div></div>
+        <div class="dg dg--dark dg--sm"><div class="dg__label">Март · доп. канал</div><div class="dg__rows"><div class="dg__row"><span class="dg__row-val">764 287 ₽</span></div></div></div>
+        <div class="dg dg--dark dg--sm"><div class="dg__label">Апрель</div><div class="dg__rows"><div class="dg__row"><span class="dg__row-val">654 117 ₽</span></div></div></div>
       </div>
     </div>
   </div>
