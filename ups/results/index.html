@@ -113,14 +113,19 @@
     /* Трафик */
     .traffic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
     /* Рейтинги */
-    .ratings{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
-    .rat{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(15,25,57,0.04);transition:transform 0.25s cubic-bezier(.22,1,.36,1),box-shadow 0.25s ease;}
+    .ratings{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:start;}
+    .rat{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(15,25,57,0.04);transition:transform 0.25s cubic-bezier(.22,1,.36,1),box-shadow 0.25s ease;}
     .rat:hover{transform:translateY(-3px);box-shadow:0 12px 28px -8px rgba(15,25,57,0.18);}
-    .rat__point{font-family:var(--font-head);font-size:12px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:6px;}
-    .rat__scores{display:flex;gap:8px;align-items:center;}
-    .rat__score{font-family:var(--font-head);font-size:16px;font-weight:900;color:var(--text-3);}
+    .rat__point{font-family:var(--font-head);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text);margin-bottom:4px;}
+    .rat__scores{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+    .rat__score{font-family:var(--font-head);font-size:15px;font-weight:900;color:var(--text-3);}
     .rat__score--hi{color:var(--accent);}
-    .rat__arrow{font-size:12px;color:var(--accent-2);}
+    .rat__arrow{font-size:12px;color:var(--text-3);}
+    .rat__arr--up{color:var(--orange);}
+    .rat__arr--down{color:var(--text-3);}
+    .rat__score--up{color:var(--orange);}
+    .rat__score--down{color:var(--text-3);}
+    .rat__score--same{color:var(--text-2);}
     /* Приложения */
     .apps-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
     .app{border-radius:12px;padding:20px;transition:transform 0.25s cubic-bezier(.22,1,.36,1),box-shadow 0.25s ease;}
@@ -344,12 +349,12 @@
   <h2 class="csec__h">Рейтинги ЛС выросли по всей сети</h2>
   <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:16px;">Системная работа с геосервисами: актуализация данных, фото, ответы на отзывы, сторис. Рост без закупки отзывов.</p>
   <div class="ratings">
-    <div class="rat"><div class="rat__point">Пушкин</div><div class="rat__scores"><span class="rat__score">4,8</span><span class="rat__arrow">→</span><span class="rat__score rat__score--hi">4,9</span></div><div style="font-size:10px;color:var(--text-3);margin-top:4px;">2ГИС дек. → март</div></div>
-    <div class="rat"><div class="rat__point">Бухарестская</div><div class="rat__scores"><span class="rat__score">4,6</span><span class="rat__arrow">→</span><span class="rat__score rat__score--hi">4,5</span></div></div>
-    <div class="rat"><div class="rat__point">Конституции</div><div class="rat__scores"><span class="rat__score">4,6</span><span class="rat__arrow">→</span><span class="rat__score rat__score--hi">4,5</span></div></div>
-    <div class="rat"><div class="rat__point">Обуховская</div><div class="rat__scores"><span class="rat__score">4,9</span><span class="rat__arrow">→</span><span class="rat__score rat__score--hi">4,5</span></div></div>
-    <div class="rat"><div class="rat__point">Плесецкая</div><div class="rat__scores"><span class="rat__score">4,5</span><span class="rat__arrow">→</span><span class="rat__score rat__score--hi">4,5</span></div></div>
-    <div class="rat"><div class="rat__point">Яндекс.Карты март</div><div class="rat__scores"><span class="rat__score rat__score--hi">4,5–4,9</span></div></div>
+    <div class="rat"><div class="rat__point">Пушкин</div><div class="rat__scores"><span class="rat__score">4,8</span><span class="rat__arrow rat__arr--up">↑</span><span class="rat__score rat__score--up">4,9</span></div><div style="font-size:10px;color:var(--text-3);margin-top:4px;">2ГИС дек. → март</div></div>
+    <div class="rat"><div class="rat__point">Бухарестская</div><div class="rat__scores"><span class="rat__score">4,6</span><span class="rat__arrow rat__arr--down">↓</span><span class="rat__score rat__score--down">4,5</span></div></div>
+    <div class="rat"><div class="rat__point">Конституции</div><div class="rat__scores"><span class="rat__score">4,6</span><span class="rat__arrow rat__arr--down">↓</span><span class="rat__score rat__score--down">4,5</span></div></div>
+    <div class="rat"><div class="rat__point">Обуховская</div><div class="rat__scores"><span class="rat__score">4,9</span><span class="rat__arrow rat__arr--down">↓</span><span class="rat__score rat__score--down">4,5</span></div></div>
+    <div class="rat"><div class="rat__point">Плесецкая</div><div class="rat__scores"><span class="rat__score">4,5</span><span class="rat__arrow rat__arr--up">→</span><span class="rat__score rat__score--up">4,5</span></div></div>
+    <div class="rat"><div class="rat__point">Яндекс · март</div><div class="rat__scores"><span class="rat__score rat__score--up">4,5–4,9</span></div></div>
   </div>
 </section>
 
