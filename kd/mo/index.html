@@ -112,13 +112,15 @@
     .video-placeholder{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:24px;text-align:center;margin-top:8px;}
     .video-placeholder p{font-size:12px;color:var(--text-3);}
 
-    .case-nav{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--border);}
-    .cn{padding:28px 40px;border-right:0.5px solid var(--border);text-decoration:none;transition:background .15s;}
-    .cn:last-child{border-right:none;}
-    .cn:hover{background:var(--surface);}
-    .cn__dir{font-size:10px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
-    .cn__title{font-family:var(--font-head);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--text);}
-    .cn__arrow{font-size:16px;color:var(--accent);margin-top:6px;display:block;}
+    .case-nav{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:40px;}
+    .case-nav__btn{display:flex;flex-direction:column;gap:6px;padding:22px 24px;border-radius:12px;transition:all .2s;text-decoration:none;}
+    .case-nav__btn--primary{background:var(--accent);color:#fff;}
+    .case-nav__btn--ghost{background:var(--bg);border:0.5px solid var(--accent);color:var(--accent);}
+    .case-nav__btn:hover{transform:translateY(-2px);}
+    .case-nav__btn--primary:hover{background:var(--accent-2);}
+    .case-nav__btn--ghost:hover{background:var(--accent-bg);}
+    .case-nav__label{font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:0.7;}
+    .case-nav__t{font-family:var(--font-head);font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:-0.3px;}
 
     @media(max-width:767px){
       .ups-stats{grid-template-columns:1fr 1fr;}
@@ -132,8 +134,7 @@
       .gallery{grid-template-columns:1fr 1fr;}
       .gi--wide{grid-column:span 2;}
       .gi--wide2{grid-column:span 2;}
-      .case-nav{grid-template-columns:1fr;}
-      .cn{border-right:none;border-bottom:0.5px solid var(--border);padding:20px 16px;}
+      .case-nav{grid-template-columns:1fr;padding:24px 16px;}
     }
   </style>
 </head>
@@ -318,15 +319,13 @@
 </main>
 
 <div class="case-nav">
-  <a href="/kd/" class="cn">
-    <div class="cn__dir">← Назад к кейсу</div>
-    <div class="cn__title">Красный Дракон</div>
-    <span class="cn__arrow">←</span>
+  <a href="/kd/" class="case-nav__btn case-nav__btn--primary">
+    <span class="case-nav__label">ВЕРНУТЬСЯ К КЕЙСУ →</span>
+    <span class="case-nav__t">Красный Дракон</span>
   </a>
-  <a href="/ups/" class="cn">
-    <div class="cn__dir">Следующий кейс</div>
-    <div class="cn__title">UPS Group · HoReCa</div>
-    <span class="cn__arrow">→</span>
+  <a href="/#cases" class="case-nav__btn case-nav__btn--ghost">
+    <span class="case-nav__label">← НАЗАД</span>
+    <span class="case-nav__t">Все кейсы</span>
   </a>
 </div>
 
