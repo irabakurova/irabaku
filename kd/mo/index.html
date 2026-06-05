@@ -54,7 +54,8 @@
 
     /* Анализ — 2 карточки */
     .analysis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
-    .ab{border-radius:12px;padding:22px 20px;box-shadow:0 2px 8px rgba(15,25,57,0.04);}
+    .ab{border-radius:12px;padding:22px 20px;box-shadow:0 2px 8px rgba(15,25,57,0.04);transition:transform 0.25s cubic-bezier(.22,1,.36,1),box-shadow 0.25s ease;}
+    .ab:hover{transform:translateY(-3px);box-shadow:0 12px 28px -8px rgba(15,25,57,0.18);}
     .ab--light{background:var(--surface);border:0.5px solid var(--border);}
     .ab--dark{background:var(--dark);border:0.5px solid rgba(255,255,255,0.06);}
     .ab__step{font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
@@ -73,7 +74,9 @@
 
     /* Роли — бенто 3×2 */
     .roles-bento{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
-    .rc{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(15,25,57,0.04);}
+    .rc{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(15,25,57,0.04);transition:transform 0.25s cubic-bezier(.22,1,.36,1),box-shadow 0.25s ease;}
+    .rc:hover{transform:translateY(-3px);box-shadow:0 12px 28px -8px rgba(15,25,57,0.18);}
+    .rc--org:hover{box-shadow:0 12px 28px -8px rgba(15,25,57,0.35);}
     .rc--org{background:var(--dark);border-color:rgba(255,255,255,0.06);grid-column:span 1;}
     .rc__title{font-family:var(--font-head);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:-0.3px;color:var(--text);margin-bottom:6px;}
     .rc--org .rc__title{color:var(--bg);}
@@ -88,7 +91,8 @@
 
     /* Подрядчики — 2 карточки */
     .contractor-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
-    .cc{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;box-shadow:0 2px 8px rgba(15,25,57,0.04);}
+    .cc{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;box-shadow:0 2px 8px rgba(15,25,57,0.04);transition:transform 0.25s cubic-bezier(.22,1,.36,1),box-shadow 0.25s ease;}
+    .cc:hover{transform:translateY(-3px);box-shadow:0 12px 28px -8px rgba(15,25,57,0.18);}
     .cc__title{font-family:var(--font-head);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:-0.3px;color:var(--text);margin-bottom:4px;}
     .cc__badge{font-size:10px;color:var(--text-3);letter-spacing:1px;margin-bottom:10px;}
     .cc__desc{font-size:12px;color:var(--text-2);line-height:1.65;}
