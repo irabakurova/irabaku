@@ -327,9 +327,16 @@ html, body { overflow-x: clip; max-width: 100%; }
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.01 });
     counters.forEach(function(c) { io.observe(c); });
   }
+  setTimeout(function() {
+    document.querySelectorAll('[data-target]').forEach(function(el) {
+      if (/^[+]?0[%]?$/.test(el.textContent.trim()) || el.textContent.trim() === '') {
+        animateCounter(el);
+      }
+    });
+  }, 1500);
   var tags = document.querySelectorAll('.tag');
   if ('IntersectionObserver' in window && tags.length) {
     var tagIO = new IntersectionObserver(function(entries) {
