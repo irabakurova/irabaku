@@ -53,38 +53,45 @@
     .csec__h{font-family:var(--font-head);font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;color:var(--text);margin-bottom:20px;}
 
     /* Анализ — 2 карточки */
-    .analysis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
-    .ab{border-radius:10px;padding:20px;}
+    .analysis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+    .ab{border-radius:12px;padding:22px 20px;box-shadow:0 2px 8px rgba(15,25,57,0.04);}
     .ab--light{background:var(--surface);border:0.5px solid var(--border);}
-    .ab--dark{background:var(--dark);}
-    .ab__title{font-family:var(--font-head);font-size:12px;font-weight:700;text-transform:uppercase;margin-bottom:10px;}
+    .ab--dark{background:var(--dark);border:0.5px solid rgba(255,255,255,0.06);}
+    .ab__step{font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+    .ab--light .ab__step{color:var(--text-3);}
+    .ab--dark .ab__step{color:rgba(245,243,238,0.4);}
+    .ab__title{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:10px;}
     .ab--light .ab__title{color:var(--text);}
-    .ab--dark .ab__title{color:#F5F3EE;}
+    .ab--dark .ab__title{color:var(--bg);}
     .ab__text{font-size:12px;line-height:1.6;}
     .ab--light .ab__text{color:var(--text-2);}
-    .ab--dark .ab__text{color:#8898CC;}
+    .ab--dark .ab__text{color:rgba(245,243,238,0.55);}
 
     /* Формирование команды */
     .formation{border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:18px 22px;}
     .formation p{font-size:13px;color:var(--text);line-height:1.7;}
 
-    /* Оргсхема */
-    .org-wrap{background:#1a1a1a;border-radius:10px;padding:28px;margin:20px 0;}
-    .org-wrap img{width:78%;max-width:440px;margin:0 auto;display:block;border-radius:6px;}
-
-    /* Роли */
-    .roles{display:flex;flex-direction:column;}
-    .role{padding:24px 0;border-bottom:0.5px solid var(--border);}
-    .role:last-child{border-bottom:none;}
-    .role__header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:12px;flex-wrap:wrap;}
-    .role__name{font-family:var(--font-head);font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:-0.3px;color:var(--text);}
-    .role__name span{color:var(--accent);}
-    .role__badges{display:flex;gap:5px;flex-wrap:wrap;}
+    /* Роли — бенто 3×2 */
+    .roles-bento{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+    .rc{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(15,25,57,0.04);}
+    .rc--org{background:var(--dark);border-color:rgba(255,255,255,0.06);grid-column:span 1;}
+    .rc__title{font-family:var(--font-head);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:-0.3px;color:var(--text);margin-bottom:6px;}
+    .rc--org .rc__title{color:var(--bg);}
+    .rc__badges{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
     .rb{font-size:10px;color:var(--accent-2);background:var(--accent-bg);border-radius:20px;padding:3px 10px;white-space:nowrap;}
-    .role__desc{font-size:13px;color:var(--text-2);line-height:1.65;margin-bottom:12px;}
-    .duties{display:flex;flex-direction:column;gap:5px;}
-    .duty{display:flex;gap:10px;font-size:12px;color:var(--text-2);line-height:1.5;}
-    .duty::before{content:'—';color:var(--accent);flex-shrink:0;}
+    .rc__duties{display:flex;flex-direction:column;gap:4px;}
+    .rc__duty{font-size:11px;color:var(--text-2);line-height:1.5;padding-left:14px;position:relative;}
+    .rc__duty::before{content:'—';color:var(--accent);position:absolute;left:0;}
+    .rc--org .rc__duty{color:rgba(245,243,238,0.55);}
+    .rc--org .rc__duty::before{color:var(--orange);}
+    .rc__org-img{width:100%;border-radius:8px;margin-top:10px;display:block;}
+
+    /* Подрядчики — 2 карточки */
+    .contractor-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+    .cc{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;box-shadow:0 2px 8px rgba(15,25,57,0.04);}
+    .cc__title{font-family:var(--font-head);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:-0.3px;color:var(--text);margin-bottom:4px;}
+    .cc__badge{font-size:10px;color:var(--text-3);letter-spacing:1px;margin-bottom:10px;}
+    .cc__desc{font-size:12px;color:var(--text-2);line-height:1.65;}
 
     /* Галерея */
     .gallery-label{font-size:10px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
@@ -115,7 +122,9 @@
       .case-h1{font-size:30px;letter-spacing:-1px;}
       .csec{padding:28px 16px;}
       .analysis{grid-template-columns:1fr;}
-      .role__header{flex-direction:column;gap:8px;}
+      .roles-bento{grid-template-columns:1fr 1fr;}
+      .rc--org{grid-column:span 2;}
+      .contractor-grid{grid-template-columns:1fr;}
       .gallery{grid-template-columns:1fr 1fr;}
       .gi--wide{grid-column:span 2;}
       .gi--wide2{grid-column:span 2;}
@@ -191,10 +200,12 @@
   <h2 class="csec__h">Анализ и оптимизация структуры</h2>
   <div class="analysis">
     <div class="ab ab--light">
+      <div class="ab__step">Шаг 01</div>
       <div class="ab__title">Исходная ситуация</div>
       <div class="ab__text">Приступила к работе с уже существующей структурой — контент-менеджер и SMM-менеджер. Первый шаг: детальное изучение текущих обязанностей и зон ответственности.</div>
     </div>
     <div class="ab ab--dark">
+      <div class="ab__step">Шаг 02</div>
       <div class="ab__title">Что выявила</div>
       <div class="ab__text">Необходимость чёткого разделения задач между сотрудниками. Для повышения эффективности команды нужны дополнительные специалисты: дизайнер, фотограф, видеограф.</div>
     </div>
@@ -212,87 +223,57 @@
   <div class="csec__ey"><span class="csec__num">(03) Структура отдела</span></div>
   <h2 class="csec__h">5 ролей · иерархия · KPI</h2>
 
-  <div class="org-wrap">
-    <img src="../../img/kd/org-chart.png" alt="Структура маркетингового отдела Красного Дракона"/>
-  </div>
-
-  <div class="roles">
-
-    <div class="role">
-      <div class="role__header">
-        <div class="role__name"><span>Контент</span>-менеджер</div>
-        <div class="role__badges">
-          <span class="rb">Официальное трудоустройство</span>
-          <span class="rb">Офис · 5/2</span>
-        </div>
-      </div>
-      <p class="role__desc">Отвечает за актуальность информации на всех площадках компании.</p>
-      <div class="duties">
-        <div class="duty">Актуальность данных на сайте компании и в приложении</div>
-        <div class="duty">Геосервисы: Яндекс.Карты, 2ГИС — баннеры, акции, скидки, цены</div>
-        <div class="duty">Добавление новых товаров на все площадки</div>
+  <div class="roles-bento">
+    <div class="rc">
+      <div class="rc__title">Контент-менеджер</div>
+      <div class="rc__badges"><span class="rb">Офис · 5/2</span><span class="rb">Оформление</span></div>
+      <div class="rc__duties">
+        <div class="rc__duty">Актуальность данных: сайт, приложение</div>
+        <div class="rc__duty">Геосервисы: Яндекс.Карты, 2ГИС</div>
+        <div class="rc__duty">Добавление новых товаров</div>
       </div>
     </div>
-
-    <div class="role">
-      <div class="role__header">
-        <div class="role__name"><span>SMM</span>-менеджер</div>
-        <div class="role__badges">
-          <span class="rb">Официальное трудоустройство</span>
-          <span class="rb">Удалённо · 5/2</span>
-        </div>
-      </div>
-      <p class="role__desc">Работает на платформах: ВКонтакте, Telegram, Instagram, TikTok, YouTube.</p>
-      <div class="duties">
-        <div class="duty">Создание контент-плана и публикация материалов в нужное время</div>
-        <div class="duty">Обработка комментариев и сообщений</div>
-        <div class="duty">Разработка сценариев для рилсов: референс, раскадровка, текст (субтитры, закадровый или текст модели)</div>
-        <div class="duty">Организация и проведение съёмок, контроль сотрудников на площадке</div>
+    <div class="rc">
+      <div class="rc__title">SMM-менеджер</div>
+      <div class="rc__badges"><span class="rb">Удалённо · 5/2</span><span class="rb">Оформление</span></div>
+      <div class="rc__duties">
+        <div class="rc__duty">Контент-план и публикации</div>
+        <div class="rc__duty">Обработка комментариев</div>
+        <div class="rc__duty">Сценарии и организация съёмок</div>
       </div>
     </div>
-
-    <div class="role">
-      <div class="role__header">
-        <div class="role__name"><span>Дизайнер</span></div>
-        <div class="role__badges">
-          <span class="rb">Самозанятость / ИП</span>
-          <span class="rb">Удалённо · проектно</span>
-        </div>
-      </div>
-      <p class="role__desc">Маркетолог составлял чёткий список задач, согласовывал макеты и адаптации материалов.</p>
-      <div class="duties">
-        <div class="duty">Выполнение задач по ТЗ от маркетолога</div>
-        <div class="duty">Согласование макетов перед запуском</div>
-        <div class="duty">Адаптация материалов под все форматы и площадки</div>
+    <div class="rc">
+      <div class="rc__title">Дизайнер</div>
+      <div class="rc__badges"><span class="rb">Проектно</span><span class="rb">ИП / СМЗ</span></div>
+      <div class="rc__duties">
+        <div class="rc__duty">Задачи по ТЗ от маркетолога</div>
+        <div class="rc__duty">Согласование макетов</div>
+        <div class="rc__duty">Адаптация под все форматы</div>
       </div>
     </div>
-
-    <div class="role">
-      <div class="role__header">
-        <div class="role__name"><span>Фотограф</span></div>
-        <div class="role__badges">
-          <span class="rb">Самозанятость / ИП</span>
-          <span class="rb">Студия + удалённо · проектно</span>
-        </div>
-      </div>
-      <div class="duties">
-        <div class="duty">Съёмка и ретушь материала согласно ТЗ от маркетолога, SMM- или контент-менеджера</div>
+    <div class="rc">
+      <div class="rc__title">Фотограф</div>
+      <div class="rc__badges"><span class="rb">Студия · проектно</span><span class="rb">ИП / СМЗ</span></div>
+      <div class="rc__duties">
+        <div class="rc__duty">Съёмка и ретушь по ТЗ</div>
       </div>
     </div>
-
-    <div class="role">
-      <div class="role__header">
-        <div class="role__name"><span>Видеограф</span></div>
-        <div class="role__badges">
-          <span class="rb">Самозанятость / ИП</span>
-          <span class="rb">Удалённо · проектно</span>
-        </div>
-      </div>
-      <div class="duties">
-        <div class="duty">Съёмка и монтаж материала согласно ТЗ от маркетолога или SMM-менеджера</div>
+    <div class="rc">
+      <div class="rc__title">Видеограф</div>
+      <div class="rc__badges"><span class="rb">Удалённо · проектно</span><span class="rb">ИП / СМЗ</span></div>
+      <div class="rc__duties">
+        <div class="rc__duty">Съёмка и монтаж по ТЗ</div>
       </div>
     </div>
-
+    <div class="rc rc--org">
+      <div class="rc__title">Иерархия</div>
+      <div class="rc__duties">
+        <div class="rc__duty">Маркетолог ставит задачи всем</div>
+        <div class="rc__duty">Контент-менеджер + SMM в штате</div>
+        <div class="rc__duty">Подрядчики — по проектам</div>
+      </div>
+      <img src="../../img/kd/org-chart.png" alt="Оргсхема отдела" class="rc__org-img"/>
+    </div>
   </div>
 </section>
 
@@ -300,6 +281,18 @@
 <section class="csec">
   <div class="csec__ey"><span class="csec__num">(04) Примеры работ</span></div>
   <h2 class="csec__h">Фотограф + Дизайнер</h2>
+  <div class="contractor-grid">
+    <div class="cc">
+      <div class="cc__title">Фотограф</div>
+      <div class="cc__badge">ИП / Самозанятость · Студия + удалённо · Проектно</div>
+      <div class="cc__desc">Съёмка продуктовых фото и lifestyle-контента по ТЗ от маркетолога. Ретушь и финальные форматы под все платформы.</div>
+    </div>
+    <div class="cc">
+      <div class="cc__title">Дизайнер</div>
+      <div class="cc__badge">ИП / Самозанятость · Удалённо · Проектно</div>
+      <div class="cc__desc">Разработка баннеров, сторис, постов, адаптаций под все форматы площадок по ТЗ от маркетолога.</div>
+    </div>
+  </div>
   <div class="gallery-label">Акция на лапшу GARAK — разные форматы: сторис, посты, баннеры</div>
   <div class="gallery">
     <div class="gi gi--wide"><img src="../../img/kd/garak-banner-1.png" alt="Баннер GARAK"/></div>
