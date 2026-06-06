@@ -95,11 +95,14 @@
     .site-sec__t { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
     .site-sec__d { font-size: 11px; color: var(--text-3); }
 
-    /* Screenshots */
+    /* Screenshots / Placeholders */
     .screenshots { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
     .screenshot { border-radius: 12px; overflow: hidden; border: 0.5px solid var(--border); box-shadow: 0 4px 16px rgba(15,25,57,0.08); }
-    .screenshot img { width: 100%; height: auto; display: block; }
     .screenshot__cap { font-size: 11px; color: var(--text-3); padding: 8px 14px; background: var(--surface); letter-spacing: 0.3px; }
+    .screenshot--placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-height: 240px; background: var(--surface); border: 2px dashed var(--border); border-radius: 12px; padding: 24px; text-align: center; }
+    .screenshot--placeholder .ph-icon { font-size: 28px; opacity: 0.4; }
+    .screenshot--placeholder .ph-label { font-size: 12px; font-weight: 600; color: var(--text-2); line-height: 1.4; }
+    .screenshot--placeholder .ph-note { font-size: 10px; color: var(--text-3); letter-spacing: 0.5px; margin-top: 4px; }
 
     /* ── СЕКЦИЯ (03) — запущено ── */
     .launch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -343,21 +346,25 @@
       </div>
     </div>
     <div class="screenshots">
-      <div class="screenshot">
-        <img src="../img/rem/rem-main.png" alt="Главная страница нового сайта REM Clinic" loading="lazy"/>
-        <div class="screenshot__cap">1-й уровень — главная страница</div>
+      <div class="screenshot--placeholder">
+        <div class="ph-icon">🖼</div>
+        <div class="ph-label">Главная страница<br>1-й уровень</div>
+        <div class="ph-note">Будет добавлен русифицированный макет</div>
       </div>
-      <div class="screenshot">
-        <img src="../img/rem/rem-cardio.png" alt="Раздел Кардиология — 2-й уровень" loading="lazy"/>
-        <div class="screenshot__cap">2-й уровень — раздел «Кардиология»</div>
+      <div class="screenshot--placeholder">
+        <div class="ph-icon">🖼</div>
+        <div class="ph-label">Раздел / Кардиология<br>2-й уровень</div>
+        <div class="ph-note">Будет добавлен русифицированный макет</div>
       </div>
-      <div class="screenshot">
-        <img src="../img/rem/rem-doctor-maksimova.png" alt="Карточка врача Максимова — 3-й уровень" loading="lazy"/>
-        <div class="screenshot__cap">3-й уровень — карточка врача (наполнение)</div>
+      <div class="screenshot--placeholder">
+        <div class="ph-icon">🖼</div>
+        <div class="ph-label">Карточка врача<br>3-й уровень</div>
+        <div class="ph-note">Будет добавлен русифицированный макет</div>
       </div>
-      <div class="screenshot">
-        <img src="../img/rem/rem-doctors.png" alt="Список врачей" loading="lazy"/>
-        <div class="screenshot__cap">Список врачей клиники</div>
+      <div class="screenshot--placeholder">
+        <div class="ph-icon">🖼</div>
+        <div class="ph-label">Список врачей клиники</div>
+        <div class="ph-note">Будет добавлен русифицированный макет</div>
       </div>
     </div>
   </section>
