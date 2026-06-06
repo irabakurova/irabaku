@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Кейс: REM Clinic — Ирина Бакурова</title>
+  <meta name="description" content="REM Clinic — маркетинг частной клиники премиум-сегмента с нуля. Концепция и проектирование нового сайта: 10 → 50+ страниц."/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="/fonts/fonts.css"/>
+  <style>
+    :root { --orange: #BF4510; }
+
+    /* ── GLASSMORPHISM STICKY NAV ── */
+    html, body { overflow-x: clip; max-width: 100%; }
+    header { position: sticky; top: 0; z-index: 100; background: var(--bg); }
+    .nav { transition: all .4s cubic-bezier(.22,1,.36,1); }
+    header.scrolled .nav {
+      margin: 8px 16px 0;
+      border-radius: 12px;
+      border: 0.5px solid rgba(15,25,57,0.1);
+      background: rgba(245,243,238,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px -8px rgba(15,25,57,0.12);
+      border-bottom: none;
+    }
+    header.scrolled { background: transparent; }
+
+    /* ── HERO ── */
+    .case-hero { position: relative; min-height: 65vh; padding: 0; display: flex; align-items: flex-end; overflow: hidden; border-bottom: 0.5px solid var(--border); }
+    .case-hero__bg { position: absolute; inset: 0; z-index: 0; background: var(--dark); }
+    .case-hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(191,69,16,0.28) 0%, transparent 55%), linear-gradient(to bottom, rgba(15,25,57,0.05) 0%, rgba(15,25,57,0.88) 100%); }
+    .case-hero__blob { position: absolute; left: -60px; top: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(191,69,16,0.16) 0%, transparent 70%); pointer-events: none; z-index: 1; }
+    .case-hero__content { position: relative; z-index: 2; padding: 48px 40px 56px; max-width: 760px; width: 100%; }
+    .case-hero__eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .case-hero__eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+    .case-hero__eyebrow-text { font-size: 11px; color: rgba(245,243,238,0.65); letter-spacing: 2px; text-transform: uppercase; }
+    .back { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: rgba(245,243,238,0.5); margin-bottom: 20px; transition: color .2s; }
+    .back:hover { color: rgba(245,243,238,0.9); }
+    .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+    .tag { display: inline-flex; align-items: center; padding: 6px 14px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: rgba(245,243,238,0.85); background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.18); border-radius: 999px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
+    .tag.tag--in { opacity: 1; transform: translateY(0); }
+    .tag:hover { transform: translateY(-1px); }
+    .case-h1 { font-family: var(--font-head); font-size: clamp(40px, 7vw, 60px); font-weight: 900; text-transform: uppercase; line-height: 0.88; letter-spacing: -2.5px; color: var(--bg); margin-bottom: 20px; }
+    .case-h1 em { color: var(--orange); font-style: normal; display: block; font-size: clamp(28px, 4.5vw, 38px); letter-spacing: -1.5px; margin-top: 4px; }
+    .case-desc { font-size: 14px; color: rgba(245,243,238,0.78); line-height: 1.75; border-left: 2px solid var(--accent); padding-left: 18px; max-width: 520px; margin-bottom: 24px; }
+
+    /* ── STATS-BAR ── */
+    .ups-stats { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--dark); border-bottom: 0.5px solid #1a2550; }
+    .ups-stats .stat { border-color: rgba(255,255,255,0.07); }
+    .ups-stats .stat__num { color: var(--orange); }
+    .ups-stats .stat__label { color: var(--text-3); }
+
+    /* ── СЕКЦИИ ── */
+    .csec { padding: 56px 40px; border-bottom: 0.5px solid var(--border); }
+    .csec--dark { background: var(--dark); color: var(--bg); border-bottom: none; }
+    .csec--dark .csec__num, .csec--dark .csec__h { color: var(--bg); }
+    .csec__ey { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .csec__ey::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .csec--dark .csec__ey::before { background: var(--orange); }
+    .csec__num { font-size: 10px; color: var(--text-3); letter-spacing: 2px; text-transform: uppercase; }
+    .csec__h { font-family: var(--font-head); font-size: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; color: var(--text); margin-bottom: 28px; line-height: 1; }
+    .csec__lead { font-size: 14px; color: var(--text-2); line-height: 1.7; max-width: 640px; margin-bottom: 28px; }
+    .csec--dark .csec__lead { color: rgba(255,255,255,0.75); }
+
+    /* ── КАРТОЧКИ (01) — старт ── */
+    .start-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .start-card { padding: 22px 20px; background: var(--surface); border-radius: 12px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); }
+    .start-card__n { font-family: var(--font-head); font-size: 22px; font-weight: 900; color: var(--accent); margin-bottom: 8px; }
+    .start-card__t { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .start-card__list { list-style: none; margin: 0; padding: 0; }
+    .start-card__list li { font-size: 12px; color: var(--text-2); line-height: 1.6; padding: 3px 0; border-bottom: 0.5px solid var(--border); }
+    .start-card__list li:last-child { border-bottom: none; }
+    .start-card__list li::before { content: '— '; color: var(--text-3); }
+
+    /* Бенчмарк список */
+    .bench-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .bench-tag { font-size: 10px; padding: 3px 10px; background: var(--bg); border: 0.5px solid var(--border); border-radius: 999px; color: var(--text-2); letter-spacing: 0.3px; }
+
+    /* Роадмап */
+    .roadmap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 10px; }
+    .roadmap-card { padding: 16px 14px; background: var(--bg); border-radius: 10px; border: 0.5px solid var(--border); }
+    .roadmap-card__month { font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .roadmap-card__items { font-size: 11px; color: var(--text-2); line-height: 1.65; }
+
+    /* ── СЕКЦИЯ (02) — сайт ── */
+    .site-hero { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: start; margin-bottom: 32px; }
+    .site-hero__num-block { display: flex; flex-direction: column; align-items: flex-start; }
+    .site-hero__label { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+    .site-hero__num { font-family: var(--font-head); font-size: clamp(56px, 8vw, 80px); font-weight: 900; color: var(--orange); line-height: 1; letter-spacing: -3px; white-space: nowrap; }
+    .site-hero__arrow { font-size: 28px; color: var(--text-3); display: block; margin: 4px 0; }
+    .site-hero__num2 { font-family: var(--font-head); font-size: clamp(56px, 8vw, 80px); font-weight: 900; color: var(--accent); line-height: 1; letter-spacing: -3px; white-space: nowrap; }
+    .site-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .site-sec { padding: 14px 16px; background: var(--surface); border-radius: 10px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); }
+    .site-sec__t { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .site-sec__d { font-size: 11px; color: var(--text-3); }
+
+    /* Screenshots */
+    .screenshots { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .screenshot { border-radius: 12px; overflow: hidden; border: 0.5px solid var(--border); box-shadow: 0 4px 16px rgba(15,25,57,0.08); }
+    .screenshot img { width: 100%; height: auto; display: block; }
+    .screenshot__cap { font-size: 11px; color: var(--text-3); padding: 8px 14px; background: var(--surface); letter-spacing: 0.3px; }
+
+    /* ── СЕКЦИЯ (03) — запущено ── */
+    .launch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .launch-card { padding: 24px 22px; background: var(--surface); border-radius: 12px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); }
+    .launch-card__num { font-family: var(--font-head); font-size: 32px; font-weight: 900; color: var(--orange); line-height: 1; margin-bottom: 8px; letter-spacing: -1px; }
+    .launch-card__t { font-family: var(--font-head); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; color: var(--text); margin-bottom: 8px; }
+    .launch-card__d { font-size: 12px; color: var(--text-2); line-height: 1.6; }
+
+    /* ── СЕКЦИЯ (04) — бренд ── */
+    .brand-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .brand-pill { padding: 22px 20px; background: var(--surface); border-radius: 12px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); }
+    .brand-pill__label { font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; font-weight: 700; }
+    .brand-pill__val { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+    /* ── СЕКЦИЯ (05) — финал ── */
+    .final-block { padding: 32px 36px; background: var(--surface); border-radius: 16px; border: 0.5px solid var(--border); box-shadow: 0 2px 8px rgba(15,25,57,0.04); }
+    .final-block__t { font-size: 14px; color: var(--text-2); line-height: 1.8; }
+
+    /* ── НАВИГАЦИЯ ── */
+    .case-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 40px; }
+    .case-nav__btn { display: flex; flex-direction: column; gap: 6px; padding: 22px 24px; border-radius: 12px; transition: all .2s; }
+    .case-nav__btn--primary { background: var(--accent); color: #fff; }
+    .case-nav__btn--ghost { background: var(--bg); border: 0.5px solid var(--accent); color: var(--accent); }
+    .case-nav__btn:hover { transform: translateY(-2px); }
+    .case-nav__btn--primary:hover { background: var(--accent-2, #2e44d4); }
+    .case-nav__btn--ghost:hover { background: var(--accent-bg, rgba(59,85,255,0.06)); }
+    .case-nav__label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
+    .case-nav__t { font-family: var(--font-head); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; }
+
+    /* ── МОБАЙЛ ── */
+    @media (max-width: 720px) {
+      .case-hero__content { padding: 32px 20px 40px; }
+      .ups-stats { grid-template-columns: 1fr 1fr; }
+      .csec { padding: 40px 20px; }
+      .start-grid, .brand-row { grid-template-columns: 1fr; }
+      .roadmap { grid-template-columns: 1fr; }
+      .site-hero { grid-template-columns: 1fr; gap: 24px; }
+      .site-sections { grid-template-columns: 1fr; }
+      .screenshots { grid-template-columns: 1fr; }
+      .launch-grid { grid-template-columns: 1fr; }
+      .case-nav { grid-template-columns: 1fr; padding: 28px 20px; }
+      header.scrolled .nav { margin: 6px 10px 0; border-radius: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="site-header">
+  <nav class="nav" role="navigation">
+    <a href="/" class="nav__logo">Ирина Бакурова</a>
+    <div class="nav__links">
+      <a href="/#cases">Кейсы</a>
+      <a href="/#skills">Навыки</a>
+      <a href="/#about">Обо мне</a>
+      <a href="/#contacts" class="nav__cta">Контакты</a>
+    </div>
+    <button class="nav__burger" aria-label="Меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <nav class="nav__mobile" aria-label="Мобильное меню">
+    <a href="/#cases">Кейсы</a>
+    <a href="/#skills">Навыки</a>
+    <a href="/#about">Обо мне</a>
+    <a href="/#contacts">Контакты</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <section class="case-hero" id="top">
+    <div class="case-hero__bg" aria-hidden="true"></div>
+    <div class="case-hero__blob" aria-hidden="true"></div>
+    <div class="case-hero__content">
+      <!-- p1 -->
+    </div>
+  </section>
+
+  <!-- ── STATS-BAR ── -->
+  <div class="ups-stats" aria-label="Ключевые показатели REM Clinic">
+    <!-- p2 -->
+  </div>
+
+  <!-- ── (01) Что увидела на старте ── -->
+  <section class="csec" id="start">
+    <!-- p3 sec01 -->
+  </section>
+
+  <!-- ── (02) Новый сайт ── -->
+  <section class="csec" id="site">
+    <!-- p3 sec02 -->
+  </section>
+
+  <!-- ── (03) Что запущено ── -->
+  <section class="csec" id="launched">
+    <!-- p3 sec03 -->
+  </section>
+
+  <!-- ── (04) Бренд ── -->
+  <section class="csec" id="brand">
+    <!-- p3 sec04 -->
+  </section>
+
+  <!-- ── (05) Финал ── -->
+  <section class="csec" id="final">
+    <!-- p3 sec05 -->
+  </section>
+
+  <!-- ── Навигация между кейсами ── -->
+  <div class="case-nav">
+    <!-- p5 -->
+  </div>
+
+</main>
+
+<footer class="footer">
+  <span class="footer__copy">2026 · Ирина Бакурова · Digital-маркетолог</span>
+  <a href="#top" class="footer__top">↑ Наверх</a>
+</footer>
+
+<script src="../js/nav.js"></script>
+<script>
+(function() {
+  var hdr = document.getElementById('site-header');
+  if (hdr) {
+    var onScroll = function() { hdr.classList.toggle('scrolled', window.scrollY > 20); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  function animateCounter(el) {
+    var target = parseFloat(el.dataset.target) || 0;
+    var prefix = el.dataset.prefix || '';
+    var suffix = el.dataset.suffix || '';
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / 1400, 1);
+      var ease = 1 - Math.pow(1 - p, 4);
+      var val = target * ease;
+      var display = Number.isInteger(target) ? Math.round(val) : val.toFixed(2);
+      el.textContent = prefix + display + suffix;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + (Number.isInteger(target) ? target : target) + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var counters = document.querySelectorAll('[data-target]');
+  if ('IntersectionObserver' in window && counters.length) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { animateCounter(entry.target); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.01 });
+    counters.forEach(function(c) { io.observe(c); });
+  }
+  setTimeout(function() {
+    counters.forEach(function(el) {
+      var v = el.textContent.replace(/[^0-9]/g, '');
+      if (!v || parseInt(v) === 0) animateCounter(el);
+    });
+  }, 1500);
+
+  var tags = document.querySelectorAll('.tag');
+  if ('IntersectionObserver' in window && tags.length) {
+    var tagIO = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry, i) {
+        if (entry.isIntersecting) {
+          setTimeout(function() { entry.target.classList.add('tag--in'); }, i * 80);
+          tagIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.01 });
+    tags.forEach(function(t) { tagIO.observe(t); });
+  }
+  setTimeout(function() {
+    document.querySelectorAll('.tag:not(.tag--in)').forEach(function(t) { t.classList.add('tag--in'); });
+  }, 1000);
+})();
+</script>
+
+</body>
+</html>
