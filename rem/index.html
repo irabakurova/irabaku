@@ -129,6 +129,29 @@
     .case-nav__label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
     .case-nav__t { font-family: var(--font-head); font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; }
 
+    /* ── UNIFIED HOVER (p4) ── */
+    .start-card,
+    .launch-card,
+    .brand-pill,
+    .site-sec,
+    .roadmap-card,
+    .screenshot,
+    .final-block {
+      transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease;
+    }
+    .start-card:hover,
+    .launch-card:hover,
+    .brand-pill:hover,
+    .site-sec:hover,
+    .roadmap-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px -8px rgba(15,25,57,0.18);
+    }
+    .screenshot:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -8px rgba(15,25,57,0.16);
+    }
+
     /* ── МОБАЙЛ ── */
     @media (max-width: 720px) {
       .case-hero__content { padding: 32px 20px 40px; }
