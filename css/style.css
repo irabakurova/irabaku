@@ -586,6 +586,31 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .stats { grid-template-columns: repeat(4, 1fr); }
 }
 
+/* ── ИКОНКИ SVG (Lucide inline) ────────────────────────── */
+.icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.icon--sm { width: 16px; height: 16px; }
+.icon--lg { width: 32px; height: 32px; }
+.icon--xl { width: 48px; height: 48px; }
+/* В stats-bar иконки блочные, идут над числом */
+.stat .icon { display: block; margin-bottom: 8px; }
+/* В заголовках секций */
+.csec__h .icon { margin-right: 8px; }
+/* В карточках bento */
+.bento-card .icon { display: block; margin-bottom: 12px; }
+/* В карточках кейсов */
+.case__body .icon { display: block; margin: 6px 0 8px; }
+
 /* ── АНИМАЦИИ ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) {
   .case { transition: background .15s; }
