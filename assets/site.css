@@ -225,7 +225,7 @@ table.pk tr.pr td:not(:first-child){font-size:24px;font-weight:300;color:var(--s
 .shot{display:flex;flex-direction:column;gap:10px;cursor:zoom-in;background:none;border:0;padding:0;text-align:left;font-family:inherit;color:inherit;text-transform:lowercase}
 .shot .cap{display:flex;justify-content:space-between;gap:8px;font-size:17px}
 .is-hidden{display:none!important}
-.frames{display:grid;grid-template-columns:repeat(var(--cols,3),minmax(0,1fr));gap:16px}
+.frames{display:grid;grid-template-columns:repeat(var(--cols,3),minmax(0,calc((100vh - 140px) * 2 / 3)));justify-content:center;gap:16px}
 .frames button{padding:0;border:0;background:none;cursor:zoom-in;border-radius:4px;overflow:hidden;position:relative}
 .series-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
 .more{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
