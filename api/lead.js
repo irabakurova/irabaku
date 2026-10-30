@@ -6,11 +6,12 @@ module.exports = async (req, res) => {
   if (typeof b === 'string') { try { b = JSON.parse(b); } catch (e) { b = {}; } }
   if (b.website) { res.status(200).json({ ok: true }); return; } // ловушка для ботов
   const clip = (v, n) => String(v || '').trim().slice(0, n);
-  const name = clip(b.name, 100), contact = clip(b.contact, 150), need = clip(b.need, 100), about = clip(b.about, 1500);
+  const name = clip(b.name, 100), org = clip(b.org, 150), contact = clip(b.contact, 150), need = clip(b.need, 100), about = clip(b.about, 1500);
+  const brief = b.brief === true ? 'да, готов(а) заполнить бриф' : 'нет';
   if (!name || !contact || b.consent !== true) { res.status(400).json({ ok: false, error: 'fields' }); return; }
   const token = process.env.TELEGRAM_BOT_TOKEN, chat = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chat) { res.status(500).json({ ok: false, error: 'not_configured' }); return; }
-  const text = `новая заявка с irabaku.ru\n\nимя: ${name}\nчто нужно: ${need || '—'}\nсвязь: ${contact}\n\n${about || ''}`.trim();
+  const text = `новая заявка с irabaku.ru\n\nимя: ${name}\nорганизация: ${org || '—'}\nчто нужно: ${need || '—'}\nсвязь: ${contact}\nбриф сейчас: ${brief}\n\n${about || ''}`.trim();
   try {
     const r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },

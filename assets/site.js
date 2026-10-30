@@ -54,13 +54,13 @@ document.querySelectorAll('form[data-lead]').forEach(function(f){
     e.preventDefault();
     var msg=f.querySelector('.form-msg'),btn=f.querySelector('button[type=submit]');
     var need=[].slice.call(f.querySelectorAll('input[name=need]:checked')).map(function(x){return x.value;}).join(', ');
-    var data={name:f.name.value,contact:f.contact.value,about:f.about.value,need:need,consent:f.consent.checked,website:f.website.value};
-    if(!data.name.trim()||!data.contact.trim()){msg.className='form-msg err';msg.textContent='заполните имя и telegram или почту.';return;}
+    var data={name:f.name.value,org:f.org?f.org.value:'',contact:f.contact.value,about:f.about.value,need:need,brief:f.brief?f.brief.checked:false,consent:f.consent.checked,website:f.website.value};
+    if(!data.name.trim()||!data.contact.trim()){msg.className='form-msg err';msg.textContent='заполните имя и telegram или номер телефона.';return;}
     if(!data.consent){msg.className='form-msg err';msg.textContent='нужно согласие на обработку данных.';return;}
     btn.disabled=true;msg.className='form-msg';msg.textContent='отправляем…';
     fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
       .then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.ok};});})
-      .then(function(r){if(r.ok){f.reset();msg.className='form-msg ok';msg.textContent='спасибо! заявка отправлена, ответ придёт в telegram или на почту.';}else throw 0;})
+      .then(function(r){if(r.ok){f.reset();msg.className='form-msg ok';msg.textContent='спасибо! заявка отправлена, ирина свяжется с вами в telegram или по телефону.';}else throw 0;})
       .catch(function(){msg.className='form-msg err';msg.innerHTML='не получилось отправить. напишите напрямую: <a class="link" href="https://t.me/irabaku">@irabaku</a>';})
       .finally(function(){btn.disabled=false;});
   });
