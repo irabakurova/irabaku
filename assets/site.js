@@ -18,15 +18,22 @@ document.querySelectorAll('[data-carousel]').forEach(function(c){
   if(n)n.addEventListener('click',function(){t.scrollBy({left:step(),behavior:'smooth'});});
   t.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
 });
-// рубрики на странице «фото»
+// рубрики: можно выбрать несколько; пока ничего не выбрано — показано всё
 document.querySelectorAll('[data-filter]').forEach(function(box){
-  var chips=box.querySelectorAll('.chip');
+  var chips=[].slice.call(box.querySelectorAll('.chip')),all=box.querySelector('[data-cat="all"]');
+  function apply(){
+    var sel=chips.filter(function(x){return x!==all&&x.classList.contains('on');}).map(function(x){return x.dataset.cat;});
+    all.classList.toggle('on',!sel.length);
+    document.querySelectorAll('[data-cat-item]').forEach(function(it){it.classList.toggle('is-hidden',sel.length>0&&sel.indexOf(it.dataset.catItem)<0);});
+    document.querySelectorAll('[data-cat-group]').forEach(function(g){g.classList.toggle('is-hidden',!g.querySelector('[data-cat-item]:not(.is-hidden)'));});
+    var em=document.querySelector('[data-empty]');if(em)em.classList.toggle('is-hidden',!!document.querySelector('[data-cat-group]:not(.is-hidden)'));
+    chips.forEach(function(x){x.setAttribute('aria-pressed',x.classList.contains('on'));});
+  }
   chips.forEach(function(ch){ch.addEventListener('click',function(){
-    chips.forEach(function(x){x.classList.toggle('on',x===ch);});
-    var cat=ch.dataset.cat;
-    document.querySelectorAll('[data-cat-item]').forEach(function(it){it.classList.toggle('is-hidden',cat!=='all'&&it.dataset.catItem!==cat);});
-    document.querySelectorAll('[data-cat-group]').forEach(function(g){g.classList.toggle('is-hidden',!g.querySelector('[data-cat-item]:not(.is-hidden)'));});var em=document.querySelector('[data-empty]');if(em)em.classList.toggle('is-hidden',!!document.querySelector('[data-cat-group]:not(.is-hidden)'));
+    if(ch===all)chips.forEach(function(x){x.classList.remove('on');});else ch.classList.toggle('on');
+    apply();
   });});
+  apply();
 });
 // окно с кадром
 (function(){

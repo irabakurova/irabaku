@@ -312,3 +312,8 @@ body.lb-lock{overflow:hidden}
   .agency{flex-direction:column;align-items:stretch;padding:22px}
   .agency b{font-size:22px}
 }
+
+/* шапка страницы с рубриками сбоку */
+.head-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:48px;align-items:end}
+.head-row .chips{justify-content:flex-end}
+@media (max-width:900px){.head-row{grid-template-columns:1fr;gap:24px}.head-row .chips{justify-content:flex-start}}
